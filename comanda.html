@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Adu-mi o mașină pe comandă — AUTO PARK</title>
+  <meta name="description" content="Spune-ne ce mașină cauți și îți aducem exact mașina potrivită, la cheie. Completează formularul și te contactăm cu oferte reale.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    /* ===================================================================
+       Această pagină folosește o temă aurie/argintie dedicată serviciului
+       "mașină la comandă" — se suprapune peste paleta roșie a site-ului
+       doar aici, prin redefinirea variabilelor pe acest <body>.
+       =================================================================== */
+    body[data-page="comanda"] {
+      --primary: var(--gold);
+      --primary-hover: var(--gold-light);
+      --primary-dark: var(--gold-dark);
+      --border-red: rgba(212,175,55,0.35);
+      --shadow-red: 0 4px 24px rgba(212,175,55,0.22);
+    }
+
+    .order-hero {
+      padding: calc(var(--nav-h) + 3.5rem) 5% 3rem;
+      background:
+        radial-gradient(ellipse 60% 50% at 15% 0%, rgba(212,175,55,0.14), transparent 60%),
+        var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .order-hero-inner {
+      max-width: 760px;
+    }
+
+    .order-hero p {
+      color: var(--muted-light);
+      font-size: 1.02rem;
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+    .order-hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.6rem;
+      margin-top: 1.8rem;
+    }
+
+    .order-hero-point {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.86rem;
+      color: var(--silver);
+    }
+
+    .order-hero-point svg {
+      width: 16px;
+      height: 16px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ===== FORM LAYOUT ===== */
+    .order-wrap {
+      padding: 3.5rem 5% 6rem;
+      background: var(--bg);
+    }
+
+    .order-grid {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .order-step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .order-step::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+    }
+
+    .order-step-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .order-step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border-red);
+      background: rgba(212,175,55,0.08);
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .order-step-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+
+    .order-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .order-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .order-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .order-field label {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--silver);
+    }
+
+    .order-field label .opt {
+      color: var(--muted);
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .order-field select,
+    .order-field input,
+    .order-field textarea {
+      width: 100%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 0.85rem 1rem;
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    .order-field select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23c9ccd1' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.4rem;
+      cursor: pointer;
+    }
+
+    .order-field textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6;
+      font-family: var(--font-body);
+    }
+
+    .order-field select:focus,
+    .order-field input:focus,
+    .order-field textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: #141414;
+    }
+
+    .order-field select:invalid { color: var(--muted); }
+
+    .order-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: -0.6rem;
+    }
+
+    .order-submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .order-submit-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      max-width: 380px;
+    }
+
+    .btn-gold {
+      padding: 1rem 2.4rem;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold) 55%, var(--gold-dark));
+      color: #1a1405;
+      box-shadow: 0 4px 24px rgba(212,175,55,0.28);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(212,175,55,0.4);
+      filter: brightness(1.04);
+    }
+
+    /* ===== SUCCESS STATE ===== */
+    .order-success {
+      display: none;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border-red);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 2rem;
+    }
+
+    .order-success.open {
+      display: block;
+    }
+
+    .order-success-icon {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 1.4rem;
+      border-radius: 50%;
+      background: rgba(212,175,55,0.12);
+      border: 1px solid var(--border-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .order-success-icon svg {
+      width: 26px;
+      height: 26px;
+      color: var(--gold);
+    }
+
+    .order-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+    }
+
+    .order-success p {
+      color: var(--muted-light);
+      max-width: 460px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    @media (max-width: 640px) {
+      .order-fields {
+        grid-template-columns: 1fr;
+      }
+      .order-step {
+        padding: 1.4rem;
+      }
+      .order-submit-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-gold {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body data-page="comanda">
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">AUTO <span>PARK</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="index.html#masini">Mașini</a></li>
+      <li><a href="index.html#despre">Despre noi</a></li>
+      <li><a href="index.html#recenzii">Recenzii</a></li>
+      <li><a href="comanda.html" class="active">Adu-mi o mașină</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Meniu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Acasă</a>
+    <a href="index.html#masini">Mașini</a>
+    <a href="index.html#despre">Despre noi</a>
+    <a href="index.html#recenzii">Recenzii</a>
+    <a href="comanda.html">Adu-mi o mașină</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="order-hero">
+    <div class="order-hero-inner">
+      <div class="section-label">Serviciu personalizat</div>
+      <h1 class="section-title">Adu-mi o mașină pe comandă</h1>
+      <p>
+        Nu ai găsit mașina potrivită în parc? Spune-ne exact ce cauți — marcă, buget, kilometraj, combustibil — și o căutăm pentru tine, verificată și pregătită pentru drum.
+      </p>
+      <div class="order-hero-points">
+        <div class="order-hero-point">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Fără obligații
+        </div>
+        <div class="order-hero-point">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Răspuns rapid
+        </div>
+        <div class="order-hero-point">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Mașină verificată integral
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="order-wrap">
+    <div class="order-grid">
+
+      <form id="orderForm" novalidate>
+
+        <!-- STEP 1 -->
+        <div class="order-step">
+          <div class="order-step-head">
+            <span class="order-step-num">1</span>
+            <span class="order-step-title">Ce mașină te interesează?</span>
+          </div>
+
+          <div class="order-fields">
+
+            <div class="order-field">
+              <label for="brand">Marcă</label>
+              <select id="brand" name="brand" required>
+                <option value="" selected disabled>Selectează o opțiune</option>
+                <option>Abarth</option>
+                <option>Alfa Romeo</option>
+                <option>Aston Martin</option>
+                <option>Audi</option>
+                <option>Bentley</option>
+                <option>BMW</option>
+                <option>BYD</option>
+                <option>Chevrolet</option>
+                <option>Cupra</option>
+                <option>Dacia</option>
+                <option>Dodge</option>
+                <option>Ferrari</option>
+                <option>Ford</option>
+                <option>Honda</option>
+                <option>Hyundai</option>
+                <option>Jaguar</option>
+                <option>Jeep</option>
+                <option>Kia</option>
+                <option>Lamborghini</option>
+                <option>Land Rover</option>
+                <option>Lexus</option>
+                <option>Maserati</option>
+                <option>Mazda</option>
+                <option>Mercedes-Benz</option>
+                <option>MG</option>
+                <option>Mitsubishi</option>
+                <option>Nissan</option>
+                <option>Opel</option>
+                <option>Peugeot</option>
+                <option>Porsche</option>
+                <option>Renault</option>
+                <option>Seat</option>
+                <option>Skoda</option>
+                <option>Tesla</option>
+                <option>Toyota</option>
+                <option>Volkswagen</option>
+                <option>Volvo</option>
+              </select>
+            </div>
+
+            <div class="order-field">
+              <label for="model">Model <span class="opt">(dacă știi deja)</span></label>
+              <input type="text" id="model" name="model" placeholder="ex. Seria 3, Golf, Octavia...">
+            </div>
+
+            <div class="order-field">
+              <label for="firstReg">Prima înmatriculare</label>
+              <select id="firstReg" name="firstReg" required>
+                <option value="" selected disabled>Selectează o opțiune</option>
+                <option>2006</option>
+                <option>2015</option>
+                <option>2017</option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+                <option>2026</option>
+              </select>
+            </div>
+
+            <div class="order-field">
+              <label for="maxPrice">Preț maxim</label>
+              <select id="maxPrice" name="maxPrice" required>
+                <option value="" selected disabled>Selectează o opțiune</option>
+                <option>10.000 €</option>
+                <option>15.000 €</option>
+                <option>20.000 €</option>
+                <option>30.000 €</option>
+                <option>40.000 €</option>
+                <option>50.000 €</option>
+                <option>70.000 €</option>
+                <option>100.000 €</option>
+                <option>150.000 €</option>
+                <option>200.000 €</option>
+              </select>
+            </div>
+
+            <div class="order-field">
+              <label for="maxKm">Kilometraj maxim</label>
+              <select id="maxKm" name="maxKm" required>
+                <option value="" selected disabled>Selectează o opțiune</option>
+                <option>10.000 km</option>
+                <option>15.000 km</option>
+                <option>20.000 km</option>
+                <option>30.000 km</option>
+                <option>50.000 km</option>
+                <option>75.000 km</option>
+                <option>100.000 km</option>
+                <option>150.000 km</option>
+              </select>
+            </div>
+
+            <div class="order-field">
+              <label for="fuel">Combustibil</label>
+              <select id="fuel" name="fuel" required>
+                <option value="" selected disabled>Selectează o opțiune</option>
+                <option>Diesel</option>
+                <option>Benzină</option>
+                <option>Hibrid (Benzină/Electric)</option>
+                <option>Hibrid (Diesel/Electric)</option>
+                <option>Plug-In Hibrid</option>
+                <option>Electric</option>
+              </select>
+            </div>
+
+            <div class="order-field full">
+              <label for="extraInfo">Informații suplimentare <span class="opt">(dotări, culoare, particularități etc.)</span></label>
+              <textarea id="extraInfo" name="extraInfo" placeholder="Ex: cutie automată, trapă, scaune piele, culoare închisă..."></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="order-step">
+          <div class="order-step-head">
+            <span class="order-step-num">2</span>
+            <span class="order-step-title">Modalitate de achiziție</span>
+          </div>
+
+          <div class="order-fields">
+
+            <div class="order-field">
+              <label for="buyerType">Achiziție pe</label>
+              <select id="buyerType" name="buyerType" required>
+                <option value="" selected disabled>Selectează o opțiune</option>
+                <option>Persoană juridică</option>
+                <option>Persoană fizică</option>
+              </select>
+            </div>
+
+            <div class="order-field">
+              <label for="paymentType">Plată</label>
+              <select id="paymentType" name="paymentType" required>
+                <option value="" selected disabled>Selectează tipul de achiziție</option>
+                <option>Cash</option>
+                <option>Leasing</option>
+                <option>Credit bancar</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="order-step">
+          <div class="order-step-head">
+            <span class="order-step-num">3</span>
+            <span class="order-step-title">Datele tale de contact</span>
+          </div>
+
+          <div class="order-fields">
+
+            <div class="order-field full">
+              <label for="fullName">Nume și prenume</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Nume și prenume" required>
+            </div>
+
+            <div class="order-field">
+              <label for="email">Adresă email</label>
+              <input type="email" id="email" name="email" placeholder="nume@exemplu.ro" required>
+            </div>
+
+            <div class="order-field">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="07XX XXX XXX" required>
+            </div>
+
+          </div>
+
+          <div class="order-submit-row">
+            <p class="order-submit-note">
+              Trimițând formularul, ești de acord să te contactăm telefonic sau prin email cu privire la cererea ta.
+            </p>
+            <button type="submit" class="btn btn-gold">Trimite cererea</button>
+          </div>
+        </div>
+
+      </form>
+
+      <div class="order-success" id="orderSuccess">
+        <div class="order-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Cererea ta a fost înregistrată</h3>
+        <p>
+          Îți mulțumim! Un membru al echipei AUTO PARK te va contacta în cel mai scurt timp cu variante potrivite pentru mașina căutată.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <a href="index.html" class="nav-logo">
+          AUTO <span>PARK</span>
+        </a>
+
+        <p>
+          Parc auto serios, cu mașini verificate și prezentate transparent.
+          Seriozitate, profesionalism și prețuri corecte.
+        </p>
+
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.94 5.94l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          +40 XXX XXX XXX
+        </div>
+
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Oraș, România
+        </div>
+
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigare</h4>
+        <ul>
+          <li><a href="index.html">Acasă</a></li>
+          <li><a href="index.html#masini">Mașini</a></li>
+          <li><a href="index.html#despre">Despre noi</a></li>
+          <li><a href="index.html#recenzii">Recenzii</a></li>
+          <li><a href="comanda.html">Adu-mi o mașină</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Program</h4>
+        <ul>
+          <li><a href="#">Luni – Vineri: 09 – 18</a></li>
+          <li><a href="#">Sâmbătă: 10 – 16</a></li>
+          <li><a href="#" style="color: var(--muted);">Duminică: Închis</a></li>
+        </ul>
+        <div style="margin-top: 1.5rem;">
+          <h4>Urmărește-ne</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <span>AUTO PARK</span>. Toate drepturile rezervate.</p>
+      <p class="footer-copy">Mașini verificate. Prețuri corecte.</p>
+      <p class="footer-crafted">
+        Creat cu precizie de
+        <a href="https://scalamafaceri.ro" target="_blank"><span>scalamafaceri.ro</span></a>
+      </p>
+    </div>
+  </footer>
+
+  <style>
+    .footer-crafted {
+      margin-top: 0.7rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    .footer-crafted a { text-decoration: none; }
+    .footer-crafted span { color: var(--gold); transition: 0.25s ease; font-weight: 600; }
+    .footer-crafted span:hover {
+      color: var(--gold-light);
+      text-shadow: 0 0 8px rgba(212,175,55,0.6), 0 0 18px rgba(212,175,55,0.4);
+    }
+    @media (max-width: 768px) {
+      .footer-bottom {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+      }
+      .footer-copy, .footer-crafted {
+        width: 100% !important;
+        text-align: center !important;
+      }
+    }
+  </style>
+
+  <script src="script.js"></script>
+</body>
+</html>
