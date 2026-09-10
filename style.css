@@ -410,7 +410,7 @@ background: rgba(212,175,55,0.2);
 .btn-primary:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
-background: rgba(212,175,55,0.45);
+background: rgba(212,175,55,0.85);
 }
 
 .btn-primary:active {
