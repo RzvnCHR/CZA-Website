@@ -624,7 +624,387 @@
   }
 
 }
+/* =========================
+   MOBILE RESPONSIVE
+   ========================= */
 
+@media (max-width: 768px) {
+
+  /* GENERAL */
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .car-main-content {
+    width: 100%;
+    padding: 90px 15px 40px !important;
+    box-sizing: border-box;
+  }
+
+  /* LAYOUT */
+  .car-detail-layout {
+    width: 100%;
+    max-width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    margin: 0 auto !important;
+  }
+
+  .car-left-column,
+  .car-right-column {
+    display: contents !important;
+    width: 100% !important;
+  }
+
+  /* ORDINE */
+  .gallery {
+    order: 1 !important;
+  }
+
+  .car-info-panel {
+    order: 2 !important;
+  }
+
+  .car-description {
+    order: 3 !important;
+  }
+
+  .tech-section {
+    order: 4 !important;
+  }
+
+  .video-section {
+    order: 5 !important;
+  }
+
+  .contact-card {
+    order: 6 !important;
+  }
+
+  .program-card {
+    order: 7 !important;
+  }
+
+  /* =========================
+     GALLERY
+     ========================= */
+
+  .gallery {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .gallery-main {
+    width: 100% !important;
+    height: 240px !important;
+    max-height: 240px !important;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .gallery-main img {
+    width: 100% !important;
+    height: 240px !important;
+    max-height: 240px !important;
+    object-fit: cover !important;
+  }
+
+  .gallery-arrow {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 24px !important;
+  }
+
+  .gallery-prev {
+    left: 8px !important;
+  }
+
+  .gallery-next {
+    right: 8px !important;
+  }
+
+  .gallery-counter {
+    right: 10px !important;
+    bottom: 10px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .gallery-thumbs {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 7px !important;
+    margin-top: 8px !important;
+  }
+
+  .gallery-thumbs img {
+    width: 100% !important;
+    height: 55px !important;
+    object-fit: cover !important;
+    border-radius: 6px;
+  }
+
+  /* =========================
+     INFO PANEL
+     ========================= */
+
+  .car-info-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 20px !important;
+  }
+
+  .car-info-badge {
+    font-size: 0.7rem !important;
+  }
+
+  .car-info-name {
+    font-size: clamp(1.55rem, 7vw, 2rem) !important;
+    line-height: 1.15 !important;
+    margin: 8px 0 10px !important;
+    word-break: break-word;
+  }
+
+  .car-info-price {
+    font-size: 1.45rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* QUICK SPECS */
+  .car-quick-specs {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* =========================
+     BUTTONS
+     ========================= */
+
+  .car-info-cta {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 18px !important;
+  }
+
+  .car-info-cta .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .car-info-cta-secondary {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 0 !important;
+  }
+
+  .car-info-cta-secondary .btn {
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  /* =========================
+     CONTENT CARDS
+     ========================= */
+
+  .car-description,
+  .tech-section,
+  .video-section,
+  .contact-card,
+  .program-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 18px !important;
+    margin-top: 0 !important;
+  }
+
+  .car-description h3,
+  .tech-section h3,
+  .video-section h3 {
+    font-size: 1.05rem !important;
+    margin-bottom: 12px !important;
+  }
+
+  .car-description p {
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+    overflow-wrap: anywhere;
+  }
+
+  /* =========================
+     TECH TABLE
+     ========================= */
+
+  .tech-table {
+    width: 100% !important;
+    table-layout: fixed !important;
+  }
+
+  .tech-table,
+  .tech-table tbody,
+  .tech-table tr {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .tech-table tr {
+    display: grid !important;
+    grid-template-columns: 45% 55% !important;
+    gap: 0 !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+
+  .tech-table td {
+    display: block !important;
+    width: auto !important;
+    padding: 3px 0 !important;
+    font-size: 0.85rem !important;
+    overflow-wrap: anywhere;
+  }
+
+  /* =========================
+     VIDEO
+     ========================= */
+
+  .video-trigger {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12px !important;
+    gap: 10px !important;
+  }
+
+  .video-trigger-icon {
+    width: 40px !important;
+    height: 40px !important;
+    flex: 0 0 40px !important;
+  }
+
+  .video-trigger-title {
+    font-size: 0.78rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .video-trigger-sub {
+    font-size: 0.7rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .video-embed-wrap {
+    width: 100% !important;
+    margin-top: 12px !important;
+  }
+
+  /* =========================
+     CONTACT + PROGRAM
+     ========================= */
+
+  .contact-card,
+  .program-card {
+    margin-top: 0 !important;
+  }
+
+  /* =========================
+     FOOTER
+     ========================= */
+
+  .footer {
+    width: 100% !important;
+    overflow: hidden;
+  }
+
+  .footer-inner {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .footer-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 8px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    box-sizing: border-box !important;
+  }
+
+  .footer-copy,
+  .footer-crafted {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    font-size: 0.78rem !important;
+  }
+}
+
+
+/* =========================
+   SMALL PHONES
+   ========================= */
+
+@media (max-width: 480px) {
+
+  .car-main-content {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .gallery-main,
+  .gallery-main img {
+    height: 215px !important;
+    max-height: 215px !important;
+  }
+
+  .gallery-thumbs {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 5px !important;
+  }
+
+  .gallery-thumbs img {
+    height: 48px !important;
+  }
+
+  .car-info-panel,
+  .car-description,
+  .tech-section,
+  .video-section,
+  .contact-card,
+  .program-card {
+    padding: 15px !important;
+  }
+
+  .car-info-name {
+    font-size: 1.5rem !important;
+  }
+
+  .car-info-price {
+    font-size: 1.3rem !important;
+  }
+
+  .tech-table tr {
+    grid-template-columns: 42% 58% !important;
+  }
+
+  .tech-table td {
+    font-size: 0.8rem !important;
+  }
+}
 </style>
 
   <script src="script.js"></script>
