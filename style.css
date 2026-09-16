@@ -2906,7 +2906,7 @@ background: rgba(212,175,55,0.2);;
     gap: 2.5rem;
   }
   .car-detail-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: none;
   }
   .gallery {
     position: static;
