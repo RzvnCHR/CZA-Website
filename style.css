@@ -2904,6 +2904,7 @@ background: rgba(212,175,55,0.2);;
   .footer-inner {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
+    margin-top: 2rem;
   }
   .car-detail-layout {
     grid-template-columns: none !important;
