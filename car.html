@@ -160,6 +160,7 @@
         flex-direction: column !important;
         gap: 1.5rem !important;
         margin: 15% auto !important;
+        grid-template-columns: none !important; 
       }
 
       /* IMPORTANT */
@@ -346,6 +347,43 @@
 
           </div>
 
+          <!-- CAR INFO PANEL MOBILE -->
+                    <div class="car-info-panel-mobile">
+
+            <div class="car-info-badge" id="carBadge">
+              Disponibil
+            </div>
+
+            <h1 class="car-info-name" id="carName">
+              Se încarcă...
+            </h1>
+
+            <div class="car-info-price" id="carPrice">
+              —
+            </div>
+
+            <div class="car-quick-specs" id="carQuickSpecs"></div>
+
+            <div class="car-info-cta">
+
+              <a href="tel:+40727982772" class="btn btn-primary btn-lg">
+                Sună acum pentru detalii
+              </a>
+
+              <div class="car-info-cta-secondary">
+                <a href="https://czaautomobile.autovit.ro/inventory" target="_blank" rel="noopener" class="btn btn-outline-red" id="autovitLink">
+                  Vezi pe Autovit
+                </a>
+                <a href="index.html#masini" class="btn btn-outline">
+                  Înapoi la mașini
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+          
           <!-- DESCRIPTION -->
           <div class="car-description">
 
@@ -619,6 +657,10 @@
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+  }
+
+  .car-info-panel-mobile {
+    display: none;
   }
 
   .car-main-content {
@@ -942,6 +984,7 @@
    ========================= */
 
 @media (max-width: 480px) {
+
 
   .car-main-content {
     padding-left: 12px !important;
