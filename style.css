@@ -1204,6 +1204,9 @@ background: rgba(212,175,55,0.2);;
 .car-info-panel {
   top: calc(var(--nav-h) + 1.5rem);
 }
+  .car-info-panel-mobile {
+    display: none;
+  }
 
 .car-info-badge {
   display: inline-flex;
@@ -2908,7 +2911,11 @@ background: rgba(212,175,55,0.2);;
   .gallery {
     position: static;
   }
+
   .car-info-panel {
+    display: none;
+  }
+  .car-info-panel-mobile {
     position: static;
   }
 }
