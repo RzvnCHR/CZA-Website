@@ -2921,6 +2921,20 @@ background: rgba(212,175,55,0.2);;
     position: static;
   }
 
+  .footer-brand .nav-logo{
+  justify-content: center !important;
+  }
+  .footer-brand p {
+    text-align:center;
+    margin:auto;
+  }
+  .footer-contact-item {
+    justify-content:center;
+  }
+  
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2958,7 +2972,7 @@ background: rgba(212,175,55,0.2);;
   }
 
   .footer-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
 
