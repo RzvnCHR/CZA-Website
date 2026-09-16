@@ -2906,7 +2906,8 @@ background: rgba(212,175,55,0.2);;
     gap: 2.5rem;
   }
   .car-detail-layout {
-    grid-template-columns: none;
+    grid-template-columns: none !important;
+    padding: 5% !important;
   }
   .gallery {
     position: static;
@@ -2916,6 +2917,7 @@ background: rgba(212,175,55,0.2);;
     display: none;
   }
   .car-info-panel-mobile {
+    display: block;
     position: static;
   }
 }
