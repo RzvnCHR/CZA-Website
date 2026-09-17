@@ -996,6 +996,9 @@ background: rgba(212,175,55,0.2);;
   }
 /* MOBILE */
 @media (max-width: 1024px) {
+  .footer-crafted {
+    opacity: 0.5;
+  }
   .footer-mobile{
     display: block;
   }
