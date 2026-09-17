@@ -1129,7 +1129,7 @@ background: rgba(212,175,55,0.2);;
   grid-template-columns: 1fr 400px;
   gap: 3rem;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 5% auto !important;
   align-items: start;
 }
 
