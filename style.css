@@ -996,6 +996,9 @@ background: rgba(212,175,55,0.2);;
   }
 /* MOBILE */
 @media (max-width: 1024px) {
+  .car-detail-layout{
+    margin: 10% auto !important;
+  }
   .footer-crafted {
     opacity: 0.5;
   }
@@ -1008,6 +1011,12 @@ background: rgba(212,175,55,0.2);;
 }
 
 @media (max-width: 768px) {
+  
+  .car-detail-layout{
+    margin: 10% auto !important;
+  }
+
+  
   .footer-mobile{
     display: block;
   }
