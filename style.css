@@ -990,6 +990,31 @@ background: rgba(212,175,55,0.2);;
 }
 
 /* ===== FOOTER ===== */
+
+  .footer-mobile {
+    display: none;
+  }
+/* MOBILE */
+@media (max-width: 1024px) {
+  .footer-mobile{
+    display: block;
+  }
+  .footer{
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-mobile{
+    display: block;
+  }
+  .footer{
+    display: none;
+  }
+}
+  
+  
+
 .footer {
   background: var(--bg-tertiary);
   border-top: 1px solid var(--border);
