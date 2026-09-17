@@ -3005,7 +3005,6 @@ background: rgba(212,175,55,0.2);;
 
   .footer-bottom {
     flex-direction: column;
-    align-items: flex-start;
     gap: 0.5rem;
   }
 
