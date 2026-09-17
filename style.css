@@ -2902,7 +2902,7 @@ background: rgba(212,175,55,0.2);;
     grid-template-columns: 1fr 1fr;
   }
   .footer-inner {
-    grid-template-columns: 3fr 2fr 3fr;
+    grid-template-columns: 2fr 2fr;
     gap: 2.5rem;
     margin-top: 2rem;
   }
@@ -2971,7 +2971,7 @@ background: rgba(212,175,55,0.2);;
   }
 
   .footer-inner {
-    grid-template-columns: 3fr 2fr 3fr;
+    grid-template-columns: 2fr 2fr;
     gap: 2rem;
   }
 
