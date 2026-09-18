@@ -89,7 +89,7 @@ const CARS = [
   ],
 
 images: [
-  "ds4 1.webp",
+  "ds41.webp",
   "ds4 2.webp",
   "ds4 3.webp",
   "ds4 4.webp",
