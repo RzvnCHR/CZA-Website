@@ -89,16 +89,16 @@ const CARS = [
   ],
 
 images: [
-  "ds41.png",
-  "ds4 2.webp",
-  "ds4 3.webp",
-  "ds4 4.webp",
-  "ds4 5.webp",
-  "ds4 6.webp",
-  "ds4 7.webp",
-  "ds4 8.webp",
-  "ds4 9.webp",
-  "ds4 10.webp"
+  "cars/ds4-2023/ds41.webp",
+  "cars/ds4-2023/ds42.webp",
+  "cars/ds4-2023/ds43.webp",
+  "cars/ds4-2023/ds44.webp",
+  "cars/ds4-2023/ds45.webp",
+  "cars/ds4-2023/ds46.webp",
+  "cars/ds4-2023/ds47.webp",
+  "cars/ds4-2023/ds48.webp",
+  "cars/ds4-2023/ds49.webp",
+  "cars/ds4-2023/ds41png.png"
 ],
 
   videoId: "",
