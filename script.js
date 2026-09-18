@@ -6,28 +6,99 @@
 // this car's presentation clip. Replace the placeholder with the real ID
 // once each video is uploaded — leave it as "" to hide the video button.
 const CARS = [
-  {
-    id: 1,
-    name: "BMW 520d xDrive",
-    price: "24.900 €",
-    priceValue: 24900,
-    year: 2020,
-    km: "78.000 km",
-    fuel: "Diesel",
-    gearbox: "Automată 8 trepte",
-    engine: "2.0L TDI",
-    power: "190 CP",
-    body: "Berlină",
-    category: "BMW",
-    drive: "4x4 xDrive",
-    euro: "Euro 6d",
-    vin: "WBA52AB0X0CN12345",
-    color: "Mineral White",
-    badge: "Ofertă",
-    images: ["masina1-1.jpg","masina1-2.jpg","masina1-3.jpg","masina1-4.jpg"],
-    videoId: "",
-    description: "BMW Seria 5 în stare impecabilă, cu istoricul complet de service, verificat Dekra. Dotări premium: trapa panoramică, scaune încălzite, navigație BMW Live, camera 360°, senzori parcare față/spate, adaptiv LED, Head-Up Display. Mașină fără accidente, fără vopsea, livrare imediată."
-  },
+ {
+  id: 1,
+  name: "DS 7 E-TENSE 225 Performance Line",
+  price: "24.900 €",
+  priceValue: 24900,
+
+  year: 2023,
+  firstRegistration: "29/11/2022",
+  km: "78.000 km",
+
+  fuel: "Plug-in Hybrid",
+  engine: "1.6L benzină + electric",
+  power: "225 CP",
+  gearbox: "Automată 8+1 trepte",
+  drive: "Față",
+  body: "SUV",
+  doors: 5,
+  seats: 5,
+
+  battery: "12.2 kWh",
+  electricRange: "Până la 38 km",
+
+  euro: "Euro 6",
+  color: "Gri",
+
+  owners: "Unic proprietar",
+  serviceHistory: "Service complet în rețeaua DS",
+
+  vin: "WBA52AB0X0CN12345",
+
+  badge: "Ofertă",
+
+  features: [
+    "Nivel echipare Performance Line",
+    "Faruri Full LED adaptive",
+    "Lumini de zi LED / Daylight",
+    "Bord virtual",
+    "Head-Up Display",
+    "Scaune din piele Alcantara",
+    "Bord îmbrăcat în piele",
+    "Navigație Premium Full Europa",
+    "CarPlay & MirrorLink",
+    "Bluetooth",
+    "Touchscreen",
+    "HDD intern 20 GB",
+    "AUX / SD Card / USB",
+    "Încărcare wireless",
+    "Keyless Go Pack",
+    "Climatronic automat",
+    "Cameră marșarier",
+    "Senzori parcare față/spate",
+    "Oglindă dreapta cu asistență la marșarier",
+    "Asistență fază lungă / scurtă",
+    "Senzori de ploaie",
+    "Senzori de lumină",
+    "Asistență la coborâre",
+    "Asistență la părăsirea benzii",
+    "Limitator de viteză",
+    "Senzori presiune roți",
+    "Oglindă retrovizoare antiorbire",
+    "Oglinzi electrice și încălzite",
+    "Geamuri electrice",
+    "Parbriz antireflexie solară",
+    "Privacy Glass",
+    "Lumini ambientale LED",
+    "Lumini ambientale mânere / habitaclu / picioare",
+    "Follow Me Home",
+    "Coming Home",
+    "Leaving Home",
+    "Proiectoare de ceață",
+    "Funcție Cornering",
+    "Pachet crom exterior/interior",
+    "Volan multifuncțional",
+    "Jante aliaj 19\" Performance",
+    "9 airbaguri",
+    "Afișaj viteză electronic",
+    "Torpedou refrigerat",
+    "Parasolare iluminate",
+    "Filtru de particule",
+    "Două chei"
+  ],
+
+  images: [
+    "masina1-1.jpg",
+    "masina1-2.jpg",
+    "masina1-3.jpg",
+    "masina1-4.jpg"
+  ],
+
+  videoId: "",
+
+  description: "#"
+},
   {
     id: 2,
     name: "Mercedes-Benz C220d AMG",
@@ -686,6 +757,21 @@ function renderCarDetail(car) {
     technicalTableHTML
   );
 
+  // ==========================================================
+  // DOTĂRI
+  // ==========================================================
+  
+  const featuresHTML = car.features
+  .map(feature => `<li>${feature}</li>`)
+  .join("");
+
+setHTMLForIds(
+  [
+    'carFeatures',
+    'carFeatures-mobile'
+  ],
+  featuresHTML
+);
 
   // ==========================================================
   // DESCRIPTION
