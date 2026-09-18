@@ -228,7 +228,6 @@ function initNavbar() {
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
 
-  // Scroll effect
   const onScroll = () => {
     if (!navbar) return;
 
@@ -242,7 +241,6 @@ function initNavbar() {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Hamburger
   if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('open');
@@ -272,7 +270,6 @@ function initCarFilters() {
 
   if (!categorySelect || !sortSelect) return;
 
-  // Populate category options from the data
   const categories = [
     ...new Set(
       CARS
@@ -511,21 +508,6 @@ function initCarPage() {
 // ===== HELPER FUNCTIONS FOR DESKTOP + MOBILE =================
 // ============================================================
 
-/*
-  Această funcție caută mai multe ID-uri și pune același text
-  în toate elementele găsite.
-
-  Exemplu:
-
-  setTextForIds(
-    ['carName', 'carName-mobile'],
-    car.name
-  );
-
-  Dacă există doar versiunea desktop sau doar cea mobile,
-  funcționează în continuare fără eroare.
-*/
-
 function setTextForIds(ids, value) {
   ids.forEach(id => {
     const el = document.getElementById(id);
@@ -537,15 +519,6 @@ function setTextForIds(ids, value) {
 }
 
 
-/*
-  Aceeași idee pentru HTML.
-
-  Este folosită pentru:
-  - preț
-  - quick specs
-  - tabel
-*/
-
 function setHTMLForIds(ids, value) {
   ids.forEach(id => {
     const el = document.getElementById(id);
@@ -556,12 +529,6 @@ function setHTMLForIds(ids, value) {
   });
 }
 
-
-/*
-  Setează un atribut pe toate elementele găsite.
-
-  Este folosit pentru link-uri precum Autovit.
-*/
 
 function setAttributeForIds(ids, attribute, value) {
   ids.forEach(id => {
@@ -580,16 +547,7 @@ function setAttributeForIds(ids, attribute, value) {
 
 function renderCarDetail(car) {
 
-  // ==========================================================
-  // PAGE TITLE
-  // ==========================================================
-
   document.title = `${car.name} — AUTO PARK`;
-
-
-  // ==========================================================
-  // BREADCRUMB
-  // ==========================================================
 
   setTextForIds(
     [
@@ -599,11 +557,6 @@ function renderCarDetail(car) {
     car.name
   );
 
-
-  // ==========================================================
-  // NAME
-  // ==========================================================
-
   setTextForIds(
     [
       'carName',
@@ -611,11 +564,6 @@ function renderCarDetail(car) {
     ],
     car.name
   );
-
-
-  // ==========================================================
-  // PRICE
-  // ==========================================================
 
   setHTMLForIds(
     [
@@ -625,11 +573,6 @@ function renderCarDetail(car) {
     `${car.price} <span>+ TVA</span>`
   );
 
-
-  // ==========================================================
-  // BADGE
-  // ==========================================================
-
   setTextForIds(
     [
       'carBadge',
@@ -637,11 +580,6 @@ function renderCarDetail(car) {
     ],
     car.badge
   );
-
-
-  // ==========================================================
-  // QUICK SPECS
-  // ==========================================================
 
   const quickSpecsHTML = `
     <div class="quick-spec">
@@ -692,11 +630,6 @@ function renderCarDetail(car) {
     ],
     quickSpecsHTML
   );
-
-
-  // ==========================================================
-  // TECHNICAL TABLE
-  // ==========================================================
 
   const technicalTableHTML = `
   <tr>
@@ -798,10 +731,6 @@ function renderCarDetail(car) {
     technicalTableHTML
   );
 
-  // ==========================================================
-  // DOTĂRI
-  // ==========================================================
-  
   const featuresHTML = car.features
   .map(feature => `<li>${feature}</li>`)
   .join("");
@@ -814,10 +743,6 @@ setHTMLForIds(
   featuresHTML
 );
 
-  // ==========================================================
-  // DESCRIPTION
-  // ==========================================================
-
   setTextForIds(
     [
       'carDescription',
@@ -825,11 +750,6 @@ setHTMLForIds(
     ],
     car.description
   );
-
-
-  // ==========================================================
-  // AUTOVIT LINK
-  // ==========================================================
 
   const query =
     encodeURIComponent(car.name);
@@ -846,20 +766,10 @@ setHTMLForIds(
     autovitURL
   );
 
-
-  // ==========================================================
-  // GALLERY
-  // ==========================================================
-
   initGallery(
     car.images,
     car.name
   );
-
-
-  // ==========================================================
-  // VIDEO
-  // ==========================================================
 
   initCarVideo(
     car.videoId,
@@ -881,11 +791,6 @@ function initCarVideo(videoId, carName) {
     document.getElementById('videoEmbedWrap');
 
   if (!trigger || !wrap) return;
-
-
-  // ==========================================================
-  // NO VIDEO
-  // ==========================================================
 
   if (!videoId) {
 
@@ -912,18 +817,11 @@ function initCarVideo(videoId, carName) {
     return;
   }
 
-
-  // ==========================================================
-  // OPEN / CLOSE VIDEO
-  // ==========================================================
-
   trigger.addEventListener('click', () => {
 
     const isOpen =
       wrap.classList.contains('open');
 
-
-    // Close
     if (isOpen) {
 
       wrap.classList.remove('open');
@@ -932,8 +830,6 @@ function initCarVideo(videoId, carName) {
       return;
     }
 
-
-    // Open
     wrap.innerHTML = `
       <iframe
         src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
@@ -951,6 +847,18 @@ function initCarVideo(videoId, carName) {
 
 // ============================================================
 // ===== GALLERY ================================================
+// ============================================================
+//
+// FIX: currentIndex / images used to live only inside this
+// function's closure, so the lightbox script in car.html (which
+// looked for global `galleryImages` / `currentGalleryIndex`
+// variables) never found real data — hence "1 / 4" no matter how
+// many photos the car actually had, and no images in fullscreen.
+//
+// Now the gallery state + a `goTo` control are published on
+// `window.carGallery`, so ANY other script (lightbox included)
+// can read the live image list / current index and drive the
+// gallery, no matter how many photos there are.
 // ============================================================
 
 function initGallery(images, carName) {
@@ -1096,6 +1004,16 @@ function initGallery(images, carName) {
           i === currentIndex
         );
 
+        // keep the active thumb scrolled into view when
+        // navigating with arrows / keyboard / lightbox
+        if (i === currentIndex) {
+          t.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'center',
+            block: 'nearest'
+          });
+        }
+
       });
   }
 
@@ -1221,6 +1139,22 @@ function initGallery(images, carName) {
     );
 
   }
+
+
+  // ==========================================================
+  // PUBLISH STATE FOR THE LIGHTBOX (window.carGallery)
+  // ==========================================================
+  //
+  // This is what actually fixes the "1 / 4" / no-images bug:
+  // any other script can now ask for the live image list, the
+  // live current index, or navigate the gallery, and it will
+  // always match what's really on screen — for 4 photos or 40.
+
+  window.carGallery = {
+    getImages: () => images,
+    getIndex: () => currentIndex,
+    goTo: goTo
+  };
 }
 
 
@@ -1317,10 +1251,6 @@ function initOrderForm() {
         return;
       }
 
-
-      // No backend is wired up yet — this collects the data client-side and
-      // shows a confirmation. Swap this block for a fetch()/mailto action
-      // once a submission endpoint exists.
 
       const data =
         Object.fromEntries(
