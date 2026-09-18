@@ -286,7 +286,7 @@ ul {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  background: url('heroimage.jpg') center center / cover no-repeat;
+  background: url('hero-bg.png') center center / cover no-repeat;
   transform: scaleX(-1);
 }
 
@@ -1772,7 +1772,7 @@ ul {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  background: url('heroimage.jpg') center center / cover no-repeat;
+  background: url('hero-bg.png') center center / cover no-repeat;
   transform: scaleX(-1);
 }
 
