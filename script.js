@@ -693,61 +693,96 @@ function renderCarDetail(car) {
   // ==========================================================
 
   const technicalTableHTML = `
-    <tr>
-      <td>An fabricație</td>
-      <td>${car.year}</td>
-    </tr>
+  <tr>
+    <td>An fabricație</td>
+    <td>${car.year}</td>
+  </tr>
 
-    <tr>
-      <td>Kilometraj</td>
-      <td>${car.km}</td>
-    </tr>
+  <tr>
+    <td>Prima înmatriculare</td>
+    <td>${car.firstRegistration || "-"}</td>
+  </tr>
 
-    <tr>
-      <td>Combustibil</td>
-      <td>${car.fuel}</td>
-    </tr>
+  <tr>
+    <td>Kilometraj</td>
+    <td>${car.km}</td>
+  </tr>
 
-    <tr>
-      <td>Cutie viteze</td>
-      <td>${car.gearbox}</td>
-    </tr>
+  <tr>
+    <td>Combustibil</td>
+    <td>${car.fuel}</td>
+  </tr>
 
-    <tr>
-      <td>Capacitate cilindrică</td>
-      <td>${car.engine}</td>
-    </tr>
+  <tr>
+    <td>Motorizare</td>
+    <td>${car.engine}</td>
+  </tr>
 
-    <tr>
-      <td>Putere</td>
-      <td>${car.power}</td>
-    </tr>
+  <tr>
+    <td>Putere</td>
+    <td>${car.power}</td>
+  </tr>
 
-    <tr>
-      <td>Caroserie</td>
-      <td>${car.body}</td>
-    </tr>
+  <tr>
+    <td>Cutie viteze</td>
+    <td>${car.gearbox}</td>
+  </tr>
 
-    <tr>
-      <td>Tracțiune</td>
-      <td>${car.drive}</td>
-    </tr>
+  <tr>
+    <td>Tracțiune</td>
+    <td>${car.drive}</td>
+  </tr>
 
-    <tr>
-      <td>Normă poluare</td>
-      <td>${car.euro}</td>
-    </tr>
+  <tr>
+    <td>Caroserie</td>
+    <td>${car.body}</td>
+  </tr>
 
-    <tr>
-      <td>Culoare</td>
-      <td>${car.color}</td>
-    </tr>
+  <tr>
+    <td>Număr uși</td>
+    <td>${car.doors || "-"}</td>
+  </tr>
 
-    <tr>
-      <td>VIN</td>
-      <td>${car.vin}</td>
-    </tr>
-  `;
+  <tr>
+    <td>Număr locuri</td>
+    <td>${car.seats || "-"}</td>
+  </tr>
+
+  <tr>
+    <td>Capacitate baterie</td>
+    <td>${car.battery || "-"}</td>
+  </tr>
+
+  <tr>
+    <td>Autonomie electrică</td>
+    <td>${car.electricRange || "-"}</td>
+  </tr>
+
+  <tr>
+    <td>Normă poluare</td>
+    <td>${car.euro}</td>
+  </tr>
+
+  <tr>
+    <td>Culoare</td>
+    <td>${car.color}</td>
+  </tr>
+
+  <tr>
+    <td>Număr proprietari</td>
+    <td>${car.owners || "-"}</td>
+  </tr>
+
+  <tr>
+    <td>Istoric service</td>
+    <td>${car.serviceHistory || "-"}</td>
+  </tr>
+
+  <tr>
+    <td>VIN</td>
+    <td>${car.vin}</td>
+  </tr>
+`;
 
   setHTMLForIds(
     [
