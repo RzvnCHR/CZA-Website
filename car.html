@@ -688,6 +688,10 @@
 
 
 
+/* =========================
+   FEATURES / DOTĂRI
+   ========================= */
+
 .features-section {
   margin-top: 1.5rem;
 }
@@ -698,38 +702,47 @@
 
 /* DESKTOP */
 #carFeatures {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem 1.5rem;
-
   list-style: none;
   padding: 0;
   margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.5rem;
 }
 
 #carFeatures li {
   position: relative;
   padding-left: 1.4rem;
+
   color: var(--text);
   font-size: 0.9rem;
   line-height: 1.4;
+
   overflow-wrap: anywhere;
 }
 
 #carFeatures li::before {
   content: "✓";
+
   position: absolute;
   left: 0;
   top: 0;
+
   color: var(--primary);
   font-weight: 700;
 }
 
 
-/* MOBILE */
+/* MOBILE - ASCUNS PE DESKTOP */
 #carFeatures-mobile {
   display: none;
 }
+
+
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 768px) {
 
@@ -740,15 +753,18 @@
   #carFeatures-mobile {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 9px !important;
 
     list-style: none;
     padding: 0;
     margin: 0;
+
+    gap: 9px;
+    width: 100%;
   }
 
   #carFeatures-mobile li {
     position: relative;
+
     padding-left: 1.4rem;
 
     color: var(--text);
@@ -760,6 +776,7 @@
 
   #carFeatures-mobile li::before {
     content: "✓";
+
     position: absolute;
     left: 0;
     top: 0;
@@ -767,7 +784,13 @@
     color: var(--primary);
     font-weight: 700;
   }
+
 }
+
+
+/* =========================
+   SMALL PHONES
+   ========================= */
 
 @media (max-width: 480px) {
 
