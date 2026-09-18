@@ -1141,7 +1141,6 @@ background: rgba(212,175,55,0.2);;
 .gallery-main {
   position: relative;
   width: 100%;
-  aspect-ratio: 16/10;
   background: var(--card);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -2594,7 +2593,6 @@ background: rgba(212,175,55,0.2);;
 .gallery-main {
   position: relative;
   width: 100%;
-  aspect-ratio: 16/10;
   background: var(--card);
   border-radius: var(--radius-lg);
   overflow: hidden;
