@@ -688,10 +688,6 @@
 
 
 
-    /* =========================
-   DOTARI
-========================= */
-
 .features-section {
   margin-top: 1.5rem;
 }
@@ -711,38 +707,29 @@
   margin: 0;
 }
 
-#carFeatures-mobile {
-  display: none;
-}
-
-#carFeatures li,
-#carFeatures-mobile li {
+#carFeatures li {
   position: relative;
   padding-left: 1.4rem;
-
   color: var(--text);
   font-size: 0.9rem;
   line-height: 1.4;
-
   overflow-wrap: anywhere;
 }
 
-#carFeatures li::before,
-#carFeatures-mobile li::before {
+#carFeatures li::before {
   content: "✓";
-
   position: absolute;
   left: 0;
   top: 0;
-
   color: var(--primary);
   font-weight: 700;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
+#carFeatures-mobile {
+  display: none;
+}
 
 @media (max-width: 768px) {
 
@@ -753,9 +740,7 @@
   #carFeatures-mobile {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 9px;
-
-    width: 100%;
+    gap: 9px !important;
 
     list-style: none;
     padding: 0;
@@ -763,11 +748,26 @@
   }
 
   #carFeatures-mobile li {
+    position: relative;
+    padding-left: 1.4rem;
+
+    color: var(--text);
     font-size: 0.85rem;
     line-height: 1.45;
+
+    overflow-wrap: anywhere;
+  }
+
+  #carFeatures-mobile li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    color: var(--primary);
+    font-weight: 700;
   }
 }
-
 
 @media (max-width: 480px) {
 
