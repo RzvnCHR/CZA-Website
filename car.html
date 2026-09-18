@@ -297,8 +297,46 @@
 
 
   /* =========================================================
-     GALLERY THUMBNAILS - SINGLE ROW
+     GALLERY THUMBNAILS - SINGLE ROW + FADE DREAPTA
      ========================================================= */
+
+  .gallery-thumbs-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 8px;
+  }
+
+  /* gradientul care arată că mai sunt imagini spre dreapta */
+  .gallery-thumbs-wrap::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 80px;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+      to right,
+      rgba(13,13,13,0) 0%,
+      rgba(13,13,13,0.75) 55%,
+      rgba(13,13,13,0.97) 100%
+    );
+
+    opacity: 1;
+
+    transition: opacity 0.25s ease;
+  }
+
+  /* ascunde fade-ul când s-a ajuns la capăt sau nu e nimic de derulat */
+  .gallery-thumbs-wrap.at-end::after,
+  .gallery-thumbs-wrap.no-scroll::after {
+    opacity: 0;
+  }
 
   .gallery-thumbs {
     display: flex !important;
@@ -313,43 +351,61 @@
     width: 100%;
     max-width: 100%;
 
-    margin-top: 8px;
+    padding: 3px 3px 6px 3px;
 
-    padding-bottom: 3px;
+    scroll-behavior: smooth;
 
     -webkit-overflow-scrolling: touch;
 
-    scrollbar-width: thin;
+    scrollbar-width: none;
   }
 
-  .gallery-thumbs img {
-    flex: 0 0 110px !important;
+  .gallery-thumbs::-webkit-scrollbar {
+    display: none;
+  }
 
-    width: 110px !important;
-    height: 70px !important;
+  /* 4 imagini întregi + una parțial vizibilă, toate aceeași dimensiune */
+  .gallery-thumbs .gallery-thumb {
+    flex: 0 0 calc((100% - 4 * 8px) / 4.5) !important;
 
-    object-fit: cover;
+    position: relative;
+
+    aspect-ratio: 3 / 2;
 
     border-radius: 6px;
 
+    overflow: hidden;
+
     cursor: pointer;
 
-    opacity: 0.65;
+    opacity: 0.6;
+
+    outline: 2px solid transparent;
+    outline-offset: 2px;
 
     transition:
       opacity 0.2s ease,
+      outline-color 0.2s ease,
       transform 0.2s ease;
   }
 
-  .gallery-thumbs img:hover {
+  .gallery-thumbs .gallery-thumb img {
+    display: block;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover;
+  }
+
+  .gallery-thumbs .gallery-thumb:hover {
     opacity: 1;
   }
 
-  .gallery-thumbs img.active {
+  .gallery-thumbs .gallery-thumb.active {
     opacity: 1;
 
-    outline: 2px solid var(--primary);
-    outline-offset: 2px;
+    outline-color: var(--primary);
   }
 
 
@@ -735,6 +791,17 @@
 
     /* THUMBNAILS */
 
+    .gallery-thumbs-wrap {
+      width: 100% !important;
+      max-width: 100% !important;
+
+      margin-top: 8px !important;
+    }
+
+    .gallery-thumbs-wrap::after {
+      width: 55px !important;
+    }
+
     .gallery-thumbs {
       width: 100% !important;
 
@@ -747,9 +814,7 @@
 
       gap: 7px !important;
 
-      margin-top: 8px !important;
-
-      padding-bottom: 3px !important;
+      padding: 3px 3px 5px 3px !important;
 
       scrollbar-width: none;
     }
@@ -758,15 +823,20 @@
       display: none;
     }
 
-    .gallery-thumbs img {
-      flex: 0 0 78px !important;
+    /* 3 imagini întregi + una parțial vizibilă */
+    .gallery-thumbs .gallery-thumb {
+      flex: 0 0 calc((100% - 3 * 7px) / 3.5) !important;
 
-      width: 78px !important;
-      height: 55px !important;
-
-      object-fit: cover !important;
+      aspect-ratio: 3 / 2;
 
       border-radius: 6px;
+    }
+
+    .gallery-thumbs .gallery-thumb img {
+      width: 100% !important;
+      height: 100% !important;
+
+      object-fit: cover !important;
     }
 
 
@@ -1113,14 +1183,15 @@
     }
 
     .gallery-thumbs {
-      gap: 5px !important;
+      gap: 6px !important;
     }
 
-    .gallery-thumbs img {
-      flex: 0 0 68px !important;
+    .gallery-thumbs .gallery-thumb {
+      flex: 0 0 calc((100% - 3 * 6px) / 3.2) !important;
+    }
 
-      width: 68px !important;
-      height: 48px !important;
+    .gallery-thumbs-wrap::after {
+      width: 45px !important;
     }
 
     .car-info-panel,
@@ -1298,9 +1369,16 @@
             <!-- THUMBNAILS -->
 
             <div
-              class="gallery-thumbs"
-              id="galleryThumbs"
-            ></div>
+              class="gallery-thumbs-wrap"
+              id="galleryThumbsWrap"
+            >
+
+              <div
+                class="gallery-thumbs"
+                id="galleryThumbs"
+              ></div>
+
+            </div>
 
 
           </div>
@@ -2160,6 +2238,10 @@
 
   /* =========================================================
      FULLSCREEN GALLERY
+
+     Citește starea reală a galeriei din window.carGallery
+     (publicată de initGallery în script.js), deci funcționează
+     cu orice număr de poze, pentru fiecare mașină în parte.
      ========================================================= */
 
   const galleryZoom =
@@ -2188,16 +2270,16 @@
 
 
   /* =========================================================
-     GET CURRENT GALLERY STATE
+     STAREA GALERIEI
      ========================================================= */
 
   function getGalleryImages() {
 
     if (
-      typeof galleryImages !== "undefined" &&
-      Array.isArray(galleryImages)
+      window.carGallery &&
+      typeof window.carGallery.getImages === "function"
     ) {
-      return galleryImages;
+      return window.carGallery.getImages() || [];
     }
 
     return [];
@@ -2208,12 +2290,27 @@
   function getCurrentGalleryIndex() {
 
     if (
-      typeof currentGalleryIndex !== "undefined"
+      window.carGallery &&
+      typeof window.carGallery.getIndex === "function"
     ) {
-      return currentGalleryIndex;
+      return window.carGallery.getIndex() || 0;
     }
 
     return 0;
+
+  }
+
+
+  function goToGalleryIndex(index) {
+
+    if (
+      window.carGallery &&
+      typeof window.carGallery.goTo === "function"
+    ) {
+
+      window.carGallery.goTo(index);
+
+    }
 
   }
 
@@ -2232,6 +2329,17 @@
 
     lightboxImg.src = images[index];
 
+    lightboxImg.onerror = function () {
+
+      if (galleryMainImg && galleryMainImg.src) {
+
+        this.onerror = null;
+        this.src = galleryMainImg.src;
+
+      }
+
+    };
+
     lightboxCounter.textContent =
       `${index + 1} / ${images.length}`;
 
@@ -2242,15 +2350,21 @@
      OPEN
      ========================================================= */
 
-  galleryZoom.addEventListener("click", () => {
+  if (galleryZoom) {
 
-    updateLightbox();
+    galleryZoom.addEventListener("click", () => {
 
-    galleryLightbox.classList.add("open");
+      if (!getGalleryImages().length) return;
 
-    document.body.classList.add("lightbox-open");
+      updateLightbox();
 
-  });
+      galleryLightbox.classList.add("open");
+
+      document.body.classList.add("lightbox-open");
+
+    });
+
+  }
 
 
   /* =========================================================
@@ -2279,7 +2393,8 @@
   galleryLightbox.addEventListener("click", (event) => {
 
     if (
-      event.target === galleryLightbox
+      event.target === galleryLightbox ||
+      event.target.classList.contains("lightbox-content")
     ) {
 
       closeLightbox();
@@ -2320,30 +2435,14 @@
 
     if (!images.length) return;
 
-    if (
-      typeof currentGalleryIndex !== "undefined"
-    ) {
+    goToGalleryIndex(
+      getCurrentGalleryIndex() - 1
+    );
 
-      currentGalleryIndex--;
+    /* galeria principală face fade cu 140ms,
+       deci citim indexul nou după ce s-a aplicat */
 
-      if (currentGalleryIndex < 0) {
-
-        currentGalleryIndex =
-          images.length - 1;
-
-      }
-
-      if (
-        typeof updateGallery === "function"
-      ) {
-
-        updateGallery();
-
-      }
-
-      updateLightbox();
-
-    }
+    setTimeout(updateLightbox, 150);
 
   });
 
@@ -2358,31 +2457,11 @@
 
     if (!images.length) return;
 
-    if (
-      typeof currentGalleryIndex !== "undefined"
-    ) {
+    goToGalleryIndex(
+      getCurrentGalleryIndex() + 1
+    );
 
-      currentGalleryIndex++;
-
-      if (
-        currentGalleryIndex >= images.length
-      ) {
-
-        currentGalleryIndex = 0;
-
-      }
-
-      if (
-        typeof updateGallery === "function"
-      ) {
-
-        updateGallery();
-
-      }
-
-      updateLightbox();
-
-    }
+    setTimeout(updateLightbox, 150);
 
   });
 
@@ -2401,13 +2480,17 @@
 
     if (event.key === "ArrowLeft") {
 
-      lightboxPrev.click();
+      event.preventDefault();
+
+      setTimeout(updateLightbox, 150);
 
     }
 
     if (event.key === "ArrowRight") {
 
-      lightboxNext.click();
+      event.preventDefault();
+
+      setTimeout(updateLightbox, 150);
 
     }
 
