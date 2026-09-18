@@ -13,12 +13,264 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
+    .car-detail-layout {
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 3rem;
+      padding: 0 5%;
+      align-items: start;
+    }
 
-/* =========================================================
-   FOOTER - CRAFTED
-   ========================================================= */
+    .car-left-column,
+    .car-right-column {
+      width: 100%;
+    }
 
-.footer-crafted {
+    .car-description {
+      margin-top: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .car-description h3 {
+      margin-bottom: 1rem;
+    }
+
+    .tech-section {
+      margin-top: 1.5rem;
+    }
+
+    /* VIDEO */
+    .video-section {
+      margin-top: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .video-section h3 {
+      margin-bottom: 1rem;
+    }
+
+    .video-trigger {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      background: rgba(212,175,55,0.08);
+      border: 1px solid var(--border-red);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      color: var(--text);
+      font-family: var(--font-body);
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .video-trigger:hover {
+      background: rgba(212,175,55,0.16;
+      border-color: var(--primary);
+    }
+
+    .video-trigger-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-trigger-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--text);
+      margin-left: 2px;
+    }
+
+    .video-trigger-text {
+      text-align: left;
+    }
+
+    .video-trigger-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .video-trigger-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .video-embed-wrap {
+      display: none;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 1rem;
+      background: #000;
+    }
+
+    .video-embed-wrap.open {
+      display: block;
+    }
+
+    .video-embed-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .car-info-cta-secondary {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .car-info-cta-secondary .btn {
+      flex: 1;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 768px) {
+
+      .car-main-content {
+        padding: 1.5rem 4% 4rem !important;
+      }
+
+      .car-detail-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        grid-template-columns: none !important; 
+      }
+
+      /* IMPORTANT */
+      .car-left-column,
+      .car-right-column {
+        display: contents !important;
+      }
+
+      /* ORDINE */
+      .gallery {
+        order: 1 !important;
+      }
+
+      .car-info-panel {
+        order: 2 !important;
+      }
+
+      .car-description {
+        order: 3 !important;
+        margin-top: 0 !important;
+      }
+
+      .tech-section {
+        order: 4 !important;
+        margin-top: 0 !important;
+      }
+
+      .video-section {
+        order: 5 !important;
+        margin-top: 0 !important;
+      }
+
+      .contact-card {
+        order: 6 !important;
+      }
+
+      .program-card {
+        order: 7 !important;
+      }
+
+      .gallery-main img {
+        height: 260px !important;
+        max-height: 260px !important;
+        object-fit: cover !important;
+      }
+
+      .gallery-thumbs {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+      }
+
+      .gallery-thumbs img {
+        width: 100% !important;
+        height: 58px !important;
+        object-fit: cover !important;
+      }
+
+      .car-info-panel,
+      .car-description,
+      .tech-section,
+      .video-section,
+      .contact-card,
+      .program-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1.2rem !important;
+      }
+
+      .car-info-name {
+        font-size: 1.8rem !important;
+        line-height: 1.15 !important;
+      }
+
+      .car-info-price {
+        font-size: 1.5rem !important;
+      }
+
+      .car-info-cta {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.8rem !important;
+      }
+
+      .car-info-cta .btn {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+
+      .car-info-cta-secondary {
+        flex-direction: column !important;
+      }
+
+      .tech-table,
+      .tech-table tbody,
+      .tech-table tr,
+      .tech-table td {
+        display: block !important;
+        width: 100% !important;
+      }
+
+      .tech-table tr {
+        padding: 0.8rem 0 !important;
+        border-bottom: 1px solid var(--border) !important;
+      }
+
+      .tech-table td {
+        padding: 0.2rem 0 !important;
+      }
+
+    }
+    .footer-crafted {
   margin-top: 0.7rem;
   font-size: 0.85rem;
   color: var(--muted);
@@ -39,257 +291,18 @@
 .footer-crafted span:hover {
   color: var(--gold-light);
   text-shadow:
-    0 0 8px rgba(212, 175, 55, 0.7),
-    0 0 18px rgba(212, 175, 55, 0.45);
+    0 0 8px rgba(212,175,55,0.7),
+    0 0 18px rgba(212,175,55,0.45;
 }
 
 
-/* =========================================================
-   CAR DETAIL LAYOUT
-   ========================================================= */
-
-.car-detail-layout {
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 3rem;
-  padding: 0 5%;
-  align-items: start;
-}
-
-.car-left-column,
-.car-right-column {
-  width: 100%;
-}
-
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
-
-.car-description {
-  margin-top: 1.5rem;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-}
-
-.car-description h3 {
-  margin-bottom: 1rem;
-}
-
-
-/* =========================================================
-   TECHNICAL SPECIFICATIONS
-   ========================================================= */
-
-.tech-section {
-  margin-top: 1.5rem;
-}
-
-
-/* =========================================================
-   DOTĂRI
-   ========================================================= */
-
-.features-section {
-  margin-top: 1.5rem;
-
-}
-
-.features-section h3 {
-  margin-bottom: 1.2rem;
-}
-
-.features-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem 1.5rem;
-}
-
-.features-section li {
-  position: relative;
-  padding-left: 1.4rem;
-
-  color: var(--text);
-  font-size: 0.9rem;
-  line-height: 1.4;
-
-  overflow-wrap: anywhere;
-}
-
-.features-section li::before {
-  content: "✓";
-
-  position: absolute;
-  left: 0;
-  top: 0;
-
-  color: var(--primary);
-  font-weight: 700;
-}
-
-#carFeatures-mobile {
-  display: none;
-}
-
-
-/* =========================================================
-   VIDEO
-   ========================================================= */
-
-.video-section {
-  margin-top: 1.5rem;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-}
-
-.video-section h3 {
-  margin-bottom: 1rem;
-}
-
-.video-trigger {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  width: 100%;
-
-  background: rgba(212, 175, 55, 0.08);
-  border: 1px solid var(--border-red);
-  border-radius: var(--radius);
-
-  padding: 1rem 1.2rem;
-
-  cursor: pointer;
-
-  color: var(--text);
-  font-family: var(--font-body);
-
-  transition:
-    background var(--transition),
-    border-color var(--transition);
-}
-
-.video-trigger:hover {
-  background: rgba(212, 175, 55, 0.16);
-  border-color: var(--primary);
-}
-
-.video-trigger-icon {
-  flex-shrink: 0;
-
-  width: 44px;
-  height: 44px;
-
-  border-radius: 50%;
-
-  background: var(--primary);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.video-trigger-icon svg {
-  width: 18px;
-  height: 18px;
-
-  fill: var(--text);
-
-  margin-left: 2px;
-}
-
-.video-trigger-text {
-  text-align: left;
-}
-
-.video-trigger-title {
-  font-family: var(--font-display);
-
-  font-size: 0.95rem;
-  font-weight: 700;
-
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-
-  color: var(--text);
-}
-
-.video-trigger-sub {
-  font-size: 0.8rem;
-  color: var(--muted);
-
-  margin-top: 0.15rem;
-}
-
-.video-embed-wrap {
-  display: none;
-
-  position: relative;
-
-  width: 100%;
-  aspect-ratio: 16 / 9;
-
-  border-radius: var(--radius);
-
-  overflow: hidden;
-
-  margin-top: 1rem;
-
-  background: #000;
-}
-
-.video-embed-wrap.open {
-  display: block;
-}
-
-.video-embed-wrap iframe {
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  border: 0;
-}
-
-
-/* =========================================================
-   CTA
-   ========================================================= */
-
-.car-info-cta-secondary {
-  display: flex;
-
-  gap: 0.75rem;
-
-  margin-top: 0.75rem;
-}
-
-.car-info-cta-secondary .btn {
-  flex: 1;
-}
-
-
-/* =========================================================
+/* =========================
    MOBILE RESPONSIVE
-   ========================================================= */
+   ========================= */
 
 @media (max-width: 768px) {
 
-  /* =======================================================
-     GENERAL
-     ======================================================= */
-
+  /* GENERAL */
   html,
   body {
     width: 100%;
@@ -303,41 +316,26 @@
 
   .car-main-content {
     width: 100%;
-
     padding: 90px 15px 40px !important;
-
     box-sizing: border-box;
   }
 
-
-  /* =======================================================
-     LAYOUT
-     ======================================================= */
-
+  /* LAYOUT */
   .car-detail-layout {
     width: 100%;
     max-width: 100%;
-
     display: flex !important;
     flex-direction: column !important;
-
     gap: 18px !important;
-
-    grid-template-columns: none !important;
   }
 
   .car-left-column,
   .car-right-column {
     display: contents !important;
-
     width: 100% !important;
   }
 
-
-  /* =======================================================
-     ORDINE ELEMENTE
-     ======================================================= */
-
+  /* ORDINE */
   .gallery {
     order: 1 !important;
   }
@@ -354,26 +352,21 @@
     order: 4 !important;
   }
 
-  .features-section {
+  .video-section {
     order: 5 !important;
   }
 
-  .video-section {
+  .contact-card {
     order: 6 !important;
   }
 
-  .contact-card {
+  .program-card {
     order: 7 !important;
   }
 
-  .program-card {
-    order: 8 !important;
-  }
-
-
-  /* =======================================================
+  /* =========================
      GALLERY
-     ======================================================= */
+     ========================= */
 
   .gallery {
     width: 100% !important;
@@ -382,28 +375,22 @@
 
   .gallery-main {
     width: 100% !important;
-
     height: 240px !important;
     max-height: 240px !important;
-
     border-radius: var(--radius-lg);
-
     overflow: hidden;
   }
 
   .gallery-main img {
     width: 100% !important;
-
     height: 240px !important;
     max-height: 240px !important;
-
     object-fit: cover !important;
   }
 
   .gallery-arrow {
     width: 38px !important;
     height: 38px !important;
-
     font-size: 24px !important;
   }
 
@@ -418,43 +405,32 @@
   .gallery-counter {
     right: 10px !important;
     bottom: 10px !important;
-
     font-size: 0.75rem !important;
   }
 
   .gallery-thumbs {
     width: 100% !important;
-
     display: grid !important;
-
     grid-template-columns: repeat(4, 1fr) !important;
-
     gap: 7px !important;
-
     margin-top: 8px !important;
   }
 
   .gallery-thumbs img {
     width: 100% !important;
-
     height: 55px !important;
-
     object-fit: cover !important;
-
     border-radius: 6px;
   }
 
-
-  /* =======================================================
+  /* =========================
      INFO PANEL
-     ======================================================= */
+     ========================= */
 
   .car-info-panel {
     width: 100% !important;
     max-width: 100% !important;
-
     box-sizing: border-box !important;
-
     padding: 20px !important;
   }
 
@@ -464,122 +440,90 @@
 
   .car-info-name {
     font-size: clamp(1.55rem, 7vw, 2rem) !important;
-
     line-height: 1.15 !important;
-
     margin: 8px 0 10px !important;
-
     word-break: break-word;
   }
 
   .car-info-price {
     font-size: 1.45rem !important;
-
     line-height: 1.2 !important;
   }
 
-
-  /* =======================================================
-     QUICK SPECS
-     ======================================================= */
-
+  /* QUICK SPECS */
   .car-quick-specs {
     width: 100% !important;
-
     box-sizing: border-box !important;
   }
 
-
-  /* =======================================================
+  /* =========================
      BUTTONS
-     ======================================================= */
+     ========================= */
 
   .car-info-cta {
     width: 100% !important;
-
     display: flex !important;
     flex-direction: column !important;
-
     gap: 10px !important;
-
     margin-top: 18px !important;
   }
 
   .car-info-cta .btn {
     width: 100% !important;
-
     min-height: 48px !important;
-
     justify-content: center !important;
-
     text-align: center !important;
-
     box-sizing: border-box !important;
   }
 
   .car-info-cta-secondary {
     width: 100% !important;
-
     display: flex !important;
     flex-direction: column !important;
-
     gap: 10px !important;
-
     margin-top: 0 !important;
   }
 
   .car-info-cta-secondary .btn {
     width: 100% !important;
-
     flex: none !important;
   }
 
-
-  /* =======================================================
+  /* =========================
      CONTENT CARDS
-     ======================================================= */
+     ========================= */
 
   .car-description,
   .tech-section,
-  .features-section,
   .video-section,
   .contact-card,
   .program-card {
     width: 100% !important;
     max-width: 100% !important;
-
     box-sizing: border-box !important;
-
     padding: 18px !important;
-
     margin-top: 0 !important;
   }
 
   .car-description h3,
   .tech-section h3,
-  .features-section h3,
   .video-section h3 {
     font-size: 1.05rem !important;
-
     margin-bottom: 12px !important;
   }
 
   .car-description p {
     font-size: 0.92rem !important;
-
     line-height: 1.65 !important;
-
     overflow-wrap: anywhere;
   }
 
-
-  /* =======================================================
+  /* =========================
      TECH TABLE
-     ======================================================= */
+     ========================= */
 
   .tech-table {
     width: 100% !important;
-
     table-layout: fixed !important;
   }
 
@@ -587,165 +531,91 @@
   .tech-table tbody,
   .tech-table tr {
     display: block !important;
-
     width: 100% !important;
   }
 
   .tech-table tr {
     display: grid !important;
-
     grid-template-columns: 45% 55% !important;
-
     gap: 0 !important;
-
     padding: 10px 0 !important;
-
     border-bottom: 1px solid var(--border) !important;
   }
 
   .tech-table td {
     display: block !important;
-
     width: auto !important;
-
     padding: 3px 0 !important;
-
     font-size: 0.85rem !important;
-
     overflow-wrap: anywhere;
   }
 
-
-  /* =======================================================
-     DOTĂRI - MOBILE
-     ======================================================= */
-
-  .features-section {
-    width: 100% !important;
-    max-width: 100% !important;
-
-    box-sizing: border-box !important;
-  }
-
-  .features-section h3 {
-    margin-bottom: 12px !important;
-  }
-
-  .features-section ul {
-    display: grid !important;
-
-    grid-template-columns: 1fr !important;
-
-    gap: 9px !important;
-
-    width: 100% !important;
-  }
-
-  .features-section li {
-    font-size: 0.85rem !important;
-
-    line-height: 1.45 !important;
-
-    padding-left: 1.4rem !important;
-
-    overflow-wrap: anywhere;
-  }
-
-  /* Desktop list ascuns pe mobil */
-  #carFeatures {
-    display: none !important;
-  }
-
-  /* Mobile list afișat */
-  #carFeatures-mobile {
-    display: grid !important;
-  }
-
-
-  /* =======================================================
+  /* =========================
      VIDEO
-     ======================================================= */
+     ========================= */
 
   .video-trigger {
     width: 100% !important;
-
     box-sizing: border-box !important;
-
     padding: 12px !important;
-
     gap: 10px !important;
   }
 
   .video-trigger-icon {
     width: 40px !important;
     height: 40px !important;
-
     flex: 0 0 40px !important;
   }
 
   .video-trigger-title {
     font-size: 0.78rem !important;
-
     line-height: 1.3 !important;
   }
 
   .video-trigger-sub {
     font-size: 0.7rem !important;
-
     line-height: 1.4 !important;
   }
 
   .video-embed-wrap {
     width: 100% !important;
-
     margin-top: 12px !important;
   }
 
-
-  /* =======================================================
+  /* =========================
      CONTACT + PROGRAM
-     ======================================================= */
+     ========================= */
 
   .contact-card,
   .program-card {
     margin-top: 0 !important;
   }
 
-
-  /* =======================================================
+  /* =========================
      FOOTER
-     ======================================================= */
+     ========================= */
 
   .footer {
     width: 100% !important;
-
     overflow: hidden;
   }
 
   .footer-inner {
     width: 100% !important;
-
     box-sizing: border-box !important;
-
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
 
   .footer-bottom {
     display: flex !important;
-
     flex-direction: column !important;
-
     align-items: center !important;
     justify-content: center !important;
-
     text-align: center !important;
-
     gap: 8px !important;
-
     padding-left: 15px !important;
     padding-right: 15px !important;
-
     box-sizing: border-box !important;
   }
 
@@ -753,28 +623,23 @@
   .footer-crafted {
     width: 100% !important;
     max-width: 100% !important;
-
     text-align: center !important;
-
     font-size: 0.78rem !important;
   }
-
 }
 
 
-/* =========================================================
+/* =========================
    SMALL PHONES
-   ========================================================= */
+   ========================= */
 
 @media (max-width: 480px) {
+
 
   .car-main-content {
     padding-left: 12px !important;
     padding-right: 12px !important;
   }
-
-
-  /* GALLERY */
 
   .gallery-main,
   .gallery-main img {
@@ -784,7 +649,6 @@
 
   .gallery-thumbs {
     grid-template-columns: repeat(4, 1fr) !important;
-
     gap: 5px !important;
   }
 
@@ -792,21 +656,14 @@
     height: 48px !important;
   }
 
-
-  /* CARDS */
-
   .car-info-panel,
   .car-description,
   .tech-section,
-  .features-section,
   .video-section,
   .contact-card,
   .program-card {
     padding: 15px !important;
   }
-
-
-  /* INFO */
 
   .car-info-name {
     font-size: 1.5rem !important;
@@ -816,9 +673,6 @@
     font-size: 1.3rem !important;
   }
 
-
-  /* TECH TABLE */
-
   .tech-table tr {
     grid-template-columns: 42% 58% !important;
   }
@@ -826,16 +680,6 @@
   .tech-table td {
     font-size: 0.8rem !important;
   }
-
-
-  /* DOTĂRI */
-
-  .features-section li {
-    font-size: 0.8rem !important;
-
-    line-height: 1.4 !important;
-  }
-
 }
 
   </style>
