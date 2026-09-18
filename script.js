@@ -89,6 +89,7 @@ const CARS = [
   ],
 
 images: [
+  "ds41.png",
   "ds41.webp",
   "ds4 2.webp",
   "ds4 3.webp",
