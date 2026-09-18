@@ -1013,7 +1013,7 @@ background: rgba(212,175,55,0.2);;
 @media (max-width: 768px) {
   
   .car-detail-layout{
-    margin: 13% auto !important;
+    margin: 0 auto !important;
   }
 
   
