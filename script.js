@@ -88,12 +88,37 @@ const CARS = [
     "Două chei"
   ],
 
-  images: [
-    "masina1-1.jpg",
-    "masina1-2.jpg",
-    "masina1-3.jpg",
-    "masina1-4.jpg"
-  ],
+images: [
+  "ds4 1.webp",
+  "ds4 2.webp",
+  "ds4 3.webp",
+  "ds4 4.webp",
+  "ds4 5.webp",
+  "ds4 6.webp",
+  "ds4 7.webp",
+  "ds4 8.webp",
+  "ds4 9.webp",
+  "ds4 10.webp",
+  "ds4 11.webp",
+  "ds4 12.webp",
+  "ds4 13.webp",
+  "ds4 14.webp",
+  "ds4 15.webp",
+  "ds4 16.webp",
+  "ds4 17.webp",
+  "ds4 18.webp",
+  "ds4 19.webp",
+  "ds4 20.webp",
+  "ds4 21.webp",
+  "ds4 22.webp",
+  "ds4 23.webp",
+  "ds4 24.webp",
+  "ds4 25.webp",
+  "ds4 26.webp",
+  "ds4 27.webp",
+  "ds4 28.webp",
+  "ds4 29.webp"
+],
 
   videoId: "",
 
