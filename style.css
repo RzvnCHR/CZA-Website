@@ -1773,7 +1773,7 @@ ul {
   object-fit: cover;
   object-position: center;
   background: url('hero-bg.png') center center / cover no-repeat;
-  transform: scaleX(-1);
+  transform: scaleX(1);
 }
 
 .hero-overlay {
