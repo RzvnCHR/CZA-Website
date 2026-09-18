@@ -1,2011 +1,1668 @@
 <!DOCTYPE html>
 <html lang="ro">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Detalii Mașină — CZA Automobile</title>
 
-  <meta
-    name="description"
-    content="Detalii complete despre mașina selectată din parcul auto CZA Automobile. Galerie foto, specificații tehnice și preț."
-  >
+  <meta name="description" content="Detalii complete despre mașina selectată din parcul auto CZA Automobile. Galerie foto, specificații tehnice și preț.">
+  <meta name="keywords" content="parc auto, masina de vanzare, dealer auto, masini second hand">
+  <meta name="robots" content="index, follow">
 
-  <meta
-    name="keywords"
-    content="parc auto, masina de vanzare, dealer auto, masini second hand"
-  >
+  <link rel="stylesheet" href="style.css">
 
-  <meta
-    name="robots"
-    content="index, follow"
-  >
+  <style>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  /* =========================================================
+     DOTĂRI
+     ========================================================= */
 
-
-<style>
-
-/* =========================================================
-   DOTĂRI
-   ========================================================= */
-
-.features-section {
-  margin-top: 1.5rem;
-}
-
-.features-section h3 {
-  margin-bottom: 1.2rem;
-}
-
-.features-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  gap: 0.75rem 1.5rem;
-}
-
-.features-section li {
-  position: relative;
-
-  padding-left: 1.4rem;
-
-  color: var(--text);
-
-  font-size: 0.9rem;
-  line-height: 1.4;
-
-  overflow-wrap: anywhere;
-}
-
-.features-section li::before {
-  content: "✓";
-
-  position: absolute;
-
-  left: 0;
-  top: 0;
-
-  color: var(--primary);
-
-  font-weight: 700;
-}
-
-#carFeatures-mobile {
-  display: none;
-}
-
-
-/* =========================================================
-   CAR DETAIL LAYOUT
-   ========================================================= */
-
-.car-detail-layout {
-
-  max-width: 1200px;
-
-  display: grid;
-
-  grid-template-columns: 1fr 400px;
-
-  gap: 3rem;
-
-  padding: 0 5%;
-
-  align-items: start;
-}
-
-.car-left-column,
-.car-right-column {
-  width: 100%;
-}
-
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
-
-.car-description {
-
-  margin-top: 1.5rem;
-
-  background: var(--card);
-
-  border: 1px solid var(--border);
-
-  border-radius: var(--radius-lg);
-
-  padding: 1.5rem;
-}
-
-.car-description h3 {
-  margin-bottom: 1rem;
-}
-
-
-/* =========================================================
-   TECH
-   ========================================================= */
-
-.tech-section {
-  margin-top: 1.5rem;
-}
-
-
-/* =========================================================
-   VIDEO
-   ========================================================= */
-
-.video-section {
-
-  margin-top: 1.5rem;
-
-  background: var(--card);
-
-  border: 1px solid var(--border);
-
-  border-radius: var(--radius-lg);
-
-  padding: 1.5rem;
-}
-
-.video-section h3 {
-  margin-bottom: 1rem;
-}
-
-.video-trigger {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 1rem;
-
-  width: 100%;
-
-  background: rgba(212,175,55,0.08);
-
-  border: 1px solid var(--border-red);
-
-  border-radius: var(--radius);
-
-  padding: 1rem 1.2rem;
-
-  cursor: pointer;
-
-  color: var(--text);
-
-  font-family: var(--font-body);
-
-  transition:
-    background var(--transition),
-    border-color var(--transition);
-}
-
-.video-trigger:hover {
-
-  background: rgba(212,175,55,0.16);
-
-  border-color: var(--primary);
-}
-
-.video-trigger-icon {
-
-  flex-shrink: 0;
-
-  width: 44px;
-  height: 44px;
-
-  border-radius: 50%;
-
-  background: var(--primary);
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-}
-
-.video-trigger-icon svg {
-
-  width: 18px;
-  height: 18px;
-
-  fill: var(--text);
-
-  margin-left: 2px;
-}
-
-.video-trigger-text {
-  text-align: left;
-}
-
-.video-trigger-title {
-
-  font-family: var(--font-display);
-
-  font-size: 0.95rem;
-
-  font-weight: 700;
-
-  letter-spacing: 0.04em;
-
-  text-transform: uppercase;
-
-  color: var(--text);
-}
-
-.video-trigger-sub {
-
-  font-size: 0.8rem;
-
-  color: var(--muted);
-
-  margin-top: 0.15rem;
-}
-
-.video-embed-wrap {
-
-  display: none;
-
-  position: relative;
-
-  width: 100%;
-
-  aspect-ratio: 16/9;
-
-  border-radius: var(--radius);
-
-  overflow: hidden;
-
-  margin-top: 1rem;
-
-  background: #000;
-}
-
-.video-embed-wrap.open {
-  display: block;
-}
-
-.video-embed-wrap iframe {
-
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  border: 0;
-}
-
-
-/* =========================================================
-   CTA
-   ========================================================= */
-
-.car-info-cta-secondary {
-
-  display: flex;
-
-  gap: 0.75rem;
-
-  margin-top: 0.75rem;
-}
-
-.car-info-cta-secondary .btn {
-  flex: 1;
-}
-
-
-/* =========================================================
-   GALLERY
-   ========================================================= */
-
-.gallery {
-
-  width: 100%;
-
-  max-width: 100%;
-}
-
-
-/* MAIN IMAGE */
-
-.gallery-main {
-
-  position: relative;
-
-  width: 100%;
-
-  overflow: hidden;
-}
-
-.gallery-main img {
-
-  display: block;
-
-  width: 100%;
-
-  height: auto;
-}
-
-
-/* =========================================================
-   GALLERY ZOOM BUTTON
-   ========================================================= */
-
-.gallery-zoom {
-
-  position: absolute;
-
-  top: 15px;
-  right: 15px;
-
-  width: 44px;
-  height: 44px;
-
-  border: 1px solid rgba(255,255,255,0.25);
-
-  border-radius: 50%;
-
-  background: rgba(0,0,0,0.65);
-
-  backdrop-filter: blur(6px);
-
-  color: #fff;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
-  z-index: 20;
-
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.gallery-zoom:hover {
-
-  background: rgba(0,0,0,0.9);
-
-  transform: scale(1.05);
-}
-
-.gallery-zoom svg {
-
-  width: 19px;
-  height: 19px;
-
-  fill: none;
-
-  stroke: currentColor;
-
-  stroke-width: 2;
-
-  stroke-linecap: round;
-}
-
-
-/* =========================================================
-   THUMBNAILS - HORIZONTAL SLIDER
-   ========================================================= */
-
-.gallery-thumbs {
-
-  display: flex !important;
-
-  flex-wrap: nowrap !important;
-
-  overflow-x: auto !important;
-
-  overflow-y: hidden !important;
-
-  width: 100%;
-
-  max-width: 100%;
-
-  gap: 8px;
-
-  margin-top: 10px;
-
-  padding: 3px 3px 7px 3px;
-
-  box-sizing: border-box;
-
-  scroll-behavior: smooth;
-
-  -webkit-overflow-scrolling: touch;
-
-  scrollbar-width: thin;
-
-  scrollbar-color:
-    var(--primary)
-    rgba(255,255,255,0.08);
-}
-
-
-/* fiecare thumbnail are dimensiune FIXĂ */
-
-.gallery-thumbs img {
-
-  flex: 0 0 120px !important;
-
-  width: 120px !important;
-
-  height: 75px !important;
-
-  min-width: 120px !important;
-
-  max-width: 120px !important;
-
-  object-fit: cover;
-
-  border-radius: 7px;
-
-  cursor: pointer;
-
-  opacity: 0.6;
-
-  border: 2px solid transparent;
-
-  box-sizing: border-box;
-
-  transition:
-    opacity 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.gallery-thumbs img:hover {
-
-  opacity: 1;
-
-  transform: translateY(-1px);
-}
-
-.gallery-thumbs img.active {
-
-  opacity: 1;
-
-  border-color: var(--primary);
-}
-
-
-/* =========================================================
-   FULLSCREEN LIGHTBOX
-   ========================================================= */
-
-.gallery-lightbox {
-
-  position: fixed;
-
-  inset: 0;
-
-  width: 100vw;
-  height: 100vh;
-
-  background: rgba(0,0,0,0.97);
-
-  display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  z-index: 999999;
-}
-
-.gallery-lightbox.open {
-  display: flex;
-}
-
-
-/* imaginea */
-
-.lightbox-content {
-
-  width: 100vw;
-  height: 100vh;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  padding: 70px 90px;
-
-  box-sizing: border-box;
-}
-
-.lightbox-content img {
-
-  display: block;
-
-  max-width: 100%;
-
-  max-height: 100%;
-
-  width: auto;
-  height: auto;
-
-  object-fit: contain;
-
-  user-select: none;
-
-  -webkit-user-drag: none;
-
-  border-radius: 3px;
-}
-
-
-/* =========================================================
-   LIGHTBOX CLOSE
-   ========================================================= */
-
-.lightbox-close {
-
-  position: fixed;
-
-  top: 20px;
-  right: 25px;
-
-  width: 48px;
-  height: 48px;
-
-  border: 0;
-
-  border-radius: 50%;
-
-  background: rgba(255,255,255,0.1);
-
-  color: #fff;
-
-  font-size: 35px;
-
-  line-height: 1;
-
-  cursor: pointer;
-
-  z-index: 1000001;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.lightbox-close:hover {
-
-  background: rgba(255,255,255,0.2);
-
-  transform: scale(1.05);
-}
-
-
-/* =========================================================
-   LIGHTBOX ARROWS
-   ========================================================= */
-
-.lightbox-arrow {
-
-  position: fixed;
-
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  width: 58px;
-  height: 78px;
-
-  border: 0;
-
-  border-radius: 10px;
-
-  background: rgba(255,255,255,0.1);
-
-  color: #fff;
-
-  font-size: 50px;
-
-  line-height: 1;
-
-  cursor: pointer;
-
-  z-index: 1000001;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.lightbox-arrow:hover {
-
-  background: rgba(255,255,255,0.2);
-
-  transform: translateY(-50%) scale(1.05);
-}
-
-.lightbox-prev {
-  left: 20px;
-}
-
-.lightbox-next {
-  right: 20px;
-}
-
-
-/* =========================================================
-   LIGHTBOX COUNTER
-   ========================================================= */
-
-.lightbox-counter {
-
-  position: fixed;
-
-  bottom: 20px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  color: #fff;
-
-  font-size: 0.9rem;
-
-  background: rgba(0,0,0,0.65);
-
-  padding: 7px 14px;
-
-  border-radius: 20px;
-
-  z-index: 1000001;
-}
-
-
-/* =========================================================
-   BODY WHEN LIGHTBOX OPEN
-   ========================================================= */
-
-body.lightbox-open {
-
-  overflow: hidden !important;
-}
-
-
-/* =========================================================
-   FOOTER CRAFTED
-   ========================================================= */
-
-.footer-crafted {
-
-  margin-top: 0.7rem;
-
-  font-size: 0.85rem;
-
-  color: var(--muted);
-
-  text-align: center;
-
-  letter-spacing: 0.04em;
-}
-
-.footer-crafted a {
-  text-decoration: none;
-}
-
-.footer-crafted span {
-
-  color: var(--gold);
-
-  transition: 0.25s ease;
-
-  font-weight: 600;
-}
-
-.footer-crafted span:hover {
-
-  color: var(--gold-light);
-
-  text-shadow:
-    0 0 8px rgba(212,175,55,0.7),
-    0 0 18px rgba(212,175,55,0.45);
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-  html,
-  body {
-
-    width: 100%;
-    max-width: 100%;
-
-    overflow-x: hidden;
+  .features-section {
+    margin-top: 1.5rem;
   }
 
+  .features-section h3 {
+    margin-bottom: 1.2rem;
+  }
 
-  .car-info-panel-mobile {
+  .features-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1.5rem;
+  }
+
+  .features-section li {
+    position: relative;
+    padding-left: 1.4rem;
+
+    color: var(--text);
+    font-size: 0.9rem;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+  }
+
+  .features-section li::before {
+    content: "✓";
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  #carFeatures-mobile {
     display: none;
   }
 
 
-  .car-main-content {
+  /* =========================================================
+     DOTĂRI - MOBILE
+     ========================================================= */
 
-    width: 100%;
+  @media (max-width: 768px) {
 
-    padding: 90px 15px 40px !important;
+    .features-section {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
 
-    box-sizing: border-box;
+    .features-section h3 {
+      margin-bottom: 12px !important;
+    }
+
+    .features-section ul {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 9px !important;
+      width: 100% !important;
+    }
+
+    .features-section li {
+      font-size: 0.85rem !important;
+      line-height: 1.45 !important;
+      padding-left: 1.4rem !important;
+      overflow-wrap: anywhere;
+    }
+
+    #carFeatures {
+      display: none !important;
+    }
+
+    #carFeatures-mobile {
+      display: grid !important;
+    }
   }
 
 
-  /* LAYOUT */
+  /* =========================================================
+     DOTĂRI - SMALL PHONES
+     ========================================================= */
+
+  @media (max-width: 480px) {
+
+    .features-section li {
+      font-size: 0.8rem !important;
+      line-height: 1.4 !important;
+    }
+
+  }
+
+
+  /* =========================================================
+     CAR DETAIL LAYOUT
+     ========================================================= */
 
   .car-detail-layout {
-
-    width: 100%;
-
-    max-width: 100%;
-
-    display: flex !important;
-
-    flex-direction: column !important;
-
-    gap: 18px !important;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 3rem;
+    padding: 0 5%;
+    align-items: start;
   }
-
 
   .car-left-column,
   .car-right-column {
-
-    display: contents !important;
-
-    width: 100% !important;
+    width: 100%;
   }
 
 
-  /* ORDER */
-
-  .gallery {
-    order: 1 !important;
-  }
-
-  .car-info-panel {
-    order: 2 !important;
-  }
+  /* =========================================================
+     DESCRIPTION
+     ========================================================= */
 
   .car-description {
-    order: 3 !important;
+    margin-top: 1.5rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
   }
+
+  .car-description h3 {
+    margin-bottom: 1rem;
+  }
+
+
+  /* =========================================================
+     TECH
+     ========================================================= */
 
   .tech-section {
-    order: 4 !important;
+    margin-top: 1.5rem;
   }
+
+
+  /* =========================================================
+     VIDEO
+     ========================================================= */
 
   .video-section {
-    order: 5 !important;
+    margin-top: 1.5rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
   }
 
-  .contact-card {
-    order: 6 !important;
+  .video-section h3 {
+    margin-bottom: 1rem;
   }
 
-  .program-card {
-    order: 7 !important;
+  .video-trigger {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    background: rgba(212,175,55,0.08);
+    border: 1px solid var(--border-red);
+    border-radius: var(--radius);
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    color: var(--text);
+    font-family: var(--font-body);
+    transition: background var(--transition), border-color var(--transition);
+  }
+
+  .video-trigger:hover {
+    background: rgba(212,175,55,0.16);
+    border-color: var(--primary);
+  }
+
+  .video-trigger-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-trigger-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--text);
+    margin-left: 2px;
+  }
+
+  .video-trigger-text {
+    text-align: left;
+  }
+
+  .video-trigger-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .video-trigger-sub {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+
+  .video-embed-wrap {
+    display: none;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-top: 1rem;
+    background: #000;
+  }
+
+  .video-embed-wrap.open {
+    display: block;
+  }
+
+  .video-embed-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
 
 
-  /* =====================================================
-     MAIN GALLERY
-     ===================================================== */
+  /* =========================================================
+     CTA
+     ========================================================= */
+
+  .car-info-cta-secondary {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .car-info-cta-secondary .btn {
+    flex: 1;
+  }
+
+
+  /* =========================================================
+     GALLERY
+     ========================================================= */
 
   .gallery {
-
-    width: 100% !important;
-
-    max-width: 100% !important;
+    width: 100%;
+    max-width: 100%;
   }
 
-
   .gallery-main {
-
-    width: 100% !important;
-
-    height: 240px !important;
-
-    max-height: 240px !important;
-
-    border-radius: var(--radius-lg);
-
+    position: relative;
+    width: 100%;
     overflow: hidden;
   }
 
-
   .gallery-main img {
-
-    width: 100% !important;
-
-    height: 240px !important;
-
-    max-height: 240px !important;
-
-    object-fit: cover !important;
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
 
-  /* MAIN ARROWS */
-
-  .gallery-arrow {
-
-    width: 38px !important;
-
-    height: 38px !important;
-
-    font-size: 24px !important;
-  }
-
-  .gallery-prev {
-    left: 8px !important;
-  }
-
-  .gallery-next {
-    right: 8px !important;
-  }
-
-
-  /* COUNTER */
-
-  .gallery-counter {
-
-    right: 10px !important;
-
-    bottom: 10px !important;
-
-    font-size: 0.75rem !important;
-  }
-
-
-  /* =====================================================
-     ZOOM
-     ===================================================== */
-
-  .gallery-zoom {
-
-    top: 10px !important;
-
-    right: 10px !important;
-
-    width: 38px !important;
-
-    height: 38px !important;
-  }
-
-  .gallery-zoom svg {
-
-    width: 17px !important;
-
-    height: 17px !important;
-  }
-
-
-  /* =====================================================
-     THUMBNAILS
-     ===================================================== */
+  /* =========================================================
+     GALLERY THUMBNAILS - SINGLE ROW
+     ========================================================= */
 
   .gallery-thumbs {
-
     display: flex !important;
 
     flex-wrap: nowrap !important;
 
     overflow-x: auto !important;
-
     overflow-y: hidden !important;
 
-    gap: 7px !important;
+    gap: 8px;
 
-    margin-top: 8px !important;
+    width: 100%;
+    max-width: 100%;
 
-    padding: 3px 2px 5px 2px !important;
+    margin-top: 8px;
 
-    scrollbar-width: none;
+    padding-bottom: 3px;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
   }
-
-  .gallery-thumbs::-webkit-scrollbar {
-    display: none;
-  }
-
 
   .gallery-thumbs img {
+    flex: 0 0 110px !important;
 
-    flex: 0 0 82px !important;
+    width: 110px !important;
+    height: 70px !important;
 
-    width: 82px !important;
-
-    min-width: 82px !important;
-
-    max-width: 82px !important;
-
-    height: 57px !important;
-
-    object-fit: cover !important;
+    object-fit: cover;
 
     border-radius: 6px;
+
+    cursor: pointer;
+
+    opacity: 0.65;
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .gallery-thumbs img:hover {
+    opacity: 1;
+  }
+
+  .gallery-thumbs img.active {
+    opacity: 1;
+
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
   }
 
 
-  /* =====================================================
-     INFO PANEL
-     ===================================================== */
+  /* =========================================================
+     ZOOM BUTTON
+     ========================================================= */
 
-  .car-info-panel {
+  .gallery-zoom {
+    position: absolute;
 
-    width: 100% !important;
+    right: 15px;
+    top: 15px;
 
-    max-width: 100% !important;
+    width: 42px;
+    height: 42px;
 
-    box-sizing: border-box !important;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
 
-    padding: 20px !important;
+    background: rgba(0,0,0,0.65);
+
+    backdrop-filter: blur(6px);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
   }
 
-  .car-info-badge {
-    font-size: 0.7rem !important;
+  .gallery-zoom:hover {
+    background: rgba(0,0,0,0.85);
+    transform: scale(1.05);
   }
 
-  .car-info-name {
+  .gallery-zoom svg {
+    width: 19px;
+    height: 19px;
 
-    font-size: clamp(1.55rem, 7vw, 2rem) !important;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
 
-    line-height: 1.15 !important;
-
-    margin: 8px 0 10px !important;
-
-    word-break: break-word;
-  }
-
-  .car-info-price {
-
-    font-size: 1.45rem !important;
-
-    line-height: 1.2 !important;
-  }
-
-
-  /* QUICK SPECS */
-
-  .car-quick-specs {
-
-    width: 100% !important;
-
-    box-sizing: border-box !important;
-  }
-
-
-  /* =====================================================
-     BUTTONS
-     ===================================================== */
-
-  .car-info-cta {
-
-    width: 100% !important;
-
-    display: flex !important;
-
-    flex-direction: column !important;
-
-    gap: 10px !important;
-
-    margin-top: 18px !important;
-  }
-
-  .car-info-cta .btn {
-
-    width: 100% !important;
-
-    min-height: 48px !important;
-
-    justify-content: center !important;
-
-    text-align: center !important;
-
-    box-sizing: border-box !important;
-  }
-
-  .car-info-cta-secondary {
-
-    width: 100% !important;
-
-    display: flex !important;
-
-    flex-direction: column !important;
-
-    gap: 10px !important;
-
-    margin-top: 0 !important;
-  }
-
-  .car-info-cta-secondary .btn {
-
-    width: 100% !important;
-
-    flex: none !important;
+    stroke-linecap: round;
   }
 
 
-  /* =====================================================
-     CONTENT CARDS
-     ===================================================== */
-
-  .car-description,
-  .tech-section,
-  .video-section,
-  .contact-card,
-  .program-card {
-
-    width: 100% !important;
-
-    max-width: 100% !important;
-
-    box-sizing: border-box !important;
-
-    padding: 18px !important;
-
-    margin-top: 0 !important;
-  }
-
-  .car-description h3,
-  .tech-section h3,
-  .video-section h3 {
-
-    font-size: 1.05rem !important;
-
-    margin-bottom: 12px !important;
-  }
-
-  .car-description p {
-
-    font-size: 0.92rem !important;
-
-    line-height: 1.65 !important;
-
-    overflow-wrap: anywhere;
-  }
-
-
-  /* =====================================================
-     TECH TABLE
-     ===================================================== */
-
-  .tech-table {
-
-    width: 100% !important;
-
-    table-layout: fixed !important;
-  }
-
-  .tech-table,
-  .tech-table tbody,
-  .tech-table tr {
-
-    display: block !important;
-
-    width: 100% !important;
-  }
-
-  .tech-table tr {
-
-    display: grid !important;
-
-    grid-template-columns: 45% 55% !important;
-
-    gap: 0 !important;
-
-    padding: 10px 0 !important;
-
-    border-bottom: 1px solid var(--border) !important;
-  }
-
-  .tech-table td {
-
-    display: block !important;
-
-    width: auto !important;
-
-    padding: 3px 0 !important;
-
-    font-size: 0.85rem !important;
-
-    overflow-wrap: anywhere;
-  }
-
-
-  /* =====================================================
-     VIDEO
-     ===================================================== */
-
-  .video-trigger {
-
-    width: 100% !important;
-
-    box-sizing: border-box !important;
-
-    padding: 12px !important;
-
-    gap: 10px !important;
-  }
-
-  .video-trigger-icon {
-
-    width: 40px !important;
-
-    height: 40px !important;
-
-    flex: 0 0 40px !important;
-  }
-
-  .video-trigger-title {
-
-    font-size: 0.78rem !important;
-
-    line-height: 1.3 !important;
-  }
-
-  .video-trigger-sub {
-
-    font-size: 0.7rem !important;
-
-    line-height: 1.4 !important;
-  }
-
-  .video-embed-wrap {
-
-    width: 100% !important;
-
-    margin-top: 12px !important;
-  }
-
-
-  /* =====================================================
-     FOOTER
-     ===================================================== */
-
-  .footer {
-
-    width: 100% !important;
-
-    overflow: hidden;
-  }
-
-  .footer-inner {
-
-    width: 100% !important;
-
-    box-sizing: border-box !important;
-
-    padding-left: 15px !important;
-
-    padding-right: 15px !important;
-  }
-
-  .footer-bottom {
-
-    display: flex !important;
-
-    flex-direction: column !important;
-
-    align-items: center !important;
-
-    justify-content: center !important;
-
-    text-align: center !important;
-
-    gap: 8px !important;
-
-    padding-left: 15px !important;
-
-    padding-right: 15px !important;
-
-    box-sizing: border-box !important;
-  }
-
-  .footer-copy,
-  .footer-crafted {
-
-    width: 100% !important;
-
-    max-width: 100% !important;
-
-    text-align: center !important;
-
-    font-size: 0.78rem !important;
-  }
-
-
-  /* =====================================================
-     LIGHTBOX MOBILE
-     ===================================================== */
+  /* =========================================================
+     FULLSCREEN GALLERY / LIGHTBOX
+     ========================================================= */
 
   .gallery-lightbox {
+    position: fixed;
 
-    width: 100vw !important;
+    inset: 0;
 
-    height: 100dvh !important;
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0,0,0,0.96);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 99999;
   }
 
+  .gallery-lightbox.open {
+    display: flex;
+  }
+
+
+  /* IMAGE */
 
   .lightbox-content {
+    width: 90vw;
+    height: 90vh;
 
-    width: 100vw !important;
+    display: flex;
 
-    height: 100dvh !important;
-
-    padding: 65px 45px !important;
+    align-items: center;
+    justify-content: center;
   }
-
 
   .lightbox-content img {
+    display: block;
 
-    max-width: 100% !important;
+    max-width: 90vw;
+    max-height: 90vh;
 
-    max-height: 100% !important;
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
   }
 
 
+  /* =========================================================
+     LIGHTBOX CLOSE
+     ========================================================= */
+
+  .lightbox-close {
+    position: fixed;
+
+    top: 20px;
+    right: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-size: 35px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 100001;
+
+    transition: background 0.2s ease;
+  }
+
+  .lightbox-close:hover {
+    background: rgba(255,255,255,0.2);
+  }
+
+
+  /* =========================================================
+     LIGHTBOX ARROWS
+     ========================================================= */
+
   .lightbox-arrow {
+    position: fixed;
 
-    width: 42px !important;
+    top: 50%;
 
-    height: 55px !important;
+    transform: translateY(-50%);
 
-    font-size: 38px !important;
+    width: 55px;
+    height: 70px;
 
-    background: rgba(0,0,0,0.45);
+    border: 0;
+    border-radius: 8px;
+
+    background: rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-size: 48px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 100001;
+
+    transition: background 0.2s ease;
+  }
+
+  .lightbox-arrow:hover {
+    background: rgba(255,255,255,0.2);
   }
 
   .lightbox-prev {
-    left: 5px !important;
+    left: 20px;
   }
 
   .lightbox-next {
-    right: 5px !important;
+    right: 20px;
   }
 
 
-  .lightbox-close {
-
-    top: 12px !important;
-
-    right: 12px !important;
-
-    width: 42px !important;
-
-    height: 42px !important;
-
-    font-size: 30px !important;
-  }
-
+  /* =========================================================
+     LIGHTBOX COUNTER
+     ========================================================= */
 
   .lightbox-counter {
+    position: fixed;
 
-    bottom: 15px !important;
+    bottom: 20px;
+    left: 50%;
 
-    font-size: 0.8rem !important;
-  }
+    transform: translateX(-50%);
 
-}
+    color: white;
 
+    font-size: 0.85rem;
 
-/* =========================================================
-   SMALL PHONES
-   ========================================================= */
+    background: rgba(0,0,0,0.55);
 
-@media (max-width: 480px) {
+    padding: 7px 12px;
 
-  .car-main-content {
+    border-radius: 20px;
 
-    padding-left: 12px !important;
-
-    padding-right: 12px !important;
-  }
-
-
-  .gallery-main,
-  .gallery-main img {
-
-    height: 215px !important;
-
-    max-height: 215px !important;
+    z-index: 100001;
   }
 
 
-  .gallery-thumbs {
+  /* =========================================================
+     FOOTER CRAFTED
+     ========================================================= */
 
-    gap: 5px !important;
+  .footer-crafted {
+    margin-top: 0.7rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  .footer-crafted a {
+    text-decoration: none;
+  }
+
+  .footer-crafted span {
+    color: var(--gold);
+    transition: 0.25s ease;
+    font-weight: 600;
+  }
+
+  .footer-crafted span:hover {
+    color: var(--gold-light);
+
+    text-shadow:
+      0 0 8px rgba(212,175,55,0.7),
+      0 0 18px rgba(212,175,55,0.45);
   }
 
 
-  .gallery-thumbs img {
+  /* =========================================================
+     MOBILE RESPONSIVE
+     ========================================================= */
 
-    flex: 0 0 72px !important;
+  @media (max-width: 768px) {
 
-    width: 72px !important;
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
 
-    min-width: 72px !important;
+    body.lightbox-open {
+      overflow: hidden !important;
+    }
 
-    max-width: 72px !important;
+    .car-info-panel-mobile {
+      display: none;
+    }
 
-    height: 48px !important;
+    .car-main-content {
+      width: 100%;
+      padding: 90px 15px 40px !important;
+      box-sizing: border-box;
+    }
+
+
+    /* LAYOUT */
+
+    .car-detail-layout {
+      width: 100%;
+      max-width: 100%;
+
+      display: flex !important;
+      flex-direction: column !important;
+
+      gap: 18px !important;
+    }
+
+    .car-left-column,
+    .car-right-column {
+      display: contents !important;
+      width: 100% !important;
+    }
+
+
+    /* ORDINE */
+
+    .gallery {
+      order: 1 !important;
+    }
+
+    .car-info-panel {
+      order: 2 !important;
+    }
+
+    .car-description {
+      order: 3 !important;
+    }
+
+    .tech-section {
+      order: 4 !important;
+    }
+
+    .video-section {
+      order: 5 !important;
+    }
+
+    .contact-card {
+      order: 6 !important;
+    }
+
+    .program-card {
+      order: 7 !important;
+    }
+
+
+    /* =====================================================
+       GALLERY MOBILE
+       ===================================================== */
+
+    .gallery {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    .gallery-main {
+      width: 100% !important;
+
+      height: 240px !important;
+      max-height: 240px !important;
+
+      border-radius: var(--radius-lg);
+
+      overflow: hidden;
+    }
+
+    .gallery-main img {
+      width: 100% !important;
+
+      height: 240px !important;
+      max-height: 240px !important;
+
+      object-fit: cover !important;
+    }
+
+
+    /* MAIN GALLERY ARROWS */
+
+    .gallery-arrow {
+      width: 38px !important;
+      height: 38px !important;
+
+      font-size: 24px !important;
+    }
+
+    .gallery-prev {
+      left: 8px !important;
+    }
+
+    .gallery-next {
+      right: 8px !important;
+    }
+
+
+    /* COUNTER */
+
+    .gallery-counter {
+      right: 10px !important;
+      bottom: 10px !important;
+
+      font-size: 0.75rem !important;
+    }
+
+
+    /* THUMBNAILS */
+
+    .gallery-thumbs {
+      width: 100% !important;
+
+      display: flex !important;
+
+      flex-wrap: nowrap !important;
+
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+
+      gap: 7px !important;
+
+      margin-top: 8px !important;
+
+      padding-bottom: 3px !important;
+
+      scrollbar-width: none;
+    }
+
+    .gallery-thumbs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gallery-thumbs img {
+      flex: 0 0 78px !important;
+
+      width: 78px !important;
+      height: 55px !important;
+
+      object-fit: cover !important;
+
+      border-radius: 6px;
+    }
+
+
+    /* ZOOM */
+
+    .gallery-zoom {
+      right: 10px !important;
+      top: 10px !important;
+
+      width: 38px !important;
+      height: 38px !important;
+    }
+
+    .gallery-zoom svg {
+      width: 17px !important;
+      height: 17px !important;
+    }
+
+
+    /* =====================================================
+       INFO PANEL
+       ===================================================== */
+
+    .car-info-panel {
+      width: 100% !important;
+      max-width: 100% !important;
+
+      box-sizing: border-box !important;
+
+      padding: 20px !important;
+    }
+
+    .car-info-badge {
+      font-size: 0.7rem !important;
+    }
+
+    .car-info-name {
+      font-size: clamp(1.55rem, 7vw, 2rem) !important;
+
+      line-height: 1.15 !important;
+
+      margin: 8px 0 10px !important;
+
+      word-break: break-word;
+    }
+
+    .car-info-price {
+      font-size: 1.45rem !important;
+      line-height: 1.2 !important;
+    }
+
+
+    /* QUICK SPECS */
+
+    .car-quick-specs {
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
+
+    .car-info-cta {
+      width: 100% !important;
+
+      display: flex !important;
+
+      flex-direction: column !important;
+
+      gap: 10px !important;
+
+      margin-top: 18px !important;
+    }
+
+    .car-info-cta .btn {
+      width: 100% !important;
+
+      min-height: 48px !important;
+
+      justify-content: center !important;
+
+      text-align: center !important;
+
+      box-sizing: border-box !important;
+    }
+
+    .car-info-cta-secondary {
+      width: 100% !important;
+
+      display: flex !important;
+
+      flex-direction: column !important;
+
+      gap: 10px !important;
+
+      margin-top: 0 !important;
+    }
+
+    .car-info-cta-secondary .btn {
+      width: 100% !important;
+      flex: none !important;
+    }
+
+
+    /* =====================================================
+       CONTENT CARDS
+       ===================================================== */
+
+    .car-description,
+    .tech-section,
+    .video-section,
+    .contact-card,
+    .program-card {
+      width: 100% !important;
+      max-width: 100% !important;
+
+      box-sizing: border-box !important;
+
+      padding: 18px !important;
+
+      margin-top: 0 !important;
+    }
+
+    .car-description h3,
+    .tech-section h3,
+    .video-section h3 {
+      font-size: 1.05rem !important;
+
+      margin-bottom: 12px !important;
+    }
+
+    .car-description p {
+      font-size: 0.92rem !important;
+
+      line-height: 1.65 !important;
+
+      overflow-wrap: anywhere;
+    }
+
+
+    /* =====================================================
+       TECH TABLE
+       ===================================================== */
+
+    .tech-table {
+      width: 100% !important;
+
+      table-layout: fixed !important;
+    }
+
+    .tech-table,
+    .tech-table tbody,
+    .tech-table tr {
+      display: block !important;
+
+      width: 100% !important;
+    }
+
+    .tech-table tr {
+      display: grid !important;
+
+      grid-template-columns: 45% 55% !important;
+
+      gap: 0 !important;
+
+      padding: 10px 0 !important;
+
+      border-bottom: 1px solid var(--border) !important;
+    }
+
+    .tech-table td {
+      display: block !important;
+
+      width: auto !important;
+
+      padding: 3px 0 !important;
+
+      font-size: 0.85rem !important;
+
+      overflow-wrap: anywhere;
+    }
+
+
+    /* =====================================================
+       VIDEO
+       ===================================================== */
+
+    .video-trigger {
+      width: 100% !important;
+
+      box-sizing: border-box !important;
+
+      padding: 12px !important;
+
+      gap: 10px !important;
+    }
+
+    .video-trigger-icon {
+      width: 40px !important;
+      height: 40px !important;
+
+      flex: 0 0 40px !important;
+    }
+
+    .video-trigger-title {
+      font-size: 0.78rem !important;
+
+      line-height: 1.3 !important;
+    }
+
+    .video-trigger-sub {
+      font-size: 0.7rem !important;
+
+      line-height: 1.4 !important;
+    }
+
+    .video-embed-wrap {
+      width: 100% !important;
+
+      margin-top: 12px !important;
+    }
+
+
+    /* =====================================================
+       CONTACT + PROGRAM
+       ===================================================== */
+
+    .contact-card,
+    .program-card {
+      margin-top: 0 !important;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .footer {
+      width: 100% !important;
+
+      overflow: hidden;
+    }
+
+    .footer-inner {
+      width: 100% !important;
+
+      box-sizing: border-box !important;
+
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+
+    .footer-bottom {
+      display: flex !important;
+
+      flex-direction: column !important;
+
+      align-items: center !important;
+      justify-content: center !important;
+
+      text-align: center !important;
+
+      gap: 8px !important;
+
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+
+      box-sizing: border-box !important;
+    }
+
+    .footer-copy,
+    .footer-crafted {
+      width: 100% !important;
+
+      max-width: 100% !important;
+
+      text-align: center !important;
+
+      font-size: 0.78rem !important;
+    }
+
+
+    /* =====================================================
+       LIGHTBOX MOBILE
+       ===================================================== */
+
+    .lightbox-content {
+      width: 100vw !important;
+      height: 100vh !important;
+    }
+
+    .lightbox-content img {
+      max-width: 94vw !important;
+      max-height: 82vh !important;
+    }
+
+    .lightbox-arrow {
+      width: 42px !important;
+      height: 55px !important;
+
+      font-size: 38px !important;
+
+      background: rgba(0,0,0,0.35);
+    }
+
+    .lightbox-prev {
+      left: 8px !important;
+    }
+
+    .lightbox-next {
+      right: 8px !important;
+    }
+
+    .lightbox-close {
+      top: 15px !important;
+      right: 15px !important;
+
+      width: 42px !important;
+      height: 42px !important;
+
+      font-size: 30px !important;
+    }
+
   }
 
 
-  .car-info-panel,
-  .car-description,
-  .tech-section,
-  .video-section,
-  .contact-card,
-  .program-card {
+  /* =========================================================
+     SMALL PHONES
+     ========================================================= */
 
-    padding: 15px !important;
+  @media (max-width: 480px) {
+
+    .car-main-content {
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+    }
+
+    .gallery-main,
+    .gallery-main img {
+      height: 215px !important;
+      max-height: 215px !important;
+    }
+
+    .gallery-thumbs {
+      gap: 5px !important;
+    }
+
+    .gallery-thumbs img {
+      flex: 0 0 68px !important;
+
+      width: 68px !important;
+      height: 48px !important;
+    }
+
+    .car-info-panel,
+    .car-description,
+    .tech-section,
+    .video-section,
+    .contact-card,
+    .program-card {
+      padding: 15px !important;
+    }
+
+    .car-info-name {
+      font-size: 1.5rem !important;
+    }
+
+    .car-info-price {
+      font-size: 1.3rem !important;
+    }
+
+    .tech-table tr {
+      grid-template-columns: 42% 58% !important;
+    }
+
+    .tech-table td {
+      font-size: 0.8rem !important;
+    }
+
   }
 
-
-  .car-info-name {
-    font-size: 1.5rem !important;
-  }
-
-
-  .car-info-price {
-    font-size: 1.3rem !important;
-  }
-
-
-  .tech-table tr {
-    grid-template-columns: 42% 58% !important;
-  }
-
-
-  .tech-table td {
-    font-size: 0.8rem !important;
-  }
-
-}
-
-</style>
-
+  </style>
 </head>
-
 
 <body data-page="car">
 
+  <!-- =======================================================
+       NAVBAR
+       ======================================================= -->
 
-<!-- =========================================================
-     NAVBAR
-     ========================================================= -->
+  <nav class="navbar scrolled" id="navbar">
 
-<nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="cza-logo.png" alt="CZA Automobile">
+    </a>
 
-  <a href="index.html" class="nav-logo">
+    <ul class="nav-links">
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="index.html#masini">Mașini</a></li>
+      <li><a href="index.html#despre">Despre noi</a></li>
+      <li><a href="index.html#recenzii">Recenzii</a></li>
+      <li><a href="comanda.html">Mașină pe comandă</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
 
-    <img
-      src="cza-logo.png"
-      alt="CZA Automobile"
-    >
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-  </a>
-
-
-  <ul class="nav-links">
-
-    <li>
-      <a href="index.html">
-        Acasă
-      </a>
-    </li>
-
-    <li>
-      <a href="index.html#masini">
-        Mașini
-      </a>
-    </li>
-
-    <li>
-      <a href="index.html#despre">
-        Despre noi
-      </a>
-    </li>
-
-    <li>
-      <a href="index.html#recenzii">
-        Recenzii
-      </a>
-    </li>
-
-    <li>
-      <a href="comanda.html">
-        Mașină pe comandă
-      </a>
-    </li>
-
-    <li>
-      <a href="index.html#contact">
-        Contact
-      </a>
-    </li>
-
-  </ul>
+  </nav>
 
 
-  <button
-    class="hamburger"
-    id="hamburger"
-  >
+  <!-- =======================================================
+       MOBILE MENU
+       ======================================================= -->
 
-    <span></span>
-    <span></span>
-    <span></span>
+  <nav class="mobile-menu" id="mobileMenu">
 
-  </button>
+    <a href="index.html">Acasă</a>
+    <a href="index.html#masini">Mașini</a>
+    <a href="index.html#despre">Despre noi</a>
+    <a href="index.html#recenzii">Recenzii</a>
+    <a href="comanda.html">Mașină pe comandă</a>
+    <a href="index.html#contact">Contact</a>
 
-</nav>
-
-
-<!-- =========================================================
-     MOBILE MENU
-     ========================================================= -->
-
-<nav
-  class="mobile-menu"
-  id="mobileMenu"
->
-
-  <a href="index.html">
-    Acasă
-  </a>
-
-  <a href="index.html#masini">
-    Mașini
-  </a>
-
-  <a href="index.html#despre">
-    Despre noi
-  </a>
-
-  <a href="index.html#recenzii">
-    Recenzii
-  </a>
-
-  <a href="comanda.html">
-    Mașină pe comandă
-  </a>
-
-  <a href="index.html#contact">
-    Contact
-  </a>
-
-</nav>
+  </nav>
 
 
-<!-- =========================================================
-     MAIN
-     ========================================================= -->
+  <!-- =======================================================
+       MAIN
+       ======================================================= -->
 
-<div class="car-detail-wrap">
+  <div class="car-detail-wrap">
 
-  <div class="car-main-content">
+    <div class="car-main-content">
 
-    <div class="car-detail-layout">
-
-
-      <!-- ===================================================
-           LEFT COLUMN
-           =================================================== -->
-
-      <div class="car-left-column">
+      <div class="car-detail-layout">
 
 
-        <!-- =================================================
-             GALLERY
-             ================================================= -->
+        <!-- ===================================================
+             LEFT COLUMN
+             =================================================== -->
 
-        <div class="gallery">
-
-
-          <!-- MAIN IMAGE -->
-
-          <div
-            class="gallery-main"
-            id="galleryMain"
-          >
-
-            <img
-              id="galleryMainImg"
-              src=""
-              alt="Mașină"
-            >
+        <div class="car-left-column">
 
 
-            <!-- ZOOM -->
+          <!-- =================================================
+               GALLERY
+               ================================================= -->
 
-            <button
-              class="gallery-zoom"
-              id="galleryZoom"
-              type="button"
-              aria-label="Deschide galeria fullscreen"
-            >
+          <div class="gallery">
 
-              <svg viewBox="0 0 24 24">
+            <div class="gallery-main" id="galleryMain">
 
-                <circle
-                  cx="11"
-                  cy="11"
-                  r="6"
-                ></circle>
-
-                <line
-                  x1="16"
-                  y1="16"
-                  x2="21"
-                  y2="21"
-                ></line>
-
-              </svg>
-
-            </button>
+              <img
+                id="galleryMainImg"
+                src=""
+                alt="Mașină"
+              >
 
 
-            <!-- PREVIOUS -->
+              <!-- LUPĂ -->
 
-            <button
-              class="gallery-arrow gallery-prev"
-              id="galleryPrev"
-              type="button"
-            >
-              ‹
-            </button>
+              <button
+                class="gallery-zoom"
+                id="galleryZoom"
+                type="button"
+                aria-label="Mărește imaginea"
+              >
+
+                <svg viewBox="0 0 24 24">
+
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="6">
+                  </circle>
+
+                  <line
+                    x1="16"
+                    y1="16"
+                    x2="21"
+                    y2="21">
+                  </line>
+
+                </svg>
+
+              </button>
 
 
-            <!-- NEXT -->
+              <!-- SĂGEATĂ STÂNGA -->
 
-            <button
-              class="gallery-arrow gallery-next"
-              id="galleryNext"
-              type="button"
-            >
-              ›
-            </button>
+              <button
+                class="gallery-arrow gallery-prev"
+                id="galleryPrev"
+                type="button"
+              >
+                ‹
+              </button>
 
 
-            <!-- COUNTER -->
+              <!-- SĂGEATĂ DREAPTA -->
+
+              <button
+                class="gallery-arrow gallery-next"
+                id="galleryNext"
+                type="button"
+              >
+                ›
+              </button>
+
+
+              <!-- COUNTER -->
+
+              <div
+                class="gallery-counter"
+                id="galleryCounter"
+              >
+                1 / 4
+              </div>
+
+            </div>
+
+
+            <!-- THUMBNAILS -->
 
             <div
-              class="gallery-counter"
-              id="galleryCounter"
+              class="gallery-thumbs"
+              id="galleryThumbs"
+            ></div>
+
+
+          </div>
+
+
+          <!-- =================================================
+               CAR INFO PANEL MOBILE
+               ================================================= -->
+
+          <div class="car-info-panel-mobile">
+
+            <div
+              class="car-info-badge"
+              id="carBadge-mobile"
             >
-              1 / 1
+              Disponibil
+            </div>
+
+            <h1
+              class="car-info-name"
+              id="carName-mobile"
+            >
+              Se încarcă...
+            </h1>
+
+            <div
+              class="car-info-price"
+              id="carPrice-mobile"
+            >
+              —
+            </div>
+
+            <div
+              class="car-quick-specs"
+              id="carQuickSpecs-mobile"
+            ></div>
+
+
+            <div class="car-info-cta">
+
+              <a
+                href="tel:+40727982772"
+                class="btn btn-primary btn-lg"
+              >
+                Sună acum pentru detalii
+              </a>
+
+              <div class="car-info-cta-secondary">
+
+                <a
+                  href="https://czaautomobile.autovit.ro/inventory"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-outline-red"
+                  id="autovitLink"
+                >
+                  Vezi pe Autovit
+                </a>
+
+                <a
+                  href="index.html#masini"
+                  class="btn btn-outline"
+                >
+                  Înapoi la mașini
+                </a>
+
+              </div>
+
             </div>
 
           </div>
 
 
           <!-- =================================================
-               THUMBNAILS
+               DESCRIPTION
+               ================================================= -->
+
+          <div class="car-description">
+
+            <h3>Descriere</h3>
+
+            <p id="carDescription-mobile"></p>
+
+          </div>
+
+
+          <!-- =================================================
+               TECH
+               ================================================= -->
+
+          <div class="tech-section">
+
+            <h3>Specificații tehnice</h3>
+
+            <table class="tech-table">
+
+              <tbody id="carTechTable-mobile"></tbody>
+
+            </table>
+
+
+            <div class="features-section">
+
+              <h3>Dotări</h3>
+
+              <ul id="carFeatures"></ul>
+
+              <ul id="carFeatures-mobile"></ul>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               VIDEO
                ================================================= -->
 
           <div
-            class="gallery-thumbs"
-            id="galleryThumbs"
-          ></div>
+            class="video-section"
+            id="videoSection"
+          >
+
+            <h3>Clip video</h3>
+
+            <button
+              class="video-trigger"
+              id="videoTrigger"
+              type="button"
+            >
+
+              <span class="video-trigger-icon">
+
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+
+              </span>
+
+              <span class="video-trigger-text">
+
+                <span class="video-trigger-title">
+                  Vizionează prezentarea video
+                </span>
+
+                <span class="video-trigger-sub">
+                  Se deschide pe YouTube, direct în pagină
+                </span>
+
+              </span>
+
+            </button>
+
+
+            <div
+              class="video-embed-wrap"
+              id="videoEmbedWrap"
+            ></div>
+
+          </div>
 
 
         </div>
 
 
-        <!-- =================================================
-             MOBILE INFO
-             ================================================= -->
+        <!-- ===================================================
+             RIGHT COLUMN
+             =================================================== -->
 
-        <div class="car-info-panel-mobile">
-
-          <div
-            class="car-info-badge"
-            id="carBadge-mobile"
-          >
-            Disponibil
-          </div>
+        <div class="car-right-column">
 
 
-          <h1
-            class="car-info-name"
-            id="carName-mobile"
-          >
-            Se încarcă...
-          </h1>
+          <!-- =================================================
+               INFO
+               ================================================= -->
 
+          <div class="car-info-panel">
 
-          <div
-            class="car-info-price"
-            id="carPrice-mobile"
-          >
-            —
-          </div>
-
-
-          <div
-            class="car-quick-specs"
-            id="carQuickSpecs-mobile"
-          ></div>
-
-
-          <div class="car-info-cta">
-
-            <a
-              href="tel:+40727982772"
-              class="btn btn-primary btn-lg"
+            <div
+              class="car-info-badge"
+              id="carBadge"
             >
-              Sună acum pentru detalii
-            </a>
+              Disponibil
+            </div>
+
+            <h1
+              class="car-info-name"
+              id="carName"
+            >
+              Se încarcă...
+            </h1>
+
+            <div
+              class="car-info-price"
+              id="carPrice"
+            >
+              —
+            </div>
+
+            <div
+              class="car-quick-specs"
+              id="carQuickSpecs"
+            ></div>
 
 
-            <div class="car-info-cta-secondary">
+            <div class="car-info-cta">
 
               <a
-                href="https://czaautomobile.autovit.ro/inventory"
-                target="_blank"
-                rel="noopener"
-                class="btn btn-outline-red"
-                id="autovitLink"
+                href="tel:+40727982772"
+                class="btn btn-primary btn-lg"
               >
-                Vezi pe Autovit
+                Sună acum pentru detalii
               </a>
 
+              <div class="car-info-cta-secondary">
 
-              <a
-                href="index.html#masini"
-                class="btn btn-outline"
-              >
-                Înapoi la mașini
-              </a>
+                <a
+                  href="https://czaautomobile.autovit.ro/inventory"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-outline-red"
+                  id="autovitLink"
+                >
+                  Vezi pe Autovit
+                </a>
+
+                <a
+                  href="index.html#masini"
+                  class="btn btn-outline"
+                >
+                  Înapoi la mașini
+                </a>
+
+              </div>
 
             </div>
 
           </div>
 
-        </div>
 
-
-        <!-- =================================================
-             DESCRIPTION
-             ================================================= -->
-
-        <div class="car-description">
-
-          <h3>
-            Descriere
-          </h3>
-
-          <p id="carDescription-mobile"></p>
-
-        </div>
-
-
-        <!-- =================================================
-             TECH
-             ================================================= -->
-
-        <div class="tech-section">
-
-          <h3>
-            Specificații tehnice
-          </h3>
-
-
-          <table class="tech-table">
-
-            <tbody id="carTechTable-mobile"></tbody>
-
-          </table>
-
-
-          <div class="features-section">
-
-            <h3>
-              Dotări
-            </h3>
-
-            <ul id="carFeatures"></ul>
-
-            <ul id="carFeatures-mobile"></ul>
-
-          </div>
-
-        </div>
-
-
-        <!-- =================================================
-             VIDEO
-             ================================================= -->
-
-        <div
-          class="video-section"
-          id="videoSection"
-        >
-
-          <h3>
-            Clip video
-          </h3>
-
-
-          <button
-            class="video-trigger"
-            id="videoTrigger"
-            type="button"
-          >
-
-            <span class="video-trigger-icon">
-
-              <svg viewBox="0 0 24 24">
-
-                <path d="M8 5v14l11-7z"/>
-
-              </svg>
-
-            </span>
-
-
-            <span class="video-trigger-text">
-
-              <span class="video-trigger-title">
-                Vizionează prezentarea video
-              </span>
-
-              <span class="video-trigger-sub">
-                Se deschide pe YouTube, direct în pagină
-              </span>
-
-            </span>
-
-          </button>
-
+          <!-- =================================================
+               CONTACT
+               ================================================= -->
 
           <div
-            class="video-embed-wrap"
-            id="videoEmbedWrap"
-          ></div>
-
-        </div>
-
-
-      </div>
-
-
-      <!-- ===================================================
-           RIGHT COLUMN
-           =================================================== -->
-
-      <div class="car-right-column">
-
-
-        <!-- INFO -->
-
-        <div class="car-info-panel">
-
-          <div
-            class="car-info-badge"
-            id="carBadge"
-          >
-            Disponibil
-          </div>
-
-
-          <h1
-            class="car-info-name"
-            id="carName"
-          >
-            Se încarcă...
-          </h1>
-
-
-          <div
-            class="car-info-price"
-            id="carPrice"
-          >
-            —
-          </div>
-
-
-          <div
-            class="car-quick-specs"
-            id="carQuickSpecs"
-          ></div>
-
-
-          <div class="car-info-cta">
-
-            <a
-              href="tel:+40727982772"
-              class="btn btn-primary btn-lg"
-            >
-              Sună acum pentru detalii
-            </a>
-
-
-            <div class="car-info-cta-secondary">
-
-              <a
-                href="https://czaautomobile.autovit.ro/inventory"
-                target="_blank"
-                rel="noopener"
-                class="btn btn-outline-red"
-              >
-                Vezi pe Autovit
-              </a>
-
-
-              <a
-                href="index.html#masini"
-                class="btn btn-outline"
-              >
-                Înapoi la mașini
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- CONTACT -->
-
-        <div
-          class="contact-card"
-          style="
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            margin-top: 1rem;
-          "
-        >
-
-          <div
+            class="contact-card"
             style="
-              font-family: var(--font-display);
-              font-size: 0.75rem;
-              letter-spacing: 0.2em;
-              text-transform: uppercase;
-              color: var(--muted);
-              margin-bottom: 1rem;
+              background: var(--card);
+              border: 1px solid var(--border);
+              border-radius: var(--radius-lg);
+              padding: 1.5rem;
+              margin-top: 1rem;
             "
           >
-            Contact rapid
-          </div>
-
-
-          <div style="margin-bottom: 1rem;">
 
             <div
               style="
+                font-family: var(--font-display);
                 font-size: 0.75rem;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
                 color: var(--muted);
-                margin-bottom: 0.2rem;
+                margin-bottom: 1rem;
               "
             >
-              Telefon
+              Contact rapid
             </div>
 
 
-            <a
-              href="tel:+40727982772"
-              style="
-                font-size: 1rem;
-                font-weight: 700;
-              "
-            >
-              +40 727 982 772
-            </a>
+            <div style="margin-bottom: 1rem;">
+
+              <div
+                style="
+                  font-size: 0.75rem;
+                  color: var(--muted);
+                  margin-bottom: 0.2rem;
+                "
+              >
+                Telefon
+              </div>
+
+              <a
+                href="tel:+40727982772"
+                style="
+                  font-size: 1rem;
+                  font-weight: 700;
+                "
+              >
+                +40 727 982 772
+              </a>
+
+            </div>
+
+
+            <div>
+
+              <div
+                style="
+                  font-size: 0.75rem;
+                  color: var(--muted);
+                  margin-bottom: 0.2rem;
+                "
+              >
+                Locație
+              </div>
+
+              <span>
+                Oradea, România
+              </span>
+
+            </div>
 
           </div>
 
 
-          <div>
+          <!-- =================================================
+               PROGRAM
+               ================================================= -->
+
+          <div
+            class="program-card"
+            style="
+              background: var(--card);
+              border: 1px solid var(--border);
+              border-radius: var(--radius-lg);
+              padding: 1.5rem;
+              margin-top: 1rem;
+            "
+          >
 
             <div
               style="
+                font-family: var(--font-display);
                 font-size: 0.75rem;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
                 color: var(--muted);
-                margin-bottom: 0.2rem;
+                margin-bottom: 1rem;
               "
             >
-              Locație
+              Program
             </div>
 
+            <div style="line-height: 1.9;">
 
-            <span>
-              Oradea, România
-            </span>
+              Lun – Vin:
+              <strong>09:00 – 18:00</strong>
+              <br>
+
+              Sâmbătă:
+              <strong>10:00 – 16:00</strong>
+              <br>
+
+              Duminică:
+              Închis
+
+            </div>
 
           </div>
+
 
         </div>
-
-
-        <!-- PROGRAM -->
-
-        <div
-          class="program-card"
-          style="
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            margin-top: 1rem;
-          "
-        >
-
-          <div
-            style="
-              font-family: var(--font-display);
-              font-size: 0.75rem;
-              letter-spacing: 0.2em;
-              text-transform: uppercase;
-              color: var(--muted);
-              margin-bottom: 1rem;
-            "
-          >
-            Program
-          </div>
-
-
-          <div style="line-height: 1.9;">
-
-            Lun – Vin:
-            <strong>09:00 – 18:00</strong>
-
-            <br>
-
-            Sâmbătă:
-            <strong>10:00 – 16:00</strong>
-
-            <br>
-
-            Duminică:
-            Închis
-
-          </div>
-
-        </div>
-
 
       </div>
 
@@ -2013,88 +1670,283 @@ body.lightbox-open {
 
   </div>
 
-</div>
 
-
-<!-- =========================================================
-     FULLSCREEN LIGHTBOX
-     ========================================================= -->
-
-<div
-  class="gallery-lightbox"
-  id="galleryLightbox"
->
-
-
-  <!-- CLOSE -->
-
-  <button
-    class="lightbox-close"
-    id="lightboxClose"
-    type="button"
-    aria-label="Închide galeria"
-  >
-    ×
-  </button>
-
-
-  <!-- PREVIOUS -->
-
-  <button
-    class="lightbox-arrow lightbox-prev"
-    id="lightboxPrev"
-    type="button"
-    aria-label="Imaginea precedentă"
-  >
-    ‹
-  </button>
-
-
-  <!-- IMAGE -->
-
-  <div class="lightbox-content">
-
-    <img
-      id="lightboxImg"
-      src=""
-      alt="Mașină"
-    >
-
-  </div>
-
-
-  <!-- NEXT -->
-
-  <button
-    class="lightbox-arrow lightbox-next"
-    id="lightboxNext"
-    type="button"
-    aria-label="Imaginea următoare"
-  >
-    ›
-  </button>
-
-
-  <!-- COUNTER -->
+  <!-- =======================================================
+       FULLSCREEN GALLERY
+       ======================================================= -->
 
   <div
-    class="lightbox-counter"
-    id="lightboxCounter"
+    class="gallery-lightbox"
+    id="galleryLightbox"
   >
-    1 / 1
+
+    <!-- CLOSE -->
+
+    <button
+      class="lightbox-close"
+      id="lightboxClose"
+      type="button"
+      aria-label="Închide galeria"
+    >
+      ×
+    </button>
+
+
+    <!-- PREVIOUS -->
+
+    <button
+      class="lightbox-arrow lightbox-prev"
+      id="lightboxPrev"
+      type="button"
+      aria-label="Imaginea precedentă"
+    >
+      ‹
+    </button>
+
+
+    <!-- IMAGE -->
+
+    <div class="lightbox-content">
+
+      <img
+        id="lightboxImg"
+        src=""
+        alt="Mașină"
+      >
+
+    </div>
+
+
+    <!-- NEXT -->
+
+    <button
+      class="lightbox-arrow lightbox-next"
+      id="lightboxNext"
+      type="button"
+      aria-label="Imaginea următoare"
+    >
+      ›
+    </button>
+
+
+    <!-- COUNTER -->
+
+    <div
+      class="lightbox-counter"
+      id="lightboxCounter"
+    >
+      1 / 4
+    </div>
+
   </div>
 
 
-</div>
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer class="footer">
+
+    <div class="footer-inner">
 
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
+      <div class="footer-brand">
 
-<footer class="footer">
+        <a
+          href="index.html"
+          class="nav-logo"
+        >
+          <img
+            src="cza-logo.png"
+            alt="Auto Park Logo"
+          >
+        </a>
 
-  <div class="footer-inner">
+
+        <p>
+          Parc auto serios, cu mașini verificate și prezentate transparent.
+          Seriozitate, profesionalism și prețuri corecte.
+        </p>
+
+
+        <div class="footer-contact-item">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.94 5.94l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+
+          +40 727 982 772
+
+        </div>
+
+
+        <div class="footer-contact-item">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle
+              cx="12"
+              cy="10"
+              r="3"
+            />
+          </svg>
+
+          Oradea, România
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <h4>Navigare</h4>
+
+        <ul>
+
+          <li>
+            <a href="index.html">
+              Acasă
+            </a>
+          </li>
+
+          <li>
+            <a href="#masini">
+              Mașini
+            </a>
+          </li>
+
+          <li>
+            <a href="#despre">
+              Despre noi
+            </a>
+          </li>
+
+          <li>
+            <a href="#recenzii">
+              Recenzii
+            </a>
+          </li>
+
+          <li>
+            <a href="comanda.html">
+              Mașină pe comandă
+            </a>
+          </li>
+
+          <li>
+            <a href="#contact">
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <h4>Program</h4>
+
+        <ul>
+
+          <li>
+            <a>
+              Luni – Vineri: 09 – 18
+            </a>
+          </li>
+
+          <li>
+            <a>
+              Sâmbătă: 10 – 16
+            </a>
+          </li>
+
+          <li>
+            <a style="color: var(--muted);">
+              Duminică: Închis
+            </a>
+          </li>
+
+        </ul>
+
+
+        <div style="margin-top: 1.5rem;">
+
+          <h4>Urmărește-ne</h4>
+
+          <ul>
+
+            <li>
+              <a href="#">
+                Facebook
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Instagram
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <p class="footer-copy">
+        © 2026
+        <span>CZA Automobile</span>.
+        Toate drepturile rezervate.
+      </p>
+
+      <p class="footer-copy">
+        Mașini verificate. Prețuri corecte.
+      </p>
+
+
+      <p class="footer-crafted">
+
+        Creat cu precizie de
+
+        <a
+          href="https://scalamafaceri.ro"
+          target="_blank"
+        >
+          <span>
+            scalamafaceri.ro
+          </span>
+        </a>
+
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       FOOTER MOBILE
+       ======================================================= -->
+
+  <footer class="footer-mobile">
 
 
     <div class="footer-brand">
@@ -2126,9 +1978,7 @@ body.lightbox-open {
           stroke="currentColor"
           stroke-width="2"
         >
-
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.94 5.94l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-
         </svg>
 
         +40 727 982 772
@@ -2144,15 +1994,12 @@ body.lightbox-open {
           stroke="currentColor"
           stroke-width="2"
         >
-
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-
           <circle
             cx="12"
             cy="10"
             r="3"
           />
-
         </svg>
 
         Oradea, România
@@ -2162,104 +2009,47 @@ body.lightbox-open {
     </div>
 
 
-    <div class="footer-col">
+    <div class="footer-inner">
 
-      <h4>
-        Navigare
-      </h4>
+      <div class="footer-col">
 
-
-      <ul>
-
-        <li>
-          <a href="index.html">
-            Acasă
-          </a>
-        </li>
-
-        <li>
-          <a href="#masini">
-            Mașini
-          </a>
-        </li>
-
-        <li>
-          <a href="#despre">
-            Despre noi
-          </a>
-        </li>
-
-        <li>
-          <a href="#recenzii">
-            Recenzii
-          </a>
-        </li>
-
-        <li>
-          <a href="comanda.html">
-            Mașină pe comandă
-          </a>
-        </li>
-
-        <li>
-          <a href="#contact">
-            Contact
-          </a>
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="footer-col">
-
-      <h4>
-        Program
-      </h4>
-
-
-      <ul>
-
-        <li>
-          <a>
-            Luni – Vineri: 09 – 18
-          </a>
-        </li>
-
-        <li>
-          <a>
-            Sâmbătă: 10 – 16
-          </a>
-        </li>
-
-        <li>
-          <a style="color: var(--muted);">
-            Duminică: Închis
-          </a>
-        </li>
-
-      </ul>
-
-
-      <div style="margin-top: 1.5rem;">
-
-        <h4>
-          Urmărește-ne
-        </h4>
-
+        <h4>Navigare</h4>
 
         <ul>
 
           <li>
-            <a href="#">
-              Facebook
+            <a href="index.html">
+              Acasă
             </a>
           </li>
 
           <li>
-            <a href="#">
-              Instagram
+            <a href="#masini">
+              Mașini
+            </a>
+          </li>
+
+          <li>
+            <a href="#despre">
+              Despre noi
+            </a>
+          </li>
+
+          <li>
+            <a href="#recenzii">
+              Recenzii
+            </a>
+          </li>
+
+          <li>
+            <a href="comanda.html">
+              Mașină pe comandă
+            </a>
+          </li>
+
+          <li>
+            <a href="#contact">
+              Contact
             </a>
           </li>
 
@@ -2267,325 +2057,115 @@ body.lightbox-open {
 
       </div>
 
-    </div>
 
-  </div>
+      <div class="footer-col">
 
-
-  <div class="footer-bottom">
-
-    <p class="footer-copy">
-
-      © 2026
-      <span>
-        CZA Automobile
-      </span>.
-      Toate drepturile rezervate.
-
-    </p>
-
-
-    <p class="footer-copy">
-
-      Mașini verificate. Prețuri corecte.
-
-    </p>
-
-
-    <p class="footer-crafted">
-
-      Creat cu precizie de
-
-      <a
-        href="https://scalamafaceri.ro"
-        target="_blank"
-      >
-
-        <span>
-          scalamafaceri.ro
-        </span>
-
-      </a>
-
-    </p>
-
-  </div>
-
-</footer>
-
-
-<!-- =========================================================
-     FOOTER MOBILE
-     ========================================================= -->
-
-<footer class="footer-mobile">
-
-
-  <div class="footer-brand">
-
-    <a
-      href="index.html"
-      class="nav-logo"
-    >
-
-      <img
-        src="cza-logo.png"
-        alt="Auto Park Logo"
-      >
-
-    </a>
-
-
-    <p>
-
-      Parc auto serios, cu mașini verificate și prezentate transparent.
-      Seriozitate, profesionalism și prețuri corecte.
-
-    </p>
-
-
-    <div class="footer-contact-item">
-
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.94 5.94l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-
-      </svg>
-
-      +40 727 982 772
-
-    </div>
-
-
-    <div class="footer-contact-item">
-
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-
-        <circle
-          cx="12"
-          cy="10"
-          r="3"
-        />
-
-      </svg>
-
-      Oradea, România
-
-    </div>
-
-  </div>
-
-
-  <div class="footer-inner">
-
-
-    <div class="footer-col">
-
-      <h4>
-        Navigare
-      </h4>
-
-
-      <ul>
-
-        <li>
-          <a href="index.html">
-            Acasă
-          </a>
-        </li>
-
-        <li>
-          <a href="#masini">
-            Mașini
-          </a>
-        </li>
-
-        <li>
-          <a href="#despre">
-            Despre noi
-          </a>
-        </li>
-
-        <li>
-          <a href="#recenzii">
-            Recenzii
-          </a>
-        </li>
-
-        <li>
-          <a href="comanda.html">
-            Mașină pe comandă
-          </a>
-        </li>
-
-        <li>
-          <a href="#contact">
-            Contact
-          </a>
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="footer-col">
-
-      <h4>
-        Program
-      </h4>
-
-
-      <ul>
-
-        <li>
-          <a>
-            Luni – Vineri: 09 – 18
-          </a>
-        </li>
-
-        <li>
-          <a>
-            Sâmbătă: 10 – 16
-          </a>
-        </li>
-
-        <li>
-          <a style="color: var(--muted);">
-            Duminică: Închis
-          </a>
-        </li>
-
-      </ul>
-
-
-      <div style="margin-top: 1.5rem;">
-
-        <h4>
-          Urmărește-ne
-        </h4>
-
+        <h4>Program</h4>
 
         <ul>
 
           <li>
-            <a href="#">
-              Facebook
+            <a>
+              Luni – Vineri: 09 – 18
             </a>
           </li>
 
           <li>
-            <a href="#">
-              Instagram
+            <a>
+              Sâmbătă: 10 – 16
+            </a>
+          </li>
+
+          <li>
+            <a style="color: var(--muted);">
+              Duminică: Închis
             </a>
           </li>
 
         </ul>
 
+
+        <div style="margin-top: 1.5rem;">
+
+          <h4>Urmărește-ne</h4>
+
+          <ul>
+
+            <li>
+              <a href="#">
+                Facebook
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Instagram
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
       </div>
 
     </div>
 
-  </div>
+
+    <div class="footer-bottom">
+
+      <p class="footer-copy">
+        © 2026
+        <span>CZA Automobile</span>.
+        Toate drepturile rezervate.
+      </p>
+
+      <p class="footer-copy">
+        Mașini verificate. Prețuri corecte.
+      </p>
 
 
-  <div class="footer-bottom">
+      <p class="footer-crafted">
 
-    <p class="footer-copy">
+        Creat cu precizie de
 
-      © 2026
-      <span>
-        CZA Automobile
-      </span>.
-      Toate drepturile rezervate.
+        <a
+          href="https://scalamafaceri.ro"
+          target="_blank"
+        >
+          <span>
+            scalamafaceri.ro
+          </span>
+        </a>
 
-    </p>
+      </p>
 
+    </div>
 
-    <p class="footer-copy">
-
-      Mașini verificate. Prețuri corecte.
-
-    </p>
-
-
-    <p class="footer-crafted">
-
-      Creat cu precizie de
-
-      <a
-        href="https://scalamafaceri.ro"
-        target="_blank"
-      >
-
-        <span>
-          scalamafaceri.ro
-        </span>
-
-      </a>
-
-    </p>
-
-  </div>
-
-</footer>
+  </footer>
 
 
-<!-- =========================================================
-     ORIGINAL SCRIPT
-     ========================================================= -->
+  <!-- =======================================================
+       SCRIPT
+       ======================================================= -->
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 
-<!-- =========================================================
-     LIGHTBOX SCRIPT
-     ========================================================= -->
+  <!-- =======================================================
+       LIGHTBOX JAVASCRIPT
+       ======================================================= -->
 
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
+  <script>
 
   /* =========================================================
-     ELEMENTE
+     FULLSCREEN GALLERY
      ========================================================= */
-
-  const galleryMain =
-    document.getElementById("galleryMain");
-
-  const galleryMainImg =
-    document.getElementById("galleryMainImg");
-
-  const galleryThumbs =
-    document.getElementById("galleryThumbs");
 
   const galleryZoom =
     document.getElementById("galleryZoom");
 
-  const galleryPrev =
-    document.getElementById("galleryPrev");
-
-  const galleryNext =
-    document.getElementById("galleryNext");
-
-  const galleryCounter =
-    document.getElementById("galleryCounter");
-
-
-  const lightbox =
+  const galleryLightbox =
     document.getElementById("galleryLightbox");
 
   const lightboxImg =
@@ -2603,104 +2183,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const lightboxCounter =
     document.getElementById("lightboxCounter");
 
+  const galleryMainImg =
+    document.getElementById("galleryMainImg");
+
 
   /* =========================================================
-     PREIA TOATE IMAGINILE DIN THUMBNAILS
+     GET CURRENT GALLERY STATE
      ========================================================= */
 
   function getGalleryImages() {
 
-    const thumbs =
-      Array.from(
-        galleryThumbs.querySelectorAll("img")
-      );
+    if (
+      typeof galleryImages !== "undefined" &&
+      Array.isArray(galleryImages)
+    ) {
+      return galleryImages;
+    }
 
-    return thumbs
-      .map(img => img.currentSrc || img.src)
-      .filter(src => src && src.trim() !== "");
+    return [];
 
   }
 
 
-  /* =========================================================
-     GĂSEȘTE INDEXUL IMAGINII ACTIVE
-     ========================================================= */
+  function getCurrentGalleryIndex() {
 
-  function getCurrentIndex() {
-
-    const images =
-      getGalleryImages();
-
-    if (!images.length) {
-      return 0;
+    if (
+      typeof currentGalleryIndex !== "undefined"
+    ) {
+      return currentGalleryIndex;
     }
-
-
-    const mainSrc =
-      galleryMainImg.currentSrc ||
-      galleryMainImg.src;
-
-
-    /*
-     Uneori browserul poate transforma URL-ul.
-     Comparăm URL-urile ca URL absolut.
-    */
-
-    const mainUrl =
-      new URL(
-        mainSrc,
-        window.location.href
-      ).href;
-
-
-    const index =
-      images.findIndex(src => {
-
-        try {
-
-          return new URL(
-            src,
-            window.location.href
-          ).href === mainUrl;
-
-        } catch {
-
-          return src === mainSrc;
-
-        }
-
-      });
-
-
-    if (index !== -1) {
-      return index;
-    }
-
-
-    /* fallback: thumbnail activ */
-
-    const activeThumb =
-      galleryThumbs.querySelector(
-        "img.active"
-      );
-
-
-    if (activeThumb) {
-
-      const thumbs =
-        Array.from(
-          galleryThumbs.querySelectorAll("img")
-        );
-
-      const activeIndex =
-        thumbs.indexOf(activeThumb);
-
-      if (activeIndex !== -1) {
-        return activeIndex;
-      }
-
-    }
-
 
     return 0;
 
@@ -2713,29 +2224,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateLightbox() {
 
-    const images =
-      getGalleryImages();
+    const images = getGalleryImages();
 
+    const index = getCurrentGalleryIndex();
 
-    if (!images.length) {
+    if (!images.length) return;
 
-      lightboxImg.removeAttribute("src");
-
-      lightboxCounter.textContent =
-        "0 / 0";
-
-      return;
-
-    }
-
-
-    const index =
-      getCurrentIndex();
-
-
-    lightboxImg.src =
-      images[index];
-
+    lightboxImg.src = images[index];
 
     lightboxCounter.textContent =
       `${index + 1} / ${images.length}`;
@@ -2744,38 +2239,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =========================================================
-     DESCHIDE LIGHTBOX
+     OPEN
      ========================================================= */
 
-  galleryZoom.addEventListener(
-    "click",
-    function () {
+  galleryZoom.addEventListener("click", () => {
 
-      updateLightbox();
+    updateLightbox();
 
-      lightbox.classList.add("open");
+    galleryLightbox.classList.add("open");
 
-      document.body.classList.add(
-        "lightbox-open"
-      );
+    document.body.classList.add("lightbox-open");
 
-    }
-  );
+  });
 
 
   /* =========================================================
-     ÎNCHIDE
+     CLOSE
      ========================================================= */
 
   function closeLightbox() {
 
-    lightbox.classList.remove(
-      "open"
-    );
+    galleryLightbox.classList.remove("open");
 
-    document.body.classList.remove(
-      "lightbox-open"
-    );
+    document.body.classList.remove("lightbox-open");
 
   }
 
@@ -2787,145 +2273,145 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =========================================================
-     CLICK PE FUNDAL
+     CLICK OUTSIDE
      ========================================================= */
 
-  lightbox.addEventListener(
-    "click",
-    function (event) {
+  galleryLightbox.addEventListener("click", (event) => {
 
-      if (
-        event.target === lightbox
-      ) {
+    if (
+      event.target === galleryLightbox
+    ) {
 
-        closeLightbox();
-
-      }
+      closeLightbox();
 
     }
-  );
+
+  });
 
 
   /* =========================================================
-     NEXT LIGHTBOX
+     ESC
      ========================================================= */
 
-  function goNext() {
+  document.addEventListener("keydown", (event) => {
 
-    const images =
-      getGalleryImages();
-
-
-    if (!images.length) {
+    if (
+      !galleryLightbox.classList.contains("open")
+    ) {
       return;
     }
 
+    if (event.key === "Escape") {
 
-    /*
-     Folosim butonul original al galeriei.
-     Asta înseamnă că NU duplicăm logica
-     din script.js.
-    */
+      closeLightbox();
 
-    galleryNext.click();
+    }
 
-
-    /*
-     Așteptăm ca script.js să schimbe
-     imaginea principală.
-    */
-
-    setTimeout(
-      updateLightbox,
-      30
-    );
-
-  }
+  });
 
 
   /* =========================================================
-     PREVIOUS LIGHTBOX
+     LIGHTBOX PREVIOUS
      ========================================================= */
 
-  function goPrevious() {
+  lightboxPrev.addEventListener("click", () => {
 
-    const images =
-      getGalleryImages();
+    const images = getGalleryImages();
+
+    if (!images.length) return;
+
+    if (
+      typeof currentGalleryIndex !== "undefined"
+    ) {
+
+      currentGalleryIndex--;
+
+      if (currentGalleryIndex < 0) {
+
+        currentGalleryIndex =
+          images.length - 1;
+
+      }
+
+      if (
+        typeof updateGallery === "function"
+      ) {
+
+        updateGallery();
+
+      }
+
+      updateLightbox();
+
+    }
+
+  });
 
 
-    if (!images.length) {
+  /* =========================================================
+     LIGHTBOX NEXT
+     ========================================================= */
+
+  lightboxNext.addEventListener("click", () => {
+
+    const images = getGalleryImages();
+
+    if (!images.length) return;
+
+    if (
+      typeof currentGalleryIndex !== "undefined"
+    ) {
+
+      currentGalleryIndex++;
+
+      if (
+        currentGalleryIndex >= images.length
+      ) {
+
+        currentGalleryIndex = 0;
+
+      }
+
+      if (
+        typeof updateGallery === "function"
+      ) {
+
+        updateGallery();
+
+      }
+
+      updateLightbox();
+
+    }
+
+  });
+
+
+  /* =========================================================
+     KEYBOARD ARROWS
+     ========================================================= */
+
+  document.addEventListener("keydown", (event) => {
+
+    if (
+      !galleryLightbox.classList.contains("open")
+    ) {
       return;
     }
 
+    if (event.key === "ArrowLeft") {
 
-    galleryPrev.click();
-
-
-    setTimeout(
-      updateLightbox,
-      30
-    );
-
-  }
-
-
-  lightboxNext.addEventListener(
-    "click",
-    goNext
-  );
-
-
-  lightboxPrev.addEventListener(
-    "click",
-    goPrevious
-  );
-
-
-  /* =========================================================
-     ESC + KEYBOARD
-     ========================================================= */
-
-  document.addEventListener(
-    "keydown",
-    function (event) {
-
-      if (
-        !lightbox.classList.contains("open")
-      ) {
-        return;
-      }
-
-
-      if (
-        event.key === "Escape"
-      ) {
-
-        closeLightbox();
-
-        return;
-
-      }
-
-
-      if (
-        event.key === "ArrowRight"
-      ) {
-
-        goNext();
-
-      }
-
-
-      if (
-        event.key === "ArrowLeft"
-      ) {
-
-        goPrevious();
-
-      }
+      lightboxPrev.click();
 
     }
-  );
+
+    if (event.key === "ArrowRight") {
+
+      lightboxNext.click();
+
+    }
+
+  });
 
 
   /* =========================================================
@@ -2933,215 +2419,54 @@ document.addEventListener("DOMContentLoaded", function () {
      ========================================================= */
 
   let touchStartX = 0;
-  let touchStartY = 0;
+  let touchEndX = 0;
 
 
-  lightbox.addEventListener(
+  galleryLightbox.addEventListener(
     "touchstart",
-    function (event) {
-
-      if (
-        !event.changedTouches.length
-      ) {
-        return;
-      }
-
+    (event) => {
 
       touchStartX =
         event.changedTouches[0].screenX;
 
-      touchStartY =
-        event.changedTouches[0].screenY;
-
     },
-    {
-      passive: true
-    }
+    { passive: true }
   );
 
 
-  lightbox.addEventListener(
+  galleryLightbox.addEventListener(
     "touchend",
-    function (event) {
+    (event) => {
 
-      if (
-        !event.changedTouches.length
-      ) {
-        return;
-      }
-
-
-      const touchEndX =
+      touchEndX =
         event.changedTouches[0].screenX;
 
-      const touchEndY =
-        event.changedTouches[0].screenY;
-
-
-      const diffX =
+      const difference =
         touchStartX - touchEndX;
 
-      const diffY =
-        touchStartY - touchEndY;
 
+      /* Swipe left = next */
 
-      /*
-       Trebuie să fie swipe orizontal,
-       nu scroll vertical.
-      */
+      if (difference > 50) {
 
-      if (
-        Math.abs(diffX) < 50 ||
-        Math.abs(diffX) < Math.abs(diffY)
-      ) {
-        return;
+        lightboxNext.click();
+
       }
 
 
-      if (diffX > 0) {
+      /* Swipe right = previous */
 
-        goNext();
+      if (difference < -50) {
 
-      } else {
-
-        goPrevious();
+        lightboxPrev.click();
 
       }
 
     },
-    {
-      passive: true
-    }
+    { passive: true }
   );
 
-
-  /* =========================================================
-     CÂND SE SCHIMBĂ THUMBNAILURILE
-     ========================================================= */
-
-  const observer =
-    new MutationObserver(
-      function () {
-
-        /*
-         Nu facem nimic dacă lightbox-ul
-         nu este deschis.
-        */
-
-        if (
-          !lightbox.classList.contains("open")
-        ) {
-          return;
-        }
-
-
-        updateLightbox();
-
-      }
-    );
-
-
-  observer.observe(
-    galleryThumbs,
-    {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: [
-        "src",
-        "class"
-      ]
-    }
-  );
-
-
-  /* =========================================================
-     CÂND SE SCHIMBĂ IMAGINEA PRINCIPALĂ
-     ========================================================= */
-
-  const mainImageObserver =
-    new MutationObserver(
-      function () {
-
-        if (
-          !lightbox.classList.contains("open")
-        ) {
-          return;
-        }
-
-
-        updateLightbox();
-
-      }
-    );
-
-
-  mainImageObserver.observe(
-    galleryMainImg,
-    {
-      attributes: true,
-      attributeFilter: [
-        "src"
-      ]
-    }
-  );
-
-
-  /* =========================================================
-     THUMBNAIL CLICK
-     ========================================================= */
-
-  galleryThumbs.addEventListener(
-    "click",
-    function (event) {
-
-      const thumb =
-        event.target.closest("img");
-
-
-      if (!thumb) {
-        return;
-      }
-
-
-      /*
-       După ce script.js schimbă
-       imaginea principală, actualizăm
-       lightbox-ul.
-      */
-
-      setTimeout(
-        function () {
-
-          if (
-            lightbox.classList.contains("open")
-          ) {
-
-            updateLightbox();
-
-          }
-
-        },
-        30
-      );
-
-    }
-  );
-
-
-  /* =========================================================
-     CLICK PE IMAGINEA PRINCIPALĂ
-     OPȚIONAL - NU DESCHIDE AUTOMAT LIGHTBOX
-     ========================================================= */
-
-  galleryMainImg.style.cursor =
-    "default";
-
-
-});
-
-</script>
-
+  </script>
 
 </body>
 </html>
