@@ -101,9 +101,9 @@ images: [
   "cars/ds4-2023/ds41png.png"
 ],
 
-  videoId: "",
+  videoId: "https://www.youtube.com/watch?v=XYhYh_6vZeo",
 
-  description: "#"
+  description: "DS 4 E-TENSE 225 Performance Line+ din 2023, cu 84.500 km, propulsie plug-in hybrid de 225 CP și cutie automată. Un model premium cu design distinctiv, interior rafinat și un nivel bogat de dotări, completat de faruri Full LED, Head-Up Display, Alcantara, cameră de marșarier, Keyless Go și jante de 19"."
 },
   {
     id: 2,
