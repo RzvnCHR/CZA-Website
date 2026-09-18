@@ -849,16 +849,14 @@ function initCarVideo(videoId, carName) {
 // ===== GALLERY ================================================
 // ============================================================
 //
-// FIX: currentIndex / images used to live only inside this
-// function's closure, so the lightbox script in car.html (which
-// looked for global `galleryImages` / `currentGalleryIndex`
-// variables) never found real data — hence "1 / 4" no matter how
-// many photos the car actually had, and no images in fullscreen.
+// Starea galeriei (lista de imagini, indexul curent) + un
+// control `goTo` sunt publicate pe `window.carGallery`, ca
+// orice alt script (lightbox-ul inclus) să poată citi exact
+// ce e pe ecran și să navigheze galeria — pentru 4 poze sau 40.
 //
-// Now the gallery state + a `goTo` control are published on
-// `window.carGallery`, so ANY other script (lightbox included)
-// can read the live image list / current index and drive the
-// gallery, no matter how many photos there are.
+// În plus, gestionăm aici clasa `.at-end` / `.no-scroll` de pe
+// `.gallery-thumbs-wrap`, care controlează fade-ul din dreapta
+// benzii de thumbnail-uri.
 // ============================================================
 
 function initGallery(images, carName) {
@@ -878,6 +876,9 @@ function initGallery(images, carName) {
 
   const thumbsContainer =
     document.getElementById('galleryThumbs');
+
+  const thumbsWrap =
+    document.getElementById('galleryThumbsWrap');
 
   const prevBtn =
     document.getElementById('galleryPrev');
@@ -938,6 +939,65 @@ function initGallery(images, carName) {
 
 
   updateCounter();
+
+
+  // ==========================================================
+  // FADE DREAPTA LA THUMBNAILS
+  // ==========================================================
+  //
+  // Dacă banda se poate derula și nu suntem la capăt, se vede
+  // gradientul din dreapta => semn că mai există imagini.
+
+  function updateThumbsFade() {
+
+    if (!thumbsWrap) return;
+
+    const maxScroll =
+      thumbsContainer.scrollWidth -
+      thumbsContainer.clientWidth;
+
+
+    /* nu e nimic de derulat */
+
+    if (maxScroll <= 4) {
+
+      thumbsWrap.classList.add('no-scroll');
+      thumbsWrap.classList.remove('at-end');
+
+      return;
+    }
+
+    thumbsWrap.classList.remove('no-scroll');
+
+
+    const atEnd =
+      thumbsContainer.scrollLeft >= (maxScroll - 4);
+
+
+    thumbsWrap.classList.toggle('at-end', atEnd);
+  }
+
+
+  thumbsContainer.addEventListener(
+    'scroll',
+    updateThumbsFade,
+    { passive: true }
+  );
+
+
+  window.addEventListener(
+    'resize',
+    updateThumbsFade
+  );
+
+
+  /* după ce se așază layout-ul / se încarcă pozele */
+
+  updateThumbsFade();
+
+  setTimeout(updateThumbsFade, 120);
+
+  window.addEventListener('load', updateThumbsFade);
 
 
   // ==========================================================
@@ -1015,6 +1075,9 @@ function initGallery(images, carName) {
         }
 
       });
+
+
+    setTimeout(updateThumbsFade, 350);
   }
 
 
@@ -1144,11 +1207,6 @@ function initGallery(images, carName) {
   // ==========================================================
   // PUBLISH STATE FOR THE LIGHTBOX (window.carGallery)
   // ==========================================================
-  //
-  // This is what actually fixes the "1 / 4" / no-images bug:
-  // any other script can now ask for the live image list, the
-  // live current index, or navigate the gallery, and it will
-  // always match what's really on screen — for 4 photos or 40.
 
   window.carGallery = {
     getImages: () => images,
