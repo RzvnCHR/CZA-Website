@@ -8,13 +8,13 @@
 const CARS = [
  {
   id: 1,
-  name: "DS 7 E-TENSE 225 Performance Line",
-  price: "24.900 €",
-  priceValue: 24900,
+  name: "DS 4 E-TENSE 225 Performance Line+",
+  price: "21.990 €",
+  priceValue: 21990,
 
   year: 2023,
   firstRegistration: "29/11/2022",
-  km: "78.000 km",
+  km: "84.500 km",
 
   fuel: "Plug-in Hybrid",
   engine: "1.6L benzină + electric",
