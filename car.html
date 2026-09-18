@@ -14,6 +14,262 @@
 
   <style>
 
+    /* =========================================================
+   PAYMENTS + DISCLAIMER
+   ========================================================= */
+
+.purchase-section,
+.terms-section,
+.disclaimer-section {
+  margin-top: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.purchase-section h3,
+.terms-section h3,
+.disclaimer-section h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.purchase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.purchase-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.purchase-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-3px);
+}
+
+.purchase-card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(212,175,55,0.12);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.purchase-card-icon svg {
+  width: 17px;
+  height: 17px;
+  color: var(--primary);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.purchase-card-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 0.45rem;
+}
+
+.purchase-card-sub {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+}
+
+.purchase-card-sub strong {
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+/* banda cu avantaje */
+
+.purchase-highlight {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.5rem;
+  margin-top: 1rem;
+  background: rgba(212,175,55,0.08);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.1rem;
+}
+
+.purchase-highlight span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.purchase-highlight span::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   CONDIȚII COMERCIALE
+   ========================================================= */
+
+.terms-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem 1.5rem;
+}
+
+.terms-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--muted-light);
+  overflow-wrap: anywhere;
+}
+
+.terms-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.terms-list li strong {
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+.disclaimer-section {
+  background: var(--bg-tertiary);
+}
+
+.disclaimer-section p {
+  font-size: 0.83rem;
+  line-height: 1.75;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .purchase-section,
+  .terms-section,
+  .disclaimer-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 18px !important;
+    margin-top: 0 !important;
+  }
+
+  /* ordinea în layout-ul mobil (după .video-section = 5) */
+  .purchase-section { order: 6 !important; }
+  .terms-section    { order: 7 !important; }
+  .disclaimer-section { order: 8 !important; }
+
+  .contact-card { order: 9 !important; }
+  .program-card { order: 10 !important; }
+
+  .purchase-section h3,
+  .terms-section h3,
+  .disclaimer-section h3 {
+    font-size: 1.05rem !important;
+    margin-bottom: 12px !important;
+  }
+
+  .purchase-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .purchase-highlight {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .terms-list {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .terms-list li {
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .disclaimer-section p {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .purchase-section,
+  .terms-section,
+  .disclaimer-section {
+    padding: 15px !important;
+  }
+
+  .purchase-card-title {
+    font-size: 1rem !important;
+  }
+
+  .terms-list li {
+    font-size: 0.82rem !important;
+  }
+}
+
   /* =========================================================
      DOTĂRI
      ========================================================= */
@@ -1615,7 +1871,177 @@
 
           </div>
 
+<!-- =================================================
+               PAYMENTS + DISCLAIMER
+               ================================================= -->
 
+
+          <!-- =================================================
+     ACHIZIȚIE FLEXIBILĂ
+     ================================================= -->
+
+<div class="purchase-section">
+
+  <h3>Achiziție flexibilă</h3>
+
+  <div class="purchase-grid">
+
+    <div class="purchase-card">
+
+      <div class="purchase-card-icon">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="5" width="20" height="14" rx="2"/>
+          <line x1="2" y1="10" x2="22" y2="10"/>
+        </svg>
+      </div>
+
+      <div class="purchase-card-title">
+        Credit auto
+      </div>
+
+      <div class="purchase-card-sub">
+        Prin partenerul <strong>TBI Bank</strong>
+      </div>
+
+    </div>
+
+    <div class="purchase-card">
+
+      <div class="purchase-card-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 21h18"/>
+          <path d="M5 21V9l7-5 7 5v12"/>
+          <path d="M10 21v-6h4v6"/>
+        </svg>
+      </div>
+
+      <div class="purchase-card-title">
+        Leasing financiar
+      </div>
+
+      <div class="purchase-card-sub">
+        Prin partenerii: <strong>BT Leasing, BCR Leasing,
+        Raiffeisen Leasing, UniCredit</strong>
+      </div>
+
+    </div>
+
+    <div class="purchase-card">
+
+      <div class="purchase-card-icon">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 7v10"/>
+          <path d="M15 9.5a3 3 0 0 0-3-1.5c-1.7 0-3 .9-3 2.2 0 2.9 6 1.6 6 4.3 0 1.3-1.3 2.2-3 2.2a3 3 0 0 1-3-1.5"/>
+        </svg>
+      </div>
+
+      <div class="purchase-card-title">
+        Plată cash
+      </div>
+
+      <div class="purchase-card-sub">
+        Direct la sediu, cu <strong>factură</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="purchase-highlight">
+    <span>Rate avantajoase</span>
+    <span>Cu sau fără avans!</span>
+  </div>
+
+</div>
+
+
+<!-- =================================================
+     CONDIȚII COMERCIALE
+     ================================================= -->
+
+<div class="terms-section">
+
+  <h3>Condiții comerciale</h3>
+
+  <ul class="terms-list">
+
+    <li>
+      Se emite factură, prețul conține <strong>TVA deductibil</strong>.
+    </li>
+
+    <li>
+      Prețurile sunt exprimate în <strong>EURO</strong>, cu titlu orientativ.
+      Facturarea se va efectua în <strong>LEI</strong>, la cursul de vânzare
+      al Băncii Transilvania valabil în ziua emiterii facturii. Plata se va
+      realiza în moneda națională (LEU), în conformitate cu prevederile
+      legale în vigoare.
+    </li>
+
+    <li>
+      Se emite <strong>certificat fiscal cu serie de caroserie</strong>
+      pentru autoturismul vândut.
+    </li>
+
+    <li>
+      <strong>Garanție 12 luni</strong>, în limita a 20.000 km, pentru
+      persoane fizice și persoane juridice / firme — pentru motor și cutie,
+      cu posibilitatea de extindere până la 3 ani.
+    </li>
+
+    <li>
+      Numere provizorii pentru <strong>30 de zile</strong> (contra cost).
+    </li>
+
+    <li>
+      Posibilitate de <strong>livrare în toată țara</strong> prin
+      colaboratorii noștri (contra cost).
+    </li>
+
+    <li>
+      Servicii complete de <strong>logistică</strong>
+      (omologare, numere provizorii).
+    </li>
+
+    <li>
+      <strong>Asistență RAR</strong> și furnizarea documentelor necesare
+      înmatriculării.
+    </li>
+
+    <li>
+      <strong>Consultanță permanentă</strong>.
+    </li>
+
+  </ul>
+
+</div>
+
+
+<!-- =================================================
+     DISCLAIMER
+     ================================================= -->
+
+<div class="disclaimer-section">
+
+  <h3>Disclaimer</h3>
+
+  <p>
+    Informațiile despre autovehicule și serviciile oferite de
+    CZA Automobile au caracter informativ; totodată, pot exista greșeli
+    de natură umană (ortografice și/sau date eronate: nivel de echipare,
+    detalii tehnice, dotări etc.). Astfel, pentru informații exacte sau
+    detalii suplimentare ne puteți contacta telefonic.
+  </p>
+
+</div>
+
+
+
+
+
+
+
+          
           <!-- =================================================
                CONTACT
                ================================================= -->
