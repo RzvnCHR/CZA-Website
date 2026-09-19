@@ -1841,6 +1841,12 @@ ul {
   transform: scaleX(1);
 }
 
+@media (max-width: 768px) {
+  .hero-video-wrap {
+    background-position: right center;
+  }
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
