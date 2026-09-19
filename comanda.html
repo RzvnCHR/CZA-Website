@@ -363,213 +363,459 @@
   <section class="order-wrap">
     <div class="order-grid">
 
-      <form id="orderForm" novalidate>
+    <form id="orderForm"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      novalidate>
 
-        <!-- STEP 1 -->
-        <div class="order-step">
-          <div class="order-step-head">
-            <span class="order-step-num">1</span>
-            <span class="order-step-title">Ce mașină te interesează?</span>
-          </div>
+  <!-- =========================================================
+       WEB3FORMS
+       ========================================================= -->
 
-          <div class="order-fields">
+  <input type="hidden"
+         name="access_key"
+         value="054e21fd-8fbe-447e-943f-a3ce4ac01195">
 
-            <div class="order-field">
-              <label for="brand">Marcă</label>
-              <select id="brand" name="brand" required>
-                <option value="" selected disabled>Selectează o opțiune</option>
-                <option>Abarth</option>
-                <option>Alfa Romeo</option>
-                <option>Aston Martin</option>
-                <option>Audi</option>
-                <option>Bentley</option>
-                <option>BMW</option>
-                <option>BYD</option>
-                <option>Chevrolet</option>
-                <option>Cupra</option>
-                <option>Dacia</option>
-                <option>Dodge</option>
-                <option>Ferrari</option>
-                <option>Ford</option>
-                <option>Honda</option>
-                <option>Hyundai</option>
-                <option>Jaguar</option>
-                <option>Jeep</option>
-                <option>Kia</option>
-                <option>Lamborghini</option>
-                <option>Land Rover</option>
-                <option>Lexus</option>
-                <option>Maserati</option>
-                <option>Mazda</option>
-                <option>Mercedes-Benz</option>
-                <option>MG</option>
-                <option>Mitsubishi</option>
-                <option>Nissan</option>
-                <option>Opel</option>
-                <option>Peugeot</option>
-                <option>Porsche</option>
-                <option>Renault</option>
-                <option>Seat</option>
-                <option>Skoda</option>
-                <option>Tesla</option>
-                <option>Toyota</option>
-                <option>Volkswagen</option>
-                <option>Volvo</option>
-              </select>
-            </div>
+  <input type="hidden"
+         name="subject"
+         value="Cerere auto nouă - Scalam Afaceri">
 
-            <div class="order-field">
-              <label for="model">Model <span class="opt">(dacă știi deja)</span></label>
-              <input type="text" id="model" name="model" placeholder="ex. Seria 3, Golf, Octavia...">
-            </div>
+  <input type="hidden"
+         name="from_name"
+         value="Scalam Afaceri Website">
 
-            <div class="order-field">
-              <label for="firstReg">Prima înmatriculare</label>
-              <select id="firstReg" name="firstReg" required>
-                <option value="" selected disabled>Selectează o opțiune</option>
-                <option>2010</option>
-                <option>2011</option>
-                <option>2012</option>
-                <option>2013</option>
-                <option>2014</option>
-                <option>2015</option>
-                <option>2016</option>
-                <option>2017</option>
-                <option>2018</option>
-                <option>2019</option>
-                <option>2020</option>
-                <option>2021</option>
-                <option>2022</option>
-                <option>2023</option>
-                <option>2024</option>
-                <option>2025</option>
-                <option>2026</option>
-              </select>
-            </div>
+  <!-- Email-ul clientului pentru Reply -->
+  <input type="hidden"
+         name="replyto"
+         id="web3ReplyTo">
 
-            <div class="order-field">
-              <label for="maxPrice">Preț maxim</label>
-              <select id="maxPrice" name="maxPrice" required>
-                <option value="" selected disabled>Selectează o opțiune</option>
-                <option>10.000 €</option>
-                <option>15.000 €</option>
-                <option>20.000 €</option>
-                <option>30.000 €</option>
-                <option>40.000 €</option>
-                <option>50.000 €</option>
-                <option>70.000 €</option>
-                <option>100.000 €</option>
-                <option>150.000 €</option>
-                <option>200.000 €</option>
-              </select>
-            </div>
+  <!-- Mesajul complet care va fi trimis -->
+  <input type="hidden"
+         name="message"
+         id="web3Message">
 
-            <div class="order-field">
-              <label for="maxKm">Kilometraj maxim</label>
-              <select id="maxKm" name="maxKm" required>
-                <option value="" selected disabled>Selectează o opțiune</option>
-                <option>10.000 km</option>
-                <option>15.000 km</option>
-                <option>20.000 km</option>
-                <option>30.000 km</option>
-                <option>50.000 km</option>
-                <option>75.000 km</option>
-                <option>100.000 km</option>
-                <option>150.000 km</option>
-                <option>200.000 km</option>
-                <option>250.000 km</option>
-                <option>300.000 km</option>
-              </select>
-            </div>
 
-            <div class="order-field">
-              <label for="fuel">Combustibil</label>
-              <select id="fuel" name="fuel" required>
-                <option value="" selected disabled>Selectează o opțiune</option>
-                <option>Diesel</option>
-                <option>Benzină</option>
-                <option>Hibrid (Benzină/Electric)</option>
-                <option>Hibrid (Diesel/Electric)</option>
-                <option>Plug-In Hibrid</option>
-                <option>Electric</option>
-              </select>
-            </div>
+  <!-- =========================================================
+       STEP 1
+       ========================================================= -->
 
-            <div class="order-field full">
-              <label for="extraInfo">Informații suplimentare <span class="opt">(dotări, culoare, particularități etc.)</span></label>
-              <textarea id="extraInfo" name="extraInfo" placeholder="Ex: cutie automată, trapă, scaune piele, culoare închisă..."></textarea>
-            </div>
+  <div class="order-step">
 
-          </div>
-        </div>
+    <div class="order-step-head">
+      <span class="order-step-num">1</span>
+      <span class="order-step-title">Ce mașină te interesează?</span>
+    </div>
 
-        <!-- STEP 2 -->
-        <div class="order-step">
-          <div class="order-step-head">
-            <span class="order-step-num">2</span>
-            <span class="order-step-title">Modalitate de achiziție</span>
-          </div>
 
-          <div class="order-fields">
+    <div class="order-fields">
 
-            <div class="order-field">
-              <label for="buyerType">Achiziție pe</label>
-              <select id="buyerType" name="buyerType" required>
-                <option value="" selected disabled>Selectează o opțiune</option>
-                <option>Persoană juridică</option>
-                <option>Persoană fizică</option>
-              </select>
-            </div>
+      <!-- MARCĂ -->
 
-            <div class="order-field">
-              <label for="paymentType">Plată</label>
-              <select id="paymentType" name="paymentType" required>
-                <option value="" selected disabled>Selectează tipul de achiziție</option>
-                <option>Cash</option>
-                <option>Leasing</option>
-                <option>Credit bancar</option>
-              </select>
-            </div>
+      <div class="order-field">
 
-          </div>
-        </div>
+        <label for="brand">Marcă</label>
 
-        <!-- STEP 3 -->
-        <div class="order-step">
-          <div class="order-step-head">
-            <span class="order-step-num">3</span>
-            <span class="order-step-title">Datele tale de contact</span>
-          </div>
+        <select id="brand" name="brand" required>
 
-          <div class="order-fields">
+          <option value="" selected disabled>
+            Selectează o opțiune
+          </option>
 
-            <div class="order-field full">
-              <label for="fullName">Nume și prenume</label>
-              <input type="text" id="fullName" name="fullName" placeholder="Nume și prenume" required>
-            </div>
+          <option>Abarth</option>
+          <option>Alfa Romeo</option>
+          <option>Aston Martin</option>
+          <option>Audi</option>
+          <option>Bentley</option>
+          <option>BMW</option>
+          <option>BYD</option>
+          <option>Chevrolet</option>
+          <option>Cupra</option>
+          <option>Dacia</option>
+          <option>Dodge</option>
+          <option>Ferrari</option>
+          <option>Ford</option>
+          <option>Honda</option>
+          <option>Hyundai</option>
+          <option>Jaguar</option>
+          <option>Jeep</option>
+          <option>Kia</option>
+          <option>Lamborghini</option>
+          <option>Land Rover</option>
+          <option>Lexus</option>
+          <option>Maserati</option>
+          <option>Mazda</option>
+          <option>Mercedes-Benz</option>
+          <option>MG</option>
+          <option>Mitsubishi</option>
+          <option>Nissan</option>
+          <option>Opel</option>
+          <option>Peugeot</option>
+          <option>Porsche</option>
+          <option>Renault</option>
+          <option>Seat</option>
+          <option>Skoda</option>
+          <option>Tesla</option>
+          <option>Toyota</option>
+          <option>Volkswagen</option>
+          <option>Volvo</option>
 
-            <div class="order-field">
-              <label for="email">Adresă email</label>
-              <input type="email" id="email" name="email" placeholder="nume@exemplu.ro" required>
-            </div>
+        </select>
 
-            <div class="order-field">
-              <label for="phone">Telefon</label>
-              <input type="tel" id="phone" name="phone" placeholder="07XX XXX XXX" required>
-            </div>
+      </div>
 
-          </div>
 
-          <div class="order-submit-row">
-            <p class="order-submit-note">
-              Trimițând formularul, ești de acord să te contactăm telefonic sau prin email cu privire la cererea ta.
-            </p>
-            <button type="submit" class="btn btn-gold">Trimite cererea</button>
-          </div>
-        </div>
+      <!-- MODEL -->
 
-      </form>
+      <div class="order-field">
 
+        <label for="model">
+          Model
+          <span class="opt">(dacă știi deja)</span>
+        </label>
+
+        <input
+          type="text"
+          id="model"
+          name="model"
+          placeholder="ex. Seria 3, Golf, Octavia..."
+        >
+
+      </div>
+
+
+      <!-- PRIMA ÎNMATRICULARE -->
+
+      <div class="order-field">
+
+        <label for="firstReg">
+          Prima înmatriculare
+        </label>
+
+        <select id="firstReg" name="firstReg" required>
+
+          <option value="" selected disabled>
+            Selectează o opțiune
+          </option>
+
+          <option>2010</option>
+          <option>2011</option>
+          <option>2012</option>
+          <option>2013</option>
+          <option>2014</option>
+          <option>2015</option>
+          <option>2016</option>
+          <option>2017</option>
+          <option>2018</option>
+          <option>2019</option>
+          <option>2020</option>
+          <option>2021</option>
+          <option>2022</option>
+          <option>2023</option>
+          <option>2024</option>
+          <option>2025</option>
+          <option>2026</option>
+
+        </select>
+
+      </div>
+
+
+      <!-- PREȚ MAXIM -->
+
+      <div class="order-field">
+
+        <label for="maxPrice">
+          Preț maxim
+        </label>
+
+        <select id="maxPrice" name="maxPrice" required>
+
+          <option value="" selected disabled>
+            Selectează o opțiune
+          </option>
+
+          <option>10.000 €</option>
+          <option>15.000 €</option>
+          <option>20.000 €</option>
+          <option>30.000 €</option>
+          <option>40.000 €</option>
+          <option>50.000 €</option>
+          <option>70.000 €</option>
+          <option>100.000 €</option>
+          <option>150.000 €</option>
+          <option>200.000 €</option>
+
+        </select>
+
+      </div>
+
+
+      <!-- KILOMETRAJ -->
+
+      <div class="order-field">
+
+        <label for="maxKm">
+          Kilometraj maxim
+        </label>
+
+        <select id="maxKm" name="maxKm" required>
+
+          <option value="" selected disabled>
+            Selectează o opțiune
+          </option>
+
+          <option>10.000 km</option>
+          <option>15.000 km</option>
+          <option>20.000 km</option>
+          <option>30.000 km</option>
+          <option>50.000 km</option>
+          <option>75.000 km</option>
+          <option>100.000 km</option>
+          <option>150.000 km</option>
+          <option>200.000 km</option>
+          <option>250.000 km</option>
+          <option>300.000 km</option>
+
+        </select>
+
+      </div>
+
+
+      <!-- COMBUSTIBIL -->
+
+      <div class="order-field">
+
+        <label for="fuel">
+          Combustibil
+        </label>
+
+        <select id="fuel" name="fuel" required>
+
+          <option value="" selected disabled>
+            Selectează o opțiune
+          </option>
+
+          <option>Diesel</option>
+          <option>Benzină</option>
+          <option>Hibrid (Benzină/Electric)</option>
+          <option>Hibrid (Diesel/Electric)</option>
+          <option>Plug-In Hibrid</option>
+          <option>Electric</option>
+
+        </select>
+
+      </div>
+
+
+      <!-- INFORMAȚII SUPLIMENTARE -->
+
+      <div class="order-field full">
+
+        <label for="extraInfo">
+
+          Informații suplimentare
+
+          <span class="opt">
+            (dotări, culoare, particularități etc.)
+          </span>
+
+        </label>
+
+        <textarea
+          id="extraInfo"
+          name="extraInfo"
+          placeholder="Ex: cutie automată, trapă, scaune piele, culoare închisă..."
+        ></textarea>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================================================
+       STEP 2
+       ========================================================= -->
+
+  <div class="order-step">
+
+    <div class="order-step-head">
+
+      <span class="order-step-num">2</span>
+
+      <span class="order-step-title">
+        Modalitate de achiziție
+      </span>
+
+    </div>
+
+
+    <div class="order-fields">
+
+
+      <!-- PERSOANĂ FIZICĂ / JURIDICĂ -->
+
+      <div class="order-field">
+
+        <label for="buyerType">
+          Achiziție pe
+        </label>
+
+        <select
+          id="buyerType"
+          name="buyerType"
+          required
+        >
+
+          <option value="" selected disabled>
+            Selectează o opțiune
+          </option>
+
+          <option>Persoană juridică</option>
+          <option>Persoană fizică</option>
+
+        </select>
+
+      </div>
+
+
+      <!-- MODALITATE PLATĂ -->
+
+      <div class="order-field">
+
+        <label for="paymentType">
+          Plată
+        </label>
+
+        <select
+          id="paymentType"
+          name="paymentType"
+          required
+        >
+
+          <option value="" selected disabled>
+            Selectează tipul de achiziție
+          </option>
+
+          <option>Cash</option>
+          <option>Leasing</option>
+          <option>Credit bancar</option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================================================
+       STEP 3
+       ========================================================= -->
+
+  <div class="order-step">
+
+    <div class="order-step-head">
+
+      <span class="order-step-num">3</span>
+
+      <span class="order-step-title">
+        Datele tale de contact
+      </span>
+
+    </div>
+
+
+    <div class="order-fields">
+
+
+      <!-- NUME -->
+
+      <div class="order-field full">
+
+        <label for="fullName">
+          Nume și prenume
+        </label>
+
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          placeholder="Nume și prenume"
+          required
+        >
+
+      </div>
+
+
+      <!-- EMAIL -->
+
+      <div class="order-field">
+
+        <label for="email">
+          Adresă email
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="nume@exemplu.ro"
+          required
+        >
+
+      </div>
+
+
+      <!-- TELEFON -->
+
+      <div class="order-field">
+
+        <label for="phone">
+          Telefon
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="07XX XXX XXX"
+          required
+        >
+
+      </div>
+
+
+    </div>
+
+
+    <!-- SUBMIT -->
+
+    <div class="order-submit-row">
+
+      <p class="order-submit-note">
+
+        Trimițând formularul, ești de acord să te contactăm
+        telefonic sau prin email cu privire la cererea ta.
+
+      </p>
+
+      <button
+        type="submit"
+        class="btn btn-gold"
+      >
+        Trimite cererea
+      </button>
+
+    </div>
+
+  </div>
+
+</form>
       <div class="order-success" id="orderSuccess">
         <div class="order-success-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
@@ -816,6 +1062,146 @@
     <path d="M12 19V5M6 11l6-6 6 6"/>
   </svg>
 </button>
+
+<!-- =========================================================
+     WEB3FORMS JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+document
+  .getElementById("orderForm")
+  .addEventListener("submit", function (event) {
+
+    const form = this;
+
+
+    /*
+     * Verificăm câmpurile required.
+     * Dacă ceva este incomplet, nu trimitem formularul.
+     */
+
+    if (!form.checkValidity()) {
+
+      event.preventDefault();
+
+      form.reportValidity();
+
+      return;
+
+    }
+
+
+    /*
+     * Email client
+     *
+     * Web3Forms îl va folosi pentru Reply.
+     */
+
+    document.getElementById("web3ReplyTo").value =
+      document.getElementById("email").value;
+
+
+    /*
+     * Preluăm toate valorile.
+     */
+
+    const brand =
+      document.getElementById("brand").value;
+
+    const model =
+      document.getElementById("model").value || "Nespecificat";
+
+    const firstReg =
+      document.getElementById("firstReg").value;
+
+    const maxPrice =
+      document.getElementById("maxPrice").value;
+
+    const maxKm =
+      document.getElementById("maxKm").value;
+
+    const fuel =
+      document.getElementById("fuel").value;
+
+    const extraInfo =
+      document.getElementById("extraInfo").value || "Nespecificat";
+
+    const buyerType =
+      document.getElementById("buyerType").value;
+
+    const paymentType =
+      document.getElementById("paymentType").value;
+
+    const fullName =
+      document.getElementById("fullName").value;
+
+    const email =
+      document.getElementById("email").value;
+
+    const phone =
+      document.getElementById("phone").value;
+
+
+    /*
+     * Construim emailul.
+     */
+
+    const message =
+
+`CERERE AUTO NOUĂ
+==============================
+
+MAȘINA DORITĂ
+------------------------------
+Marcă: ${brand}
+Model: ${model}
+Prima înmatriculare: ${firstReg}
+Preț maxim: ${maxPrice}
+Kilometraj maxim: ${maxKm}
+Combustibil: ${fuel}
+
+Informații suplimentare:
+${extraInfo}
+
+
+MODALITATE ACHIZIȚIE
+------------------------------
+Achiziție pe: ${buyerType}
+Plată: ${paymentType}
+
+
+DATE CLIENT
+------------------------------
+Nume și prenume: ${fullName}
+Email: ${email}
+Telefon: ${phone}
+
+
+==============================
+Cerere trimisă de pe site-ul Scalam Afaceri.
+`;
+
+
+    /*
+     * Punem mesajul în hidden input.
+     * Acesta va fi trimis către Web3Forms.
+     */
+
+    document.getElementById("web3Message").value =
+      message;
+
+
+    /*
+     * Nu folosim preventDefault().
+     *
+     * Formularul este lăsat să se trimită
+     * normal către Web3Forms.
+     */
+
+});
+
+</script>
   
 </body>
 </html>
