@@ -50,6 +50,19 @@
   </div>
 </div>
   <style>
+
+.navbar {
+  transition: transform 0.3s ease !important;
+  will-change: transform !important;
+}
+
+.navbar.nav-hidden {
+  transform: translateY(-100%) !important;
+}
+
+
+    
+    
 /* =========================================================
    TOP MARQUEE
 ========================================================= */
@@ -650,7 +663,28 @@ section[id] {
     <path d="M12 19V5M6 11l6-6 6 6"/>
   </svg>
 </button>
-  
+
+  <script>
+(function () {
+  let lastScroll = 0;
+  const navbar = document.getElementById('navbar');
+  const threshold = 10; // px minim de scroll ca sa reactioneze
+
+  window.addEventListener('scroll', function () {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (Math.abs(currentScroll - lastScroll) < threshold) return;
+
+    if (currentScroll > lastScroll && currentScroll > navbar.offsetHeight) {
+      navbar.classList.add('nav-hidden');
+    } else {
+      navbar.classList.remove('nav-hidden');
+    }
+
+    lastScroll = currentScroll;
+  }, { passive: true });
+})();
+</script>
   
 </body>
 </html>
