@@ -25,6 +25,18 @@
       --shadow-red: 0 4px 24px rgba(212,175,55,0.22);
     }
 
+
+.order-success { display: none; }
+.order-success.is-visible { display: block; }
+.order-error {
+  margin-top: 1rem;
+  color: #c0392b;
+  font-size: .9rem;
+}
+#orderForm.is-hidden { display: none; }
+    
+
+    
     .order-hero {
       padding: calc(var(--nav-h) + 3.5rem) 5% 3rem;
       background:
@@ -382,7 +394,9 @@
       <input type="hidden"
              name="from_name"
              value="CZA Automobile">
-
+      
+<input type="checkbox" name="botcheck" class="hidden" style="display:none">
+<input type="hidden" name="replyto" value="email">
       <!-- =========================================================
            STEP 1
            ========================================================= -->
@@ -1032,7 +1046,54 @@
   </svg>
 </button>
 
+<script>
+(function () {
+  const form    = document.getElementById('orderForm');
+  const success = document.getElementById('orderSuccess');
+  const btn     = form.querySelector('button[type="submit"]');
+  const btnText = btn.textContent;
 
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    btn.disabled = true;
+    btn.textContent = 'Se trimite...';
+
+    const oldError = form.querySelector('.order-error');
+    if (oldError) oldError.remove();
+
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        form.classList.add('is-hidden');
+        success.classList.add('is-visible');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        throw new Error(json.message || 'Eroare la trimitere');
+      }
+    } catch (err) {
+      const p = document.createElement('p');
+      p.className = 'order-error';
+      p.textContent = 'Cererea nu a putut fi trimisă. Te rugăm să încerci din nou sau să ne suni.';
+      form.querySelector('.order-submit-row').appendChild(p);
+      btn.disabled = false;
+      btn.textContent = btnText;
+    }
+  });
+})();
+</script>
   
 </body>
 </html>
