@@ -2567,7 +2567,7 @@ background: rgba(212,175,55,0.2);;
 .footer-inner {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 4rem;
+  gap: 2rem;
   margin-bottom: 3rem;
 }
 
