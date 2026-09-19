@@ -52,8 +52,31 @@
   <style>
 /* =========================================================
    TOP MARQUEE
-   ========================================================= */
+========================================================= */
 
+
+    :root {
+  --marquee-h: 36px !important;
+}
+
+.navbar {
+  top: var(--marquee-h) !important;
+}
+
+.mobile-menu {
+  top: calc(var(--nav-h) + var(--marquee-h)) !important;
+}
+
+body {
+  padding-top: calc(var(--nav-h) + var(--marquee-h)) !important;
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--nav-h) + var(--marquee-h)) !important;
+}
+    
+
+    
 .top-marquee {
   position: fixed;
   top: 0;
