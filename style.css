@@ -1843,8 +1843,15 @@ ul {
 
 @media (max-width: 768px) {
   .hero-video-wrap {
-    background-position: right center;
+    background-size: 180%; /* mărește imaginea ca să aibă loc de mișcare */
+    animation: heroPan 12s ease-in-out infinite;
   }
+}
+
+@keyframes heroPan {
+  0%   { background-position: left center; }
+  50%  { background-position: right center; }
+  100% { background-position: left center; }
 }
 
 .hero-overlay {
