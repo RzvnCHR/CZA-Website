@@ -5869,7 +5869,7 @@ function initCarFilters() {
         .map(c => c.category)
         .filter(Boolean)
     )
-  ];
+  ].sort((a, b) => a.localeCompare(b, 'ro', { sensitivity: 'base' }));
 
   categories.forEach(cat => {
     const opt = document.createElement('option');
