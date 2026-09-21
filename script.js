@@ -1925,7 +1925,7 @@ images: [
   videoId: "9qj6d3TvKB0",
 
   description: "Peugeot 2008 GT din 2021, cu 52.000 km, motor 1.2 PureTech de 130 CP și transmisie automată EAT8 cu tracțiune față. Echiparea GT include scaune din piele Nappa cu încălzire și masaj, bord virtual 3D, navigație Premium, Keyless Go, pilot automat adaptiv, monitorizare unghi mort, cameră de marșarier și faruri Full LED Adaptive. Mașina are un singur proprietar și service complet în rețeaua Peugeot."
-}
+},
 
  {
   id: 13,
@@ -2117,7 +2117,7 @@ images: [
   videoId: "",
 
   description: "Renault Talisman Intens din 2020, cu 76.000 km, motor 2.0 Blue dCi de 160 CP și transmisie automată EDC cu tracțiune față. Echiparea include scaune din piele parțială cu masaj, bord virtual, navigație Premium, Keyless Go, pilot automat adaptiv, monitorizare unghi mort, asistență la păstrarea benzii și faruri Full LED. Mașina are un singur proprietar și istoric complet de service în rețeaua autorizată Renault."
-}
+},
 
 {
   id: 14,
@@ -2294,7 +2294,7 @@ images: [
   videoId: "",
 
   description: "BMW X1 xDrive25e M Sport din 2021, cu 117.700 km, sistem Plug-In Hybrid de 220 CP și transmisie automată cu tracțiune integrală xDrive. Echiparea M Sport include plafon panoramic, scaune electrice și încălzite, memorie pentru șofer, navigație Premium, Keyless Go, cameră 360°, asistență la parcare și faruri Full LED Adaptive. Mașina are un singur proprietar și istoric complet de service exclusiv în rețeaua autorizată BMW."
-}
+},
 
 {
   id: 15,
@@ -2489,7 +2489,7 @@ images: [
   videoId: "X_marhf84II",
 
   description: "Volvo XC40 Inscription D4 AWD din 2019, cu 214.500 km, motor 2.0 diesel de 190 CP și transmisie automată cu tracțiune integrală. Echiparea include bord virtual, scaune încălzite și reglabile electric, memorie pentru șofer, navigație Premium, Keyless Go, încărcare wireless, cameră 360°, pilot automat adaptiv și faruri Full LED Adaptive. Mașina are un singur proprietar și service complet în rețeaua Volvo."
-}
+},
 
 {
   id: 16,
@@ -2658,10 +2658,10 @@ images: [
   videoId: "0vZDFA-Tg7I",
 
   description: "Renault Kadjar Bose Edition din 2017, model 2018, cu 221.500 km, motor 1.6 dCi de 130 CP și transmisie manuală cu 6 trepte. Echiparea include navigație Premium, sistem audio Bose, Keyless Go, climatronic pe două zone, Park Assist, cameră de marșarier, Lane Assist, monitorizare unghi mort și faruri Full LED. Mașina are un singur proprietar, carte service și revizie completă efectuată."
-}
+},
 
 {
-  id: 16,
+  id: 17,
   name: "DS Automobiles DS 7 Crossback 1.6 PHeV FWD 225 EAT8 OPERA",
   price: "22.990 €",
   priceValue: 22990,
@@ -2864,10 +2864,10 @@ images: [
   videoId: "JJGr5g-oziQ",
 
   description: "DS 7 Crossback OPERA din 2021, model 2022, cu 79.800 km, sistem Plug-in Hybrid de 225 CP și transmisie automată EAT8 cu tracțiune față. Bateria de 14.2 kWh oferă o autonomie electrică declarată de până la 54 km. Echiparea OPERA include scaune Nappa încălzite, ventilate și cu masaj, memorie pentru șofer, suspensie adaptivă, navigație Premium, Keyless Go, încărcare wireless, cameră de marșarier și numeroase sisteme de asistență. Mașina are un singur proprietar și service complet în rețeaua DS."
-}
+},
 
 {
-  id: 17,
+  id: 18,
   name: "BMW Seria 3 330e Aut. Luxury Line",
   price: "25.990 €",
   priceValue: 25990,
@@ -3052,10 +3052,9 @@ images: [
   videoId: "7hgdc3g_wQw",
 
   description: "BMW Seria 3 330e Individual Line din 2021, cu 102.000 km, sistem Plug-In Hybrid de 292 CP și motor 2.0 benzină + electric. Transmisia automată cu 8 trepte și tracțiunea spate oferă o configurație sportivă, iar bateria de 11.15 kWh permite o autonomie electrică declarată de până la 52 km. Echiparea include interior din piele, scaune sport încălzite, climatronic 3 zone, navigație Premium, Apple CarPlay, Android Auto, încărcare wireless, Keyless Go, cameră de marșarier, parcare automată și sisteme avansate de asistență. Mașina are un singur proprietar și service complet în rețeaua BMW."
-}
-
+},
 {
-  id: 18,
+  id: 19,
   name: "Toyota Yaris Cross 1.5 VVT-i AWD-i Adventure",
   price: "22.990 €",
   priceValue: 22990,
@@ -3225,9 +3224,9 @@ images: [
   videoId: "XA8l-ErVusA",
 
   description: "Toyota Yaris Cross 1.5 VVT-i AWD-i Adventure din 2023, cu 91.000 km și sistem hibrid de 116 CP. Echipată cu tracțiune integrală 4x4, transmisie automată, climatronic 2 zone, scaune față încălzite, navigație Premium, Apple CarPlay, Android Auto, Keyless Go, cameră de marșarier, senzori de parcare și numeroase sisteme de asistență. Mașina are un singur proprietar și service complet în rețeaua Toyota."
-}
+},
 {
-  id: 19,
+  id: 20,
   name: "Volvo XC 40 T5 Recharge DKG Inscription",
   price: "24.990 €",
   priceValue: 24990,
@@ -3456,10 +3455,10 @@ images: [
   videoId: "sgpE1zkkP9k",
 
   description: "Volvo XC40 T5 Recharge Inscription din 2020, cu 95.000 km și sistem Plug-In Hybrid de 262 CP. Motorul de 1.5 litri benzină + electric este cuplat la o transmisie automată 7+1 și tracțiune față, iar bateria de 10.7 kWh oferă o autonomie electrică declarată de până la 41 km. Echiparea include piele Nappa, plafon panoramic, scaune față electrice și încălzite, Harman Kardon, navigație Premium, Apple CarPlay, Android Auto, încărcare wireless, Keyless Go, cameră 360°, pilot automat adaptiv și numeroase sisteme de asistență. Mașina are un singur proprietar și service complet în rețeaua Volvo."
-}
+},
 
 {
-  id: 20,
+  id: 21,
   name: "Citroën C4 PureTech 130 Stop&Start EAT8 SHINE",
   price: "14.990 €",
   priceValue: 14990,
@@ -3658,7 +3657,7 @@ images: [
   videoId: "",
 
   description: "Citroën C4 PureTech 130 EAT8 Shine din 2022, cu 117.900 km și motor 1.2 PureTech de 130 CP. Echipată cu transmisie automată EAT8 și tracțiune față, mașina dispune de cameră 360°, Park Assist, Head Up Display, navigație Premium, Apple CarPlay, Android Auto, Keyless Go, climatronic, scaune încălzite, volan încălzit și plafon panoramic. Are un singur proprietar, service complet în rețeaua Citroën și distribuția schimbată la 76.000 km."
-}
+},
 
 ];
 
