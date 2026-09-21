@@ -90,9 +90,9 @@ const CARS = [
   ],
 
 images: [
-  "/cars/ds4-2023/ds41.webp",
-  "/cars/ds4-2023/ds42.webp",
-  "/cars/ds4-2023/ds43.webp",
+  "cars/ds4-2023/ds41.webp",
+  "cars/ds4-2023/ds42.webp",
+  "cars/ds4-2023/ds43.webp",
   "/cars/ds4-2023/ds44.webp",
   "/cars/ds4-2023/ds45.webp",
   "/cars/ds4-2023/ds46.webp",
