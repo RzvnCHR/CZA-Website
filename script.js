@@ -1,4 +1,4 @@
-/* script.js - AUTO PARK */
+/* script.js - */
 
 // ===== CARS DATA =====
 // NOTE: "category" powers the homepage category filter.
@@ -504,10 +504,19 @@ images: [
   "https://ireland.apollo.olxcdn.com/v1/files/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmbiI6InJ6Y3BvajI0YjNzei1BVVRPVklUUk8iLCJ3IjpbeyJmbiI6InE3bXo1M2JpZnB6ay1BVVRPVklUUk8iLCJzIjoiMTYiLCJhIjoiMCIsInAiOiIxMCwtMTAifV19.arJl4g3YjvjNHeR6GT5HNkZ-EyYP4clot023LAq1JWA/image%3Bs%3D5120x0%3Bq%3D100"
 ],
 
-  videoId: "",
+  videoId: "j-bjs31mqYc",
 
   description: "Nissan LEAF 62 kWh e+ Tekna din 2020, cu 24.000 km, motor electric de 217 CP și transmisie automată cu tracțiune față. Compactă 100% electrică, cu baterie de 62 kWh și autonomie declarată de până la 385 km. Echipată cu cameră 360°, cruise control adaptiv, Keyless Go, navigație Premium Full Europa, Apple CarPlay & Android Auto, climatronic, pompă de căldură, scaune și volan încălzite, faruri Full LED și sisteme avansate de asistență. Mașina are un singur proprietar, service complet în rețeaua Nissan și încărcare rapidă."
-},];
+},
+
+
+
+
+
+
+
+
+];
 
 
 // ===== CURRENT FILTER / SORT STATE =====
