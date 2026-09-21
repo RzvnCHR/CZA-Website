@@ -37,7 +37,7 @@ const CARS = [
 
   vin: "WBA52AB0X0CN12345",
 
-  badge: "Ofertă",
+  badge: "Performance",
 
   features: [
     "Nivel echipare Performance Line",
@@ -137,7 +137,7 @@ images: [
 
   vin: "W0VZCYHZ7N6845194",
 
-  badge: "Ofertă",
+  badge: "Elegance",
 
   features: [
     "Nivel echipare Elegance",
@@ -2914,7 +2914,7 @@ images: [
 
   vin: "WBA5P51090FM09170",
 
-  badge: "Individual",
+  badge: "Luxury Line",
 
   features: [
     "Pachet Individual",
