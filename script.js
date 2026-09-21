@@ -108,6 +108,7 @@ images: [
 },
  {
   id: 2,
+  category: "Opel",
   name: "Opel Grandland 1.5 D Automatik Business Elegance",
   price: "15.990  €",
   priceValue: "15990",
@@ -243,6 +244,7 @@ images: [
 },
 {
   id: 3,
+  category: "Renault",
   name: "Renault Koleos BLUE dCi X-Tronic 4WD Initiale Paris",
   price: "22.990 €",
   priceValue: "22990",
@@ -374,6 +376,7 @@ images: [
 },
   {
   id: 4,
+  category: "Nissan",
   name: "Nissan LEAF 62 kWh e+ Tekna",
   price: "18.990  €",
   priceValue: "18990",
@@ -511,6 +514,7 @@ images: [
 
 {
   id: 5,
+   category: "Peugeot",
   name: "Peugeot 2008 PureTech 130 EAT8 GT",
   price: "15.999  €",
   priceValue: "15999",
@@ -653,6 +657,7 @@ images: [
 
 {
   id: 6,
+   category: "Renault",
   name: "Renault Koleos BLUE dCi 185 4WD X-tronic INITIALE PARIS",
   price: "21.990  €",
   priceValue: "21990",
@@ -832,6 +837,7 @@ images: [
 
 {
   id: 7,
+   category: "Renault",
   name: "Renault Captur PHEV 160 Engineered",
   price: "17.990  €",
   priceValue: "17990",
@@ -1013,6 +1019,7 @@ images: [
 
 {
   id: 8,
+   category: "Peugeot",
   name: "Peugeot 3008 PHEV 225 EAT8 GT",
   price: "18.990  €",
   priceValue: "18990",
@@ -1184,7 +1191,8 @@ images: [
 },
  
  {
-  id: 9,
+  id: 9,  
+  category: "Toyota",
   name: "Toyota Yaris Cross 1.5 VVT-i AWD-i Adventure",
   price: "22.990 €",
   priceValue: "22990",
@@ -1370,6 +1378,7 @@ images: [
 
  {
   id: 10,
+    category: "Ford",
   name: "Ford Kuga 2.5 Duratec FHEV FWD Vignale",
   price: "20.990 €",
   priceValue: "20990",
@@ -1558,7 +1567,8 @@ images: [
 },
  
 {
-  id: 11,
+  id: 11,  
+ category: "Peugeot",
   name: "Peugeot 3008 PHEV 300 EAT8 4X4 GT",
   price: "18.990 €",
   priceValue: "18990",
@@ -1752,6 +1762,7 @@ images: [
 },
  {
   id: 12,
+    category: "Peugeot",
   name: "Peugeot 2008 1.2 PureTech EAT8 STT GT",
   price: "15.999 €",
   priceValue: 15999,
@@ -1930,6 +1941,7 @@ images: [
 
  {
   id: 13,
+    category: "Renault",
   name: "Renault Talisman Blue dCi EDC Intens",
   price: "15.990 €",
   priceValue: 15990,
@@ -2122,6 +2134,7 @@ images: [
 
 {
   id: 14,
+   category: "BMW",
   name: "BMW X1 xDrive25e M Sport",
   price: "21.990 €",
   priceValue: 21990,
@@ -2299,6 +2312,7 @@ images: [
 
 {
   id: 15,
+   category: "Volvo",
   name: "Volvo XC 40 D4 AWD Geartronic Inscription",
   price: "17.990 €",
   priceValue: 17990,
@@ -2494,6 +2508,7 @@ images: [
 
 {
   id: 16,
+   category: "Renault",
   name: "Renault Kadjar Energy dCi 130 Bose Edition",
   price: "9.490 €",
   priceValue: 9490,
@@ -2663,6 +2678,7 @@ images: [
 
 {
   id: 17,
+   category: "DS Automobiles",
   name: "DS Automobiles DS 7 Crossback 1.6 PHeV FWD 225 EAT8 OPERA",
   price: "22.990 €",
   priceValue: 22990,
@@ -2869,6 +2885,7 @@ images: [
 
 {
   id: 18,
+   category: "BMW",
   name: "BMW Seria 3 330e Aut. Luxury Line",
   price: "25.990 €",
   priceValue: 25990,
@@ -3056,6 +3073,7 @@ images: [
 },
 {
   id: 19,
+   category: "Toyota",
   name: "Toyota Yaris Cross 1.5 VVT-i AWD-i Adventure",
   price: "22.990 €",
   priceValue: 22990,
@@ -3229,6 +3247,7 @@ images: [
 },
 {
   id: 20,
+   category: "Volvo",
   name: "Volvo XC 40 T5 Recharge DKG Inscription",
   price: "24.990 €",
   priceValue: 24990,
@@ -3461,6 +3480,7 @@ images: [
 
 {
   id: 21,
+   category: "Citroën",
   name: "Citroën C4 PureTech 130 Stop&Start EAT8 SHINE",
   price: "14.990 €",
   priceValue: 14990,
@@ -3662,6 +3682,7 @@ images: [
 },
 {
   id: 22,
+ category: "Citroën",
   name: "Citroën C5 Aircross 1.5 BlueHDi S&S EAT8 Shine",
   price: "13.990 €",
   priceValue: 13990,
@@ -3863,6 +3884,7 @@ images: [
 },
 {
   id: 23,
+ category: "Mercedes-Benz",
   name: "Mercedes-Benz A 180 d Sedan 8G-DCT Lim. AMG Line Advanced Plus",
   price: "19.990 €",
   priceValue: 19990,
@@ -4082,6 +4104,7 @@ images: [
 },
  {
   id: 24,
+ category: "Renault",
   name: "Renault Kadjar TCe GPF Intens",
   price: "15.490 €",
   priceValue: 15490,
@@ -4276,6 +4299,7 @@ images: [
 
 {
   id: 25,
+ category: "Peugeot",
   name: "Peugeot 408 PureTech 130 EAT8 GT",
   price: "20.990 €",
   priceValue: 20990,
@@ -4484,6 +4508,7 @@ images: [
 
  {
   id: 26,
+ category: "Volkswagen",
   name: "Volkswagen Golf 1.6 TDI BlueMotion Comfortline",
   price: "6.490 €",
   priceValue: 6490,
@@ -4603,6 +4628,7 @@ images: [
 
 {
   id: 27,
+ category: "Renault",
   name: "Renault Kadjar TCe EDC GPF Intens",
   price: "12.999 €",
   priceValue: 12999,
@@ -4810,6 +4836,7 @@ images: [
 
 {
   id: 28,
+ category: "DS Automobiles",
   name: "DS Automobiles DS 7 Crossback 1.5 BlueHDi 130 EAT8 SO CHIC",
   price: "15.990 €",
   priceValue: 15990,
@@ -5031,6 +5058,7 @@ images: [
 
  {
   id: 29,
+ category: "Hyundai",
   name: "Hyundai Tucson PHEV 1.6 265 CP 4WD 6AT Luxury",
   price: "27.990 €",
   priceValue: 27990,
@@ -5263,6 +5291,7 @@ images: [
 
 {
   id: 30,
+ category: "Hyundai",
   name: "Hyundai Tucson PHEV 1.6 265 CP 4WD 6AT Luxury",
   price: "25.990 €",
   priceValue: 25990,
@@ -5490,6 +5519,7 @@ images: [
 
  {
   id: 31,
+ category: "Renault",
   name: "Renault Talisman Blue dCi 200 EDC INITIALE PARIS",
   price: "17.290 €",
   priceValue: 17290,
