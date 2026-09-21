@@ -8,7 +8,7 @@
 const CARS = [
  {
   id: 1,
-  category: "DS Auotomobiles",
+  category: "DS Automobiles",
   name: "DS 4 E-TENSE 225 Performance Line+",
   price: "21.990 €",
   priceValue: 21990,
