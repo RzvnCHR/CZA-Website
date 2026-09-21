@@ -8,6 +8,7 @@
 const CARS = [
  {
   id: 1,
+  category: "DS Auotomobile",
   name: "DS 4 E-TENSE 225 Performance Line+",
   price: "21.990 €",
   priceValue: 21990,
