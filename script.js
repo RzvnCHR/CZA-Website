@@ -3660,7 +3660,7 @@ images: [
   description: "Citroën C4 PureTech 130 EAT8 Shine din 2022, cu 117.900 km și motor 1.2 PureTech de 130 CP. Echipată cu transmisie automată EAT8 și tracțiune față, mașina dispune de cameră 360°, Park Assist, Head Up Display, navigație Premium, Apple CarPlay, Android Auto, Keyless Go, climatronic, scaune încălzite, volan încălzit și plafon panoramic. Are un singur proprietar, service complet în rețeaua Citroën și distribuția schimbată la 76.000 km."
 },
 {
-  id: 21,
+  id: 22,
   name: "Citroën C5 Aircross 1.5 BlueHDi S&S EAT8 Shine",
   price: "13.990 €",
   priceValue: 13990,
@@ -3861,7 +3861,7 @@ images: [
   description: "Citroën C5 Aircross Shine din 2020, cu 149.500 km și motor 1.5 BlueHDi de 130 CP. Echipat cu transmisie automată EAT8 și tracțiune față, modelul dispune de cameră 360°, Park Assist, pilot automat adaptiv, asistență unghi mort, navigație Premium, Apple CarPlay, Android Auto, încărcare wireless, Keyless Go, scaune față încălzite și climatronic. Mașina are un singur proprietar și service complet în rețeaua Citroën."
 },
 {
-  id: 22,
+  id: 23,
   name: "Mercedes-Benz A 180 d Sedan 8G-DCT Lim. AMG Line Advanced Plus",
   price: "19.990 €",
   priceValue: 19990,
@@ -4080,7 +4080,7 @@ images: [
   description: "Mercedes-Benz A 180 d Sedan AMG Line Advanced Plus din 2021, cu 156.000 km și motor diesel de 116 CP. Echipat cu transmisie automată 8+1 DCT și tracțiune față, modelul dispune de pachet AMG, faruri Full LED adaptive, bord virtual Widescreen, navigație Premium, Apple CarPlay, Android Auto, Keyless Go, climatronic, scaune sport, pilot automat adaptiv DISTRONIC, Blind Spot, Lane Assist, Park Assist și cameră de marșarier. Mașina are un singur proprietar, carte service și 2 chei."
 },
  {
-  id: 23,
+  id: 24,
   name: "Renault Kadjar TCe GPF Intens",
   price: "15.490 €",
   priceValue: 15490,
@@ -4274,7 +4274,7 @@ images: [
 },
 
 {
-  id: 24,
+  id: 25,
   name: "Peugeot 408 PureTech 130 EAT8 GT",
   price: "20.990 €",
   priceValue: 20990,
@@ -4482,7 +4482,7 @@ images: [
 },
 
  {
-  id: 25,
+  id: 26,
   name: "Volkswagen Golf 1.6 TDI BlueMotion Comfortline",
   price: "6.490 €",
   priceValue: 6490,
@@ -4601,7 +4601,7 @@ images: [
 },
 
 {
-  id: 26,
+  id: 27,
   name: "Renault Kadjar TCe EDC GPF Intens",
   price: "12.999 €",
   priceValue: 12999,
@@ -4808,7 +4808,7 @@ images: [
 },
 
 {
-  id: 27,
+  id: 28,
   name: "DS Automobiles DS 7 Crossback 1.5 BlueHDi 130 EAT8 SO CHIC",
   price: "15.990 €",
   priceValue: 15990,
@@ -5029,7 +5029,7 @@ images: [
 },
 
  {
-  id: 28,
+  id: 29,
   name: "Hyundai Tucson PHEV 1.6 265 CP 4WD 6AT Luxury",
   price: "27.990 €",
   priceValue: 27990,
@@ -5261,7 +5261,7 @@ images: [
 },
 
 {
-  id: 29,
+  id: 30,
   name: "Hyundai Tucson PHEV 1.6 265 CP 4WD 6AT Luxury",
   price: "25.990 €",
   priceValue: 25990,
@@ -5488,7 +5488,7 @@ images: [
 },
 
  {
-  id: 30,
+  id: 31,
   name: "Renault Talisman Blue dCi 200 EDC INITIALE PARIS",
   price: "17.290 €",
   priceValue: 17290,
