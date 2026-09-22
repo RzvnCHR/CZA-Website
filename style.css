@@ -298,10 +298,9 @@ ul {
     transform 0.25s ease;
 }
 
-.whatsapp-float svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
+.whatsapp-float i {
+  font-size: 24px;
+  line-height: 1;
 }
 
 .whatsapp-float:hover {
@@ -320,12 +319,10 @@ ul {
     height: 44px;
   }
 
-  .whatsapp-float svg {
-    width: 21px;
-    height: 21px;
+  .whatsapp-float i {
+    font-size: 21px;
   }
 }
-
 
 /* =========================================================
    BACK TO TOP
