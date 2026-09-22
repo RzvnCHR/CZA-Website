@@ -6275,7 +6275,7 @@ function renderCarDetail(car) {
       'carPrice',
       'carPrice-mobile'
     ],
-    `${car.price} <span>+ TVA</span>`
+    `${car.price} <span>cu TVA</span>`
   );
 
   setTextForIds(
