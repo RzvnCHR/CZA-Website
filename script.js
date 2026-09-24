@@ -207,7 +207,7 @@ const CARS = [
   videoId: "pjVKx-ZvD94",
 
   description: "Skoda Octavia 2.0 TDI, 116 CP, diesel, cu transmisie automată DSG și tracțiune față. Model 2022, prima înmatriculare la 31.05.2022, 137.800 km, un singur proprietar și carte service. Echiparea include pilot automat adaptiv Distronic, Lane Assist, Apple CarPlay, Android Auto, navigație Premium Full Europa cu limba română, Wireless Charging, Keyless Go, climatizare Climatronic 2 zone, faruri Full LED, senzori de parcare față/spate, asistență la parcare și jante de aliaj de 16 inch. Mașina nu are accident în istoric și beneficiază de garanție 12 luni în limita a 20.000 km pentru motor și cutie."
-}
+},
  
  {
   id: 32,
@@ -341,7 +341,7 @@ const CARS = [
   videoId: "",
 
   description: "BMW Seria 3 320d Sport Line, an fabricație 2019, cu motor 2.0 diesel de 190 CP și cutie automată 8+1. Mașina are 54.000 km, un singur proprietar și service complet efectuat în rețeaua BMW. Echiparea include scaune sport încălzite, climatizare automată pe 3 zone, navigație Premium Full Europa, Apple CarPlay, Android Auto, cameră marșarier, senzori de parcare față/spate, Keyless Go, Wireless Charging, faruri Full LED, Lane Assist, Cruise Control, jante de aliaj de 17 inch și iluminare ambientală LED. Se emite factură, TVA deductibil."
-}
+},
  
  {
   id: 0,
@@ -536,7 +536,7 @@ images: [
   videoId: "",
 
   description: "Volkswagen Tiguan 2.0 TDI, model 2023, cu motor diesel de 150 CP, cutie automată DSG și tracțiune față. Unic proprietar, carte service și fără accident în istoric. Dotat cu faruri Full LED IQ.LIGHT, pilot automat adaptiv Distronic, Lane Assist, navigație, Apple CarPlay, Android Auto, Climatronic 3 zone, încălzire scaune față, senzori de parcare față/spate, asistență la parcare, cârlig de remorcare retractabil electric și jante de aliaj de 17 inch."
-}
+},
  
  {
   id: 1,
