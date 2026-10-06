@@ -217,10 +217,10 @@ const CARS = [
 "cars/pg3008puretech2019/30.webp"
   ],
 
-  videoId: "",
+  videoId: "zqOzNAxo8KY",
 
   description: "Peugeot 3008 1.2 PureTech 130 CP, benzină, cu transmisie automată EAT8 și tracțiune față. Model 2019, prima înmatriculare 29.10.2018, 112.100 km, unic proprietar și service complet efectuat în rețeaua Peugeot. Echiparea include plafon panoramic, bord virtual 3D, scaune sport cu tapițerie mixtă piele-textil, faruri Full LED Adaptive, cameră marșarier, Cross Traffic Alert, avertizare unghi mort, Lane Assist, Distronic activ, navigație Premium Full Europa, Apple CarPlay, Android Auto, Keyless Go, încărcare wireless, climatronic 2 zone, senzori parcare față/spate, asistență la parcare, haion electric și jante de aliaj de 18 inch. Distribuția a fost schimbată la 108.929 km, iar revizia majoră a fost efectuată la 108.932 km. Istoric de întreținere documentat și garanție 12 luni în limita a 20.000 km pentru motor și cutie."
-}
+},
  {
   id: 33,
   name: "Skoda Octavia 2.0 TDI DSG Style",
