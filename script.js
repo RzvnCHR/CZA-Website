@@ -11,6 +11,7 @@ const CARS = [
   name: "Peugeot 3008 BlueHDi 130 Stop & Start EAT8 Allure",
   price: "13.990 €",
   priceValue: 13990,
+    categori: "Peugeot",
 
   year: 2022,
   firstRegistration: "31.10.2022",
@@ -219,6 +220,7 @@ const CARS = [
   name: "Peugeot 3008 PureTech 130 Stop & Start GPF EAT8 Allure",
   price: "12.990 €",
   priceValue: 12990,
+    categori: "Peugeot",
 
   year: 2019,
   firstRegistration: "29.10.2018",
